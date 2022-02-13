@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
+
+@{
+    ViewData["Title"] = "Corpuri de iluminat in stil industrial";
+}
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+            <div class="text-content">
+                <h4>Noutati</h4>
+                <h2>Vezi noutatile</h2>
+            </div>
+        </div>
+        <div class="banner-item-03">
+            <div class="text-content">
+                <h4>Creeaza propria lampa</h4>
+                <h2>Vino cu o idee si noi o punem in practica</h2>
+            </div>
+        </div>
+        <div class="banner-item-02">
+            <div class="text-content">
+                <h4>Package Deals</h4>
+                <h2>Check out our special gift products</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Noutati</h2>
+                    <a href="~/Products">vezi produsele <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="~/Products/Details?Id=@item.Id">
+                            <img src="@item.MainImage" alt="">
+                            <div class="down-content">
+                                <h4>@item.Name</h4>
+                                <h6>@item.Name</h6>
+                                <p>@item.Description</p>
+                                <ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                                @*<span>Reviews (48)</span>*@
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="best-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Despre PipeLights</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="left-content">
+                    <h4>Cauti lampi si Lampadare handmade de calitate superioara?</h4>
+                    <p>Toate lampile noastre sunt handmade. Nu producem lampi in masa iar fiecare lampa este unicata. Daca vrei sa sugerezi un model sau vrei sa-ti creem una, contacteaza-ne! <a rel="nofollow" href="~/Contact/ContactUs">Contact us</a> for more info.</p>
+                    <ul class="featured-list">
+                        <li><a href="#">Material de calitae superioara</a></li>
+                        <li><a href="#">Fiecare lampa este handmade</a></li>
+                        <li><a href="#">Fiecare piesa este unicata</a></li>
+                        <li><a href="#">Orice lampa poate fi customizate!</a></li>
+                        <li><a href="#">Becurile pot fi schimbate si comandate separat</a></li>
+                    </ul>
+                    <a href="~/Products" class="filled-button">Vezi toate produsele</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-image">
+                    <img src="~/lib/images/all2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>Contacteaza-ne si propune un model &amp; Unic <em></em></h4>
+                            <p>Intra in dicutie cu noi si afla cate modificari putem aduce lampilor existente</p>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="filled-button">Contacteaza-ne</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

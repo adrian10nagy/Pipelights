@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
+
+
+
+<div class="container">
+    <div>
+        <div class="section-heading">
+            <h2>Latest Products</h2>
+            <a href="~/Products/Index">view all products <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var lampEntity in Model)
+        {
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="~/Products/Details?Id=@lampEntity.Id">
+                        <img src="@lampEntity.MainImage" alt="">
+                        <div class="down-content">
+                            <h4>@lampEntity.Name</h4>
+                            @if (!string.IsNullOrWhiteSpace(lampEntity.PriceReduced))
+                            {
+                                <div> <strike>Pret intreg: @lampEntity.Price RON </strike></div>
+                                <div>Pret redus: @lampEntity.PriceReduced RON</div>
+                            }
+                            else
+                            {
+                                <div>@lampEntity.Price RON</div>
+                            }
+                            <p>@lampEntity.Description</p>
+                            @*<ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>*@
+                            @*<span>Reviews (24)</span>*@
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+
+        <!--<div class="col-md-4">
+            <div class="product-item">
+                <a href="#"><img src="~/lib/images/human1.jpg" alt=""></a>
+                <div class="down-content">
+                    <a href="#"><h4>The Human</h4></a>
+                    <h6>$30.25</h6>
+                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>-->
+                    @*<span>Reviews (21)</span>*@
+                <!--</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-item">
+                <a href="#"><img src="~/lib/images/floor1.jpg" alt=""></a>
+                <div class="down-content">
+                    <a href="#"><h4>2 Lights Floor Lamp</h4></a>
+                    <h6>$20.45</h6>
+                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span>Reviews (2)</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-item">
+                <a href="#"><img src="~/lib/images/installer1.jpg" alt=""></a>
+                <div class="down-content">
+                    <a href="#"><h4>The installer</h4></a>
+                    <h6>$15.25</h6>
+                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span>Reviews (48)</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-item">
+                <a href="#"><img src="~/lib/from-template/images/product_05.jpg" alt=""></a>
+                <div class="down-content">
+                    <a href="#"><h4>Tittle goes here</h4></a>
+                    <h6>$12.50</h6>
+                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span>Reviews (16)</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-item">
+                <a href="#"><img src="/lib/from-template/images/product_06.jpg" alt=""></a>
+                <div class="down-content">
+                    <a href="#"><h4>Tittle goes here</h4></a>
+                    <h6>$22.50</h6>
+                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                    <ul class="stars">
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span>Reviews (32)</span>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>

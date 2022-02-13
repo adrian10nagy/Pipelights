@@ -1,0 +1,119 @@
+﻿.pdp {
+    min-height: 500px;
+    max-height: 800px;
+}
+
+.pdp-left {
+    float: left;
+}
+
+.pdp-right {
+    float: right;
+    background-color: #f6f6f6;
+    padding: 50px;
+}
+
+.btn-cart-main {
+    background: #d2835e;
+    border-color: #d2835e;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .625rem;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    border-radius: 16px !important;
+    transition: .4s ease-in-out;
+    letter-spacing: 2px;
+}
+
+.buy-return-link {
+    color: #424347;
+    font-size: .625rem;
+    text-transform: uppercase;
+    padding: 8px 16px 8px 40px;
+    display: inline-block;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+    letter-spacing: 2px;
+    border: 1px solid #424347;
+    border-radius: 16px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.title-primary {
+    color: #a0a1a3;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+}
+/*start PDP slideshow*/
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgb(246 246 246);
+        opacity: 0.5;
+    }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }

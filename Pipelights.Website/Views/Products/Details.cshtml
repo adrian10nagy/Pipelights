@@ -1,0 +1,155 @@
+﻿@model Pipelights.Website.BusinessService.Models.ProductDetailsDto
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="~/css/productDetails.css">
+
+<style>
+    footer {
+        position: absolute;
+    }
+</style>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<br />
+
+<div class="container">
+    <br />
+    <br />
+
+    <div style="margin-bottom: 8px">
+        <a href="#" class="buy-return-link" onclick="window.history.go(-1);return false;">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
+            INAPOI
+        </a>
+        <span style="margin-left: 10px"><i class="bi bi-telephone-fill"></i> 0349832</span>
+    </div>
+
+    <div>
+        @*images on the left*@
+        <div class="col-lg-7 col-md-6 col-sm-12 pdp pdp-left">
+            @* PDP slideshow - start *@
+            @foreach (var image in Model.Resources)
+            {
+                @if (image.Contains(".mov") || image.Contains(".mp4"))
+                {
+                    <div class="mySlides">
+                        <video width="600" controls style="max-height: 600px; min-height: 600px;">
+                            <source src="@image" type="video/mp4">
+                            Video-ul nu se  poate incarca.
+                        </video>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="mySlides" style="max-height: 600px; min-height: 600px;">
+                        <img src="@image" style="max-height: 600px;">
+                    </div>
+                }
+            }
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            <div class="row">
+
+                @{
+
+                    var count = 1;
+
+                    @foreach (var image in Model.Resources)
+                    {
+                        <div class="column">
+                            @if (image.Contains(".mov") || image.Contains(".mp4"))
+                            {
+                                <img class="demo cursor" src="/lib/from-template/images/product_video.jpg" style="width: 100%" onclick="currentSlide(@count)" alt="Pipelight by Serox - ">
+                            }
+                            else
+                            {
+                                <img class="demo cursor" src="@image" style="width: 100%" onclick="currentSlide(@count)" alt="Pipelight by Serox - ">
+                            }
+                        </div>
+
+                        count += 1;
+                    }
+
+                }
+            </div>
+
+        </div>
+        @*descriptions on the right*@
+        <div class="col-lg-5 col-md-6 col-sm-12 pdp pdp-right">
+            <h2 style="margin-bottom: 10px">@Model.Name</h2>
+            @if (Model.HasPricedReduced)
+            {
+                <span>@Model.Price RON</span>
+            }
+            else
+            {
+                <span style="text-decoration: line-through; color: #a0a1a3; margin-right: 15px">@Model.Price RON</span>
+                <span style="color: #d2835e;">@Model.PriceReduced RON</span>
+            }
+
+            <form method="post" action="~/Cart/AddProduct">
+
+                <div style="margin-top: 10px">
+                    <span> CANTITATE </span>
+                    <span>
+                        <input type="number" name="quantity" min="1" max="100" data-min="1" data-max="100" value="1"
+                               style="max-width: 15%; margin-left: 10px">
+                    </span>
+                </div>
+                <div style="margin-top: 15px">
+                    <input type="hidden" name="id" value="@Model.Id" /><br /><br />
+                    <input type="submit" class="btn btn-primary btn-cart-main" value="Adauga in cos" class="submit" />
+                </div>
+            </form>
+
+            <div style="margin-top: 50px">
+                <div class="title-primary">DESCRIERE:</div>
+                <hr />
+                <span>@Model.Description</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+    </script>
+}

@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewData["Title"] = "Contacteaza-ne";
+}
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>contacteaza-ne</h4>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="find-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Unde ne gasesti</h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <!-- How to change your own map point
+                    1. Go to Google Maps
+                    2. Click on your location point
+                    3. Click "Share" and choose "Embed map" tab
+                    4. Copy only URL and paste it within the src="" field below
+                -->
+                <div id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d522279.68862438796!2d23.325743336794833!3d46.95618279099051!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA5JzAwLjAiTiAyM8KwMTgnMjMuMSJF!5e0!3m2!1sro!2sro!4v1632054729379!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="left-content">
+                    <h4>Despre locatia noastra</h4>
+                    <p>Facem lampile de mana intr-un mic sat din judetul Salaj, la Balan.<br><br>Ca o a doua locatie, putem discuta si in Cluj-Napoca.</p>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/PipeLights-by-Serox-105088021726217" target="_blank"><i class="fa fa-facebook" ></i></a></li>
+                        <li><a href="https://www.instagram.com/pipelights.byserox/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="send-message">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Scrie-ne</h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="contact-form">
+                    <form id="contact" action="~/Home/SendMessage" method="post">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Nume" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subiect" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Messaj" required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="filled-button">Trimite mesaj</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                @*<ul class="accordion">
+                    <li>
+                        <a>Accordion Title One</a>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a>Second Title Here</a>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a>Accordion Title Three</a>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a>Fourth Accordion Title</a>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti elite.</p>
+                        </div>
+                    </li>
+                </ul>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+

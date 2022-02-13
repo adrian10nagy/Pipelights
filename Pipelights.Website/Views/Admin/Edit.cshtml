@@ -1,0 +1,96 @@
+﻿@model Pipelights.Website.BusinessService.Models.ProductDetailsDto
+
+@{
+    if (Model == null)
+    {
+        ViewData["Title"] = "Adauga";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit";
+    }
+}
+
+<style>
+    footer {
+        display: none;
+    }
+</style>
+<h1>Edit</h1>
+
+<h4>ProductDetailsDto</h4>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group" style="display: none;">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Descriere</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Pret</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceReduced" class="control-label">Pret cu reducere</label>
+                    <input asp-for="PriceReduced" class="form-control" />
+                    <span asp-validation-for="PriceReduced" class="text-danger"></span>
+                </div>
+                <div>
+                    <h2>Imagini</h2>
+
+                    @if (Model != null && Model?.Resources != null)
+                    {
+                        @foreach (var image in Model.Resources)
+                        {
+                            <div style="border: 1px solid; padding: 10px;">
+                                @{
+                                    var url = image.Replace(" ", "%20");
+                                   // var url = "/lib/images/UploadedFiles/" + Model.ImageFolder + x;
+                                }
+                                <img src=@url style="max-width: 200px;">
+                                <span class="down-content">
+                                    <a href="~/Admin/RemovePhoto?url=@url&id=@Model.Id"><h4>Sterge poza "@image"</h4></a>
+                                </span>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salveaza" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Adauga imagini</h3>
+            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="UploadImage">
+                <span>Alege imaginea:</span>
+                <input asp-for="Id" type="hidden" class="form-control" />
+                <input type="file" name="postedFiles" multiple />
+                <input type="submit" value="Incarca fiseierele" />
+                <br />
+                <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Dashboard">Am terminat, Du-ma inapoi!</a>
+    </div>
+</div>
+
+
