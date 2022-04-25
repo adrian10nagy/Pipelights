@@ -20,17 +20,24 @@
                     <a href="~/Products/Details?Id=@lampEntity.Id">
                         <img src="@lampEntity.MainImage" alt="">
                         <div class="down-content">
-                            <h4>@lampEntity.Name</h4>
+                            <h4 style="color:#212529">@lampEntity.Name</h4>
                             @if (!string.IsNullOrWhiteSpace(lampEntity.PriceReduced))
                             {
-                                <div> <strike>Pret intreg: @lampEntity.Price RON </strike></div>
-                                <div>Pret redus: @lampEntity.PriceReduced RON</div>
+                                <div style="color:#212529"> <strike>Pret intreg: @lampEntity.Price RON </strike></div>
+                                <div style="color:#212529">Pret redus: @lampEntity.PriceReduced RON</div>
                             }
                             else
                             {
-                                <div>@lampEntity.Price RON</div>
+                                <div style="color:#212529">@lampEntity.Price RON</div>
                             }
-                            <p>@lampEntity.Description</p>
+
+                            <form method="post" action="~/Cart/AddProduct">
+                                <div style="margin-top: 15px">
+                                     <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
+                                </div>
+                            </form> 
+
+                            @*<p>@lampEntity.Description</p>*@
                             @*<ul class="stars">
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
@@ -126,7 +133,7 @@
                     <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"><F/i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
@@ -137,3 +144,49 @@
         </div>-->
     </div>
 </div>
+
+@*style for button "adauga in cos"*@
+<style>
+    .btn-cart-main {
+    background: #212529;
+    border-color: #212529;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem; 
+    height: 32px;
+    line-height: 32px;
+    padding: 0 24px;
+    border-radius: 7px !important;
+    transition: .4s ease-in-out;
+    letter-spacing: 2px;
+}
+.btn-cart-main:hover {
+    background: #F0B250;
+    border-color: #F0B250;
+}
+.btn-cart-main:focus {
+    outline:none;
+}
+.product-item {
+
+}
+
+.product-item:hover {
+    opacity:.8;
+}
+
+</style>
+
+<script>
+
+    //to do - move this code into master file
+    const navItems = document.getElementsByClassName('nav-item');
+
+    for(var i=0; i<navItems.length;i++){
+        navItems[i].classList.remove('active');
+        if (navItems[i].innerText == 'Produse'){
+            navItems[i].classList.add('active');
+        }
+    }
+
+</script>

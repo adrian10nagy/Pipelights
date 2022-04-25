@@ -1,14 +1,113 @@
-﻿
+﻿<style>
+  
+    .containerdreapta {
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+        align-items:center;
+        height:440px;
+       
+    }
+
+    .icons {
+        color:#757575;
+        text-align:center;
+        cursor:pointer;
+    }
+
+    .icons:hover {
+        color:#F0B250;
+    }
+
+    .iconss {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        color:#757575;
+        text-align:center;
+        cursor:pointer;
+        width:120px;
+    }
+
+    .social{
+
+    }
+
+    
+    .social:hover {
+        color:#F0B250;
+    }
+    
+    .btn-cart-main {
+    background: #212529;
+    border-color: #212529;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 24px 5px 24px;
+    border-radius: 7px !important;
+    transition: .4s ease-in-out;
+    letter-spacing: 2px;
+}
+.btn-cart-main:hover {
+    background: #F0B250;
+    border-color: #F0B250;
+    opacity:1!important;
+}
+.btn-cart-main:focus, .btn:active {
+    background: #F0B250;
+    border-color: #F0B250;
+    
+}
+
+.redlabel {
+        color:#e02b27; 
+        font-size: 12px;        
+        display:none;
+    }
+
+    .redlabelshow {
+        display:block;
+    }
+
+    .formfocus {
+
+    }
+
+    .formfocus:focus {
+        border:1px solid #F0B250!important;
+        
+    }
+
+    .f {
+        border: 1px solid #d6d6d6;
+        background-color: white;
+        border-radius:5px;
+}
+    }
+    
+
+</style>
+
+
 @{
     ViewData["Title"] = "Contacteaza-ne";
 }
+<br />
+<br />
+<br />
+<br />
+
+
 
 <div class="page-heading contact-heading header-text">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-content">
-                    <h4>contacteaza-ne</h4>
+                    <h4></h4>
                     <h2></h2>
                 </div>
             </div>
@@ -25,7 +124,7 @@
                     <h2>Unde ne gasesti</h2>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!-- How to change your own map point
                     1. Go to Google Maps
                     2. Click on your location point
@@ -33,17 +132,18 @@
                     4. Copy only URL and paste it within the src="" field below
                 -->
                 <div id="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d522279.68862438796!2d23.325743336794833!3d46.95618279099051!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA5JzAwLjAiTiAyM8KwMTgnMjMuMSJF!5e0!3m2!1sro!2sro!4v1632054729379!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d522279.68862438796!2d23.325743336794833!3d46.95618279099051!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA5JzAwLjAiTiAyM8KwMTgnMjMuMSJF!5e0!3m2!1sro!2sro!4v1632054729379!5m2!1sro!2sro" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="left-content">
-                    <h4>Despre locatia noastra</h4>
-                    <p>Facem lampile de mana intr-un mic sat din judetul Salaj, la Balan.<br><br>Ca o a doua locatie, putem discuta si in Cluj-Napoca.</p>
-                    <ul class="social-icons">
+            <div class="col-md-12">
+                <div class="left-content" style="text-align:center">
+                    <br />
+                    <h6 style="color:#212529">Toate produsele noastre sunt facute in micul nostru atelier din comuna Balan, judetul Salaj.</h6>
+                    @*<p>Facem lampile de mana intr-un mic sat din judetul Salaj, la Balan.<br><br>Ca o a doua locatie, putem discuta si in Cluj-Napoca.</p>*@
+                    @*<ul class="social-icons">
                         <li><a href="https://www.facebook.com/PipeLights-by-Serox-105088021726217" target="_blank"><i class="fa fa-facebook" ></i></a></li>
                         <li><a href="https://www.instagram.com/pipelights.byserox/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
+                    </ul>*@
                 </div>
             </div>
         </div>
@@ -59,40 +159,82 @@
                     <h2>Scrie-ne</h2>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="contact-form">
                     <form id="contact" action="~/Home/SendMessage" method="post">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Nume" required="">
+                                    <label for="name">Nume </label>
+                                    <input style="border: 1px solid #d6d6d6;background-color: white; border-radius:5px; " name="name" type="text" class="form-control formfocus f shadow-none" id="name" placeholder="" >
+                                    <label style="margin-top:-20px" id="labelname" class="redlabel">Acest camp este obligatoriu</label>
+                                    
+                                    @*<i class="fa fa-check-circle a"></i>
+					                <i class="fa fa-exclamation-circle a"></i>
+					                <small>Error message</small>*@
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail" required="">
+                                    <label for="email">Email </label>
+                                    <input style="border: 1px solid #d6d6d6;background-color: white; border-radius:5px; " name="email" type="text" class="form-control formfocus f shadow-none" id="email" placeholder="" >
+                                    <label style="margin-top:-20px" id="labelemail" class="redlabel">Acest camp este obligatoriu</label>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
-                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subiect" required="">
+                                    <label for="subject">Subiect </label>
+                                    <input style="font-size:1rem;border: 1px solid #d6d6d6;background-color: white; border-radius:5px; " name="subject" type="text" class="form-control formfocus f shadow-none" id="subject" placeholder="" >
+                                    <label style="margin-top:-20px" id="labelsubject" class="redlabel">Acest camp este obligatoriu</label>
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Messaj" required=""></textarea>
+                                    <label for="message">Mesaj </label>
+                                    <input rows = "5" style="border: 1px solid #d6d6d6;background-color: white; border-radius:5px; " name="message" rows="6" class="form-control formfocus f shadow-none" id="message" placeholder="" />
+                                    <label style="margin-top:-20px" id="labelmessage" class="redlabel">Acest camp este obligatoriu</label>
+                                    <label style="margin-top:-20px" id="labelmessage1" class="redlabel">Mesajul trebuie sa contina minim 30 de caractere</label>
+                          
                                 </fieldset>
                             </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="filled-button">Trimite mesaj</button>
-                                </fieldset>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                
+                                    <input type="submit" style="width:120px" class="btn shadow-none btn-cart-main submit" value="Trimite" />
+                               
                             </div>
                         </div>
                     </form>
+                    <br />
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
+                <div class="containerdreapta">
+                    <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <p style="color:#757575; margin-top:10px">0746272923</p>
+                    </div>
+
+                    <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                            </svg>
+                            <p style="color:#757575; margin-top:10px">serox.pipelights@gmail.com</p>
+                    </div>
+
+                    <div class="iconss">
+                       <a style="color:#757575;" href="https://www.instagram.com/pipelights.byserox/" target="_blank"><div class="social"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg></div> </a>
+
+                        <a style="color:#757575;" href="https://www.facebook.com/PipeLightsbySerox/" target="_blank"><div class="social"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg></div> </a>
+                    </div>
+
+                    
+                </div>
+
+
                 @*<ul class="accordion">
                     <li>
                         <a>Accordion Title One</a>
@@ -125,3 +267,96 @@
 </div>
 
 
+<script>
+
+ //form validation
+
+   const form = document.getElementById('contact');
+
+   const nume = document.getElementById('name');
+   const labelname = document.getElementById('labelname');
+
+   const email = document.getElementById('email');
+   const labelemail = document.getElementById('labelemail');
+
+   const subject = document.getElementById('subject');
+   const labelsubject = document.getElementById('labelsubject');
+
+   const message = document.getElementById('message');
+   const labelmessage = document.getElementById('labelmessage');
+   const labelmessage1 = document.getElementById('labelmessage1');
+   
+
+   form.addEventListener('submit', (e) => {
+	   
+       if(!checkInputs()){
+           e.preventDefault();
+       }else {
+           
+       }
+	
+
+       
+	
+   });
+
+   function checkInputs(){
+
+       if(nume.value === ''){
+           labelname.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelname.classList.remove('redlabelshow')
+           
+       }
+
+       if(email.value === ''){
+           labelemail.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelemail.classList.remove('redlabelshow');
+            
+       }
+
+       if(subject.value === ''){
+           labelsubject.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelsubject.classList.remove('redlabelshow');
+           
+       }
+
+       
+
+       if(message.value === ''){
+           labelmessage.classList.add('redlabelshow');
+           labelmessage1.classList.remove('redlabelshow');
+            return(false);
+       }else if(message.value.length < 30){
+           labelmessage1.classList.add('redlabelshow');
+           labelmessage.classList.remove('redlabelshow');
+           return(false);
+       }else {
+           labelmessage.classList.remove('redlabelshow');
+           labelmessage1.classList.remove('redlabelshow');
+       }
+
+       
+       
+
+          return(true);
+    
+   }
+   
+
+const navItemsContact = document.getElementsByClassName('nav-item');
+
+    for(var i=0; i<navItemsContact.length;i++){
+        navItemsContact[i].classList.remove('active');
+        if (navItemsContact[i].innerText == 'Contact'){
+            navItemsContact[i].classList.add('active');
+        }
+    }
+
+
+</script>

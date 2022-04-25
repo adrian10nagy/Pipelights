@@ -1,10 +1,11 @@
 ﻿.pdp {
-    min-height: 500px;
+    min-height: 580px;
     max-height: 800px;
 }
 
 .pdp-left {
     float: left;
+    margin-left:0px;
 }
 
 .pdp-right {
@@ -14,32 +15,51 @@
 }
 
 .btn-cart-main {
-    background: #d2835e;
-    border-color: #d2835e;
+    background: #212529;
+    border-color: #212529;
     color: #fff;
     text-transform: uppercase;
-    font-size: .625rem;
+    font-size: 1rem;
     height: 32px;
     line-height: 32px;
-    padding: 0 16px;
-    border-radius: 16px !important;
+    padding: 0px 24px 5px 24px;
+    border-radius: 7px !important;
     transition: .4s ease-in-out;
     letter-spacing: 2px;
 }
+.btn-cart-main:hover {
+    background: #F0B250;
+    border-color: #F0B250;
+    opacity:1!important;
+}
+.btn-cart-main:focus, .btn:active {
+    background: #F0B250;
+    border-color: #F0B250;
+    
+}
 
-.buy-return-link {
-    color: #424347;
-    font-size: .625rem;
-    text-transform: uppercase;
-    padding: 8px 16px 8px 40px;
-    display: inline-block;
-    -webkit-transition: .4s ease-in-out;
-    transition: .4s ease-in-out;
-    letter-spacing: 2px;
-    border: 1px solid #424347;
-    border-radius: 16px;
-    position: relative;
-    padding-left: 20px;
+    .buy-return-link {
+        color: #212529;
+        font-size: .8rem;
+        text-transform: uppercase;
+        padding: 4px 16px 4px 40px;
+        display: inline-block;
+        -webkit-transition: .4s ease-in-out;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
+        /*border: 1px solid #424347;*/
+        border-radius: 7px;
+        position: relative;
+        padding-left: 16px;
+    }
+
+.buy-return-link:hover {
+    
+    color: #212529;
+}
+
+.svg:hover {
+    color: #F0B250;
 }
 
 .title-primary {
@@ -57,6 +77,8 @@
 /* Hide the images by default */
 .mySlides {
     display: none;
+    text-align:center!important;
+    
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -71,7 +93,7 @@
     position: absolute;
     top: 40%;
     width: auto;
-    padding: 16px;
+    padding: 14px;
     margin-top: -50px;
     color: white;
     font-weight: bold;
@@ -83,7 +105,7 @@
 
 /* Position the "next button" to the right */
 .next {
-    right: 0;
+    right: 0px;
     border-radius: 3px 0 0 3px;
 }
 
@@ -117,3 +139,4 @@
     .demo:hover {
         opacity: 1;
     }
+

@@ -3,7 +3,50 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .butoninapoi {
+        background-color: #212529;
+        border-color: #212529;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        height: 32px;
+        line-height: 32px;
+        padding: 0px 24px 5px 24px;
+        border-radius: 7px !important;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
 
+    }
+
+    .butoninapoi:hover {
+            background-color:#F0B250;
+            border-color: #F0B250;
+        }
+
+    .butoninapoi1 {
+        background-color: #F0B250;
+        border-color: #F0B250;
+        color: ##212529;
+        text-transform: uppercase;
+        font-size: 1rem;
+        height: 32px;
+        line-height: 32px;
+        padding: 0px 30px 14px 30px;
+        border-radius: 7px !important;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
+
+    }
+
+    .butoninapoi1:hover {
+            background-color:#212529;
+            border-color: #212529;
+            color:white;
+        }
+
+
+</style>
 <h1>Index</h1>
 
 <div>
@@ -14,13 +57,13 @@
         {
             <div class="row">
                 <div style="text-align: center ">
-                    <h1 style="margin-top: 50px;margin-bottom: 40px;">Nu ai produse in cos.</h1>
-                    <h2>Poti adauga produse prin apasarea butonului 'Adauga in cos' din dreptul fiecarui produs dorit.</h2>
+                    <h3 style="color:#212529;margin-top: 100px;margin-bottom: 60px;">Nu ai produse in cos</h3>
+                    <h4 style="color:#212529">Poti adauga produse prin apasarea butonului 'Adauga in cos' din dreptul fiecarui produs dorit.</h4>
 
                     <div style="display: flex;justify-content: center; margin-top:70px">
                         <a href="~/Products">
-                            <h4 style="background-color: #bc003b;color: white;padding: 6px; width: 350px;padding: 6px; width: 350px;border-radius: 7px;">
-                                Inapoi
+                            <h4 class="butoninapoi" style="">
+                                Inapoi la Produse
                             </h4>
                         </a>
                     </div>
@@ -31,26 +74,26 @@
         {
             @foreach (var product in Model.ProductsForCart)
             {
-                <div class="row" style="margin-top: 20px">
+                <div class="row" style="margin-top: 20px; display:flex; justify-content:center">
                     <div class="col-md-6">
 
                         <img src="@product.ProductDetails.MainImage" style="width: 150px;" />
-                        <span>@product.ProductDetails.Description</span>
+                        <span style="margin-left:20px">Lampa @product.ProductDetails.Name</span>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="margin-top:32px">
 
                                 <form method="post" action="~/Cart/EditQuantity">
                                     <input type="hidden" name="id" value="@product.ProductDetails.Id" /> <br /><br />
                                     <input type="number" name="quantity" value="@product.Quantity" style="width: 47px;" />
-                                    <input type="submit" class="btn btn-primary btn-cart-main" value="Modifica cantitatea" />
+                                    <input type="submit" class="btn butoninapoi shadow-none btn-cart-main" value="Actualizeaza" />
                                 </form>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="margin-top:32px">
                                 <form method="post" action="~/Cart/RemoveItem">
                                     <input type="hidden" name="id" value="@product.ProductDetails.Id" /><br /><br />
-                                    <input type="submit" class="btn btn-primary btn-cart-main" value="Sterge din cos" />
+                                    <input type="submit" class="btn butoninapoi shadow-none btn-cart-main" value="Sterge din cos" />
                                 </form>
                             </div>
                         </div>
@@ -62,18 +105,23 @@
             <br />
             <form method="post" action="~/Cart/GoToCheckout">
                 <div style="display: flex;justify-content: center; margin-top:70px">
-                    <input type="submit" style="
-                                                background-color: #bc003b;
-                                                color: white;
-                                                padding: 6px; 
-                                                width: 350px;
-                                                padding: 6px; 
-                                                width: 250px;
-                                                border-radius: 7px;
-                                                border:0" 
+                    <input type="submit" class="btn butoninapoi1 shadow-none btn-cart-main" 
                            value="Finalizaeaza comanda" />
                 </div>
             </form>
         }
     </div>
 </div>
+<script>
+
+
+    const navItemsCart = document.getElementsByClassName('nav-item');
+    const cartUnderlined = document.getElementById('cart');
+
+    for(var i=0; i<navItemsCart.length;i++){
+        navItemsCart[i].classList.remove('active');
+        cartUnderlined.classList.add('active');
+    }
+    
+   
+</script>

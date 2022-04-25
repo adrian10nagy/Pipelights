@@ -1,4 +1,48 @@
-﻿@model Pipelights.Website.Models.Cart
+﻿<style>
+    
+    .butoninapoi1 {
+        background-color: #F0B250;
+        border-color: #F0B250;
+        color: ##212529;
+        text-transform: uppercase;
+        font-size: 1rem;
+        height: 32px;
+        line-height: 32px;
+        padding: 0px 30px 14px 30px;
+        border-radius: 7px !important;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
+
+    }
+
+    .butoninapoi1:hover {
+        background-color:#212529;
+        border-color: #212529;
+        color:white;
+    }
+
+    .redlabel {
+        color:#e02b27; 
+        font-size: 12px;        
+        display:none;
+    }
+
+    .redlabelshow {
+        display:block;
+    }
+
+    .formfocus {
+
+    }
+
+    .formfocus:focus {
+        border:1px solid #F0B250!important;
+        
+    }
+
+</style>
+
+@model Pipelights.Website.Models.Cart
 
 @{
     ViewData["Title"] = "Checkout";
@@ -12,30 +56,36 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <form method="post" action="~/Cart/PlaceOrder">
+            <form method="post" action="~/Cart/PlaceOrder" id="form">
                 <div class="form-group">
                     <label for="name">Nume</label>
-                    <input required type="text" class="form-control" id="name" name="name" placeholder="Nume">
+                    <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="name" name="name" placeholder="">
+                    <label id="labelnume" class="redlabel">Acest camp este obligatoriu</label>
                 </div>
 
                 <div class="form-group">
                     <label for="surname">Prenume</label>
-                    <input required type="text" class="form-control" id="surname" name="surname" placeholder="Prenume">
+                    <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="surname" name="surname" placeholder="">
+                    <label id="labelprenume" class="redlabel">Acest camp este obligatoriu</label>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email </label>
-                    <input required type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="email" name="email" placeholder="">
+                    <label id="labelemail" class="redlabel">Acest camp este obligatoriu</label>
                 </div>
 
                 <div class="form-group">
                     <label for="telephone">Telefon </label>
-                    <input required type="text" class="form-control" id="telephone" name="telephone" placeholder="Telefon">
+                    <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="telephone" name="telephone" placeholder="">
+                    <label id="labeltelefon" class="redlabel">Acest camp este obligatoriu</label>
+                    <label id="labeltelefonvalid" class="redlabel">Introdu un numar de telefon valid</label>
+     
                 </div>
 
                 <div class="form-group">
                     <label for="judete">Judet</label>
-                    <select required name="judete" id="judete">
+                    <select class="formfocus form-control shadow-none" style="display:block;border:1px solid #d6d6d6; background-color:white" name="judete" id="judete">
                         <option value="0">Alege Judet</option>
                         <option value="Alba">Alba</option>
                         <option value="Arad">Arad</option>
@@ -80,17 +130,22 @@
                         <option value="Valcea">Valcea</option>
                         <option value="Vrancea">Vrancea</option>
                     </select>
+                    <label id="labeljudete" class="redlabel">Acest camp este obligatoriu</label>
+           
                 </div>
 
                 <div class="form-group">
                     <label for="localitate">Localitate</label>
-                    <input required type="text" class="form-control" id="localitate" name="localitate" placeholder="Localitate">
+                    <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="localitate" name="localitate" placeholder="">
+                    <label id="labellocalitate"class="redlabel">Acest camp este obligatoriu</label>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Adresa</label>
-                    <input required type="text" class="form-control" id="address" name="address" placeholder="Adresa">
+                    <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="">
+                    <label id="labeladresa" class="redlabel">Acest camp este obligatoriu</label>
                 </div>
+                <br />
 
                 @*#region Payment*@
                 <div>
@@ -115,22 +170,17 @@
                         </label>
                     </div>
                 </div>
+                <br />
                 @*endregion payment*@
-                <button type="submit" style="
-                                     background-color: #bc003b;
-                                     color: white;
-                                     padding: 6px;
-                                     width: 350px;
-                                     padding: 6px;
-                                     width: 250px;
-                                     border-radius: 7px;
-                                     border:0">
+                <button type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
                     Plaseaza comanda
                 </button>
             </form>
+            <br />
         </div>
         <div class="col-md-4">
-            <h3>Sumar comanda</h3>
+            <h4 style="color:#212529">Sumar comanda</h4>
+              <br />
             <div>
                 @{
                     var subtotal = 0;
@@ -140,9 +190,10 @@
                     <div>
                         <img style="height: 100px" src="@product.ProductDetails.MainImage" />
                     </div>
+                  
                     <div>
-                        <p>@product.ProductDetails.Description.Substring(0, Math.Min(product.ProductDetails.Description.Length, 50))</p>
-                        <p>@product.Quantity</p>
+                        <p style="color:#212529">Lampa @product.ProductDetails.Name</p>
+                        <p style="color:#212529">@product.Quantity BUC</p>
                         @{
                             var price = 0;
                         }
@@ -154,7 +205,7 @@
                         }
                         else
                         {
-                            <p>@product.ProductDetails.Price</p>
+                            <p>@product.ProductDetails.Price RON BUC</p>
                             int.TryParse(product.ProductDetails.Price, out price);
                         }
 
@@ -162,12 +213,160 @@
 
                             subtotal = subtotal + product.Quantity * price;
                         }
+
+
                     </div>
                 }
+                <br />
                 <div>
-                    <h4>Subtotal: @subtotal</h4>
+                    <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
                 </div>
+               
+                 <div>
+                    <p>Transport:  30 RON</p>
+                </div>
+                @{
+                            var total = 0;
+                        }
+                @{
+                            var transport = 30;  /*--valoarea transportului--*/
+                        }
+                
+                        
+                <br />
+
+                @{
+
+                            total = subtotal + transport;
+                        }
+                <div>
+                    <h4 style="color:#212529">TOTAL: @total RON</h4>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    const navItemsCartK = document.getElementsByClassName('nav-item');
+    const cartUnderlinedK = document.getElementById('cart');
+
+    for(var i=0; i<navItemsCartK.length;i++){
+        navItemsCartK[i].classList.remove('active');
+        cartUnderlinedK.classList.add('active');
+    }
+    
+   //form validation
+
+   const form = document.getElementById('form');
+
+   const nume = document.getElementById('name');
+   const labelnume = document.getElementById('labelnume');
+
+   const prenume = document.getElementById('surname');
+   const labelprenume = document.getElementById('labelprenume');
+
+   const email = document.getElementById('email');
+   const labelemail = document.getElementById('labelemail');
+
+   const telefon = document.getElementById('telephone');
+   const labeltelefon = document.getElementById('labeltelefon');
+   const labeltelefonvalid = document.getElementById('labeltelefonvalid');
+
+
+   const localitate = document.getElementById('localitate');
+   const labellocalitate = document.getElementById('labellocalitate');
+
+   const adresa = document.getElementById('address');
+   const labeladresa = document.getElementById('labeladresa');
+
+    const judete = document.getElementById('judete');
+   const labeljudete = document.getElementById('labeljudete');
+
+
+   form.addEventListener('submit', (e) => {
+	   
+       if(!checkInputs()){
+           e.preventDefault();
+       }else {
+           
+       }
+	
+
+       
+	
+   });
+
+   function checkInputs(){
+
+       if(nume.value === ''){
+           labelnume.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelnume.classList.remove('redlabelshow')
+           
+       }
+
+       if(prenume.value === ''){
+           labelprenume.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelprenume.classList.remove('redlabelshow');
+            
+       }
+
+       if(email.value === ''){
+           labelemail.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labelemail.classList.remove('redlabelshow');
+           
+       }
+
+       if(telefon.value === ''){
+           labeltelefon.classList.add('redlabelshow');
+           return(false);
+       }else if (telefon.value.length < 10){
+           labeltelefon.classList.remove('redlabelshow');
+           labeltelefonvalid.classList.add('redlabelshow');
+           return(false);
+       }else {
+           labeltelefon.classList.remove('redlabelshow');
+           labeltelefonvalid.classList.remove('redlabelshow');
+           
+       }
+
+       if(judete.value === '0'){
+           labeljudete.classList.add('redlabelshow');
+            return(false);
+       }else {
+           labeljudete.classList.remove('redlabelshow');
+           
+       }
+
+       if(localitate.value === ''){
+           labellocalitate.classList.add('redlabelshow');
+          return(false);
+       }else {
+           labellocalitate.classList.remove('redlabelshow');
+           
+       }
+
+       if(adresa.value === ''){
+           labeladresa.classList.add('redlabelshow');
+            return(false);
+       }else {
+           labeladresa.classList.remove('redlabelshow');
+           
+       }
+
+       
+
+          return(true);
+    
+   }
+    
+
+</script>

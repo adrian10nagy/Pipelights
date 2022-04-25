@@ -1,4 +1,25 @@
-﻿@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
+﻿<style>
+    .veziproduse {
+        color: #212529;
+        font-size: .8rem;
+        text-transform: uppercase;
+        padding: 4px 16px 4px 40px;
+        display: inline-block;
+        -webkit-transition: .4s ease-in-out;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
+        text-decoration:none;
+        border-radius: 7px;
+        position: relative;
+        padding-left: 16px;
+    }
+
+    .veziproduse:hover {
+        color: #F0B250;
+        /*border: 1px solid #F0B250;*/
+    }
+</style>
+@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
 
 @{
     ViewData["Title"] = "Corpuri de iluminat in stil industrial";
@@ -6,24 +27,26 @@
 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
-<div class="banner header-text">
+<br />
+
+<div class=" banner header-text">
     <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
+        <div class="banner-item-01 img-fluid">
             <div class="text-content">
-                <h4>Noutati</h4>
-                <h2>Vezi noutatile</h2>
+                @*<h2>Noutati</h2>*@
+               @* <h2>Vezi noutatile</h2>*@
             </div>
         </div>
         <div class="banner-item-03">
             <div class="text-content">
-                <h4>Creeaza propria lampa</h4>
-                <h2>Vino cu o idee si noi o punem in practica</h2>
+                @*<h2>Creeaza propria lampa</h2>*@
+                @*<h2>Vino cu o idee si noi o punem in practica</h2>*@
             </div>
         </div>
         <div class="banner-item-02">
             <div class="text-content">
-                <h4>Package Deals</h4>
-                <h2>Check out our special gift products</h2>
+@*                <h2>Package Deals</h2>*@
+               @* <h2>Check out our special gift products</h2>*@
             </div>
         </div>
     </div>
@@ -35,8 +58,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h2>Noutati</h2>
-                    <a href="~/Products">vezi produsele <i class="fa fa-angle-right"></i></a>
+                    <h2 style="color:#212529">Noutati</h2>
+                    <a style="color:#212529; font-weight: 350;" class="veziproduse" href="~/Products"> VEZI PRODUSELE  <svg style="transform: rotate(180deg); color: #212529"version="1.1" class="svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
+   </a>
                 </div>
             </div>
             @foreach (var item in Model)
@@ -46,16 +70,15 @@
                         <a href="~/Products/Details?Id=@item.Id">
                             <img src="@item.MainImage" alt="">
                             <div class="down-content">
-                                <h4>@item.Name</h4>
-                                <h6>@item.Name</h6>
-                                <p>@item.Description</p>
-                                <ul class="stars">
+                                <h4 style="color:#212529">@item.Name</h4>
+                                 <p>@item.Description</p>
+                               @* <ul class="stars">
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
-                                </ul>
+                                </ul>*@
                                 @*<span>Reviews (48)</span>*@
                             </div>
                         </a>
@@ -76,16 +99,29 @@
             </div>
             <div class="col-md-6">
                 <div class="left-content">
-                    <h4>Cauti lampi si Lampadare handmade de calitate superioara?</h4>
-                    <p>Toate lampile noastre sunt handmade. Nu producem lampi in masa iar fiecare lampa este unicata. Daca vrei sa sugerezi un model sau vrei sa-ti creem una, contacteaza-ne! <a rel="nofollow" href="~/Contact/ContactUs">Contact us</a> for more info.</p>
-                    <ul class="featured-list">
+                    <h4 style="color:#212529">Cauti lampi si Lampadare handmade de calitate superioara?</h4>
+                    <p style="color:#212529">Toate lampile noastre sunt handmade. Nu producem lampi in masa iar fiecare lampa este unicata. Daca vrei sa sugerezi un model sau vrei sa-ti creem una, contacteaza-ne! <a rel="nofollow" href="~/Contact/ContactUs">Contact us</a> for more info.</p>
+                    <ul class="featured-list" style="margin-bottom:20px; color:#212529"">
                         <li><a href="#">Material de calitae superioara</a></li>
                         <li><a href="#">Fiecare lampa este handmade</a></li>
                         <li><a href="#">Fiecare piesa este unicata</a></li>
                         <li><a href="#">Orice lampa poate fi customizate!</a></li>
                         <li><a href="#">Becurile pot fi schimbate si comandate separat</a></li>
                     </ul>
-                    <a href="~/Products" class="filled-button">Vezi toate produsele</a>
+                    <a href="~/Products" style="            background: #212529;
+                                                            border-color: #212529;
+                                                            color: #fff;
+                                                            text-transform: uppercase;
+                                                            font-size: 1rem;
+                                                            height: 32px;
+                                                            line-height: 32px;
+                                                            padding: 5px 24px;
+                                                            border-radius: 7px !important;
+                                                            transition: .4s ease-in-out;
+                                                            letter-spacing: 2px" 
+
+
+                                                class="filled-button goldenhover">Vezi toate produsele</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -105,11 +141,23 @@
                 <div class="inner-content">
                     <div class="row">
                         <div class="col-md-8">
-                            <h4>Contacteaza-ne si propune un model &amp; Unic <em></em></h4>
-                            <p>Intra in dicutie cu noi si afla cate modificari putem aduce lampilor existente</p>
+                            <h4 style="color:#212529">Lucram cu ideile tale <em></em></h4>
+                            <p style="color:#212529">Spune-ne ideea ta, iar noi o sa incercam sa o punem in practica</p>
                         </div>
-                        <div class="col-md-4">
-                            <a href="#" class="filled-button">Contacteaza-ne</a>
+                        <div class="col-md-4" style="text-align:center; margin-top:20px">
+                            <a href="~/Home/Contact" style="background: #212529;
+                                                            border-color: #212529;
+                                                            color: #fff;
+                                                            text-transform: uppercase;
+                                                            font-size: 1rem;
+                                                            height: 32px;
+                                                            line-height: 32px;
+                                                            padding: 5px 24px;
+                                                            border-radius: 7px !important;
+                                                            transition: .4s ease-in-out;
+                                                            letter-spacing: 2px;
+"
+                            class="filled-button goldenhover ">Contacteaza-ne</a>
                         </div>
                     </div>
                 </div>
@@ -118,4 +166,22 @@
     </div>
 </div>
 
+<style>
 
+.product-item {
+}
+
+.product-item:hover {
+    opacity:.8;
+}
+
+.goldenhover {
+    
+}
+
+.goldenhover:hover {
+    background: #F0B250!important;
+    border-color: #F0B250!important;
+    color:#212529;
+}
+</style>
