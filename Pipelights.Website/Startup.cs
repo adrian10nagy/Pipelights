@@ -22,7 +22,6 @@ namespace Pipelights.Website
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
         }
 
         public IConfiguration Configuration { get; }
