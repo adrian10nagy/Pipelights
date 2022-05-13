@@ -17,5 +17,8 @@ namespace Pipelights.Database.Models
 
         [JsonPropertyName("pricereduced")]
         public string PriceReduced { get; set; }
+
+        [JsonPropertyName("isInactive")]
+        public bool IsInactive { get; set; }
     }
 }

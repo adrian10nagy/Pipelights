@@ -7,6 +7,7 @@ using Pipelights.Website.Services.Interfaces;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace Pipelights.Website.Controllers
 {
@@ -76,7 +77,8 @@ namespace Pipelights.Website.Controllers
                 Name = model.Name,
                 Description = model.Description,
                 Price = model.Price,
-                PriceReduced = model.PriceReduced
+                PriceReduced = model.PriceReduced,
+                IsInactive = model.IsInactive,
             };
 
 
@@ -94,7 +96,7 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Dashboard()
         {
-            IEnumerable<ProductDetailsDto> productsDto = _lampService.GetMultiple("SELECT * FROM c");
+            IEnumerable<ProductDetailsDto> productsDto = _lampService.GetMultiple("SELECT * FROM c", true).OrderBy(l=> l.IsInactive);
 
             return View(productsDto);
         }

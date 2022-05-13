@@ -51,6 +51,10 @@
                         <p>Descriere: @item.Description</p>
                         <p> Pret: @item.Price</p>
                         <p>Pret redus: @item.PriceReduced</p>
+                        @if (item.IsInactive)
+                        {
+                            <p style="background-color: bisque;padding: 5px;border-radius: 3px;"><b>Lampa Inactiva</b></p>
+                        }
                     </div>
                     <div class="down-content">
                         <a href="~/Admin/Edit?id=@item.Id">
@@ -59,7 +63,7 @@
                                       color: white;
                                       padding: 6px;
                                       border-radius: 7px;">
-                                Modifica-ma!
+                                Modifica-ma! 
                             </h4>
                         </a>
                     </div>

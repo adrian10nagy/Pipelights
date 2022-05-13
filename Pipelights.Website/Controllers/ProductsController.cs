@@ -17,7 +17,7 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Index()
         {
-            var productsDto = _lampService.GetMultiple("SELECT * FROM c");
+            var productsDto = _lampService.GetMultiple("SELECT * FROM c", false);
 
 
             return View(productsDto);

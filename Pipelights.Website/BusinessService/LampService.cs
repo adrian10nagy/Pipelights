@@ -16,8 +16,8 @@ namespace Pipelights.Website.BusinessService
         bool AddAsync(LampEntity item);
         bool UpdateAsync(string id, LampEntity item);
         bool DeleteAsync(string id);
-        IEnumerable<ProductDetailsDto> GetMultiple(string query);
-        IEnumerable<ProductDetailsDto> GetMultiple(int max = 1000);
+        IEnumerable<ProductDetailsDto> GetMultiple(string query, bool includeInactive);
+        IEnumerable<ProductDetailsDto> GetMultiple(bool includeInactive, int max = 1000);
     }
 
     public class LampService : ILampService
@@ -78,11 +78,16 @@ namespace Pipelights.Website.BusinessService
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<ProductDetailsDto> GetMultiple(string query)
+        public IEnumerable<ProductDetailsDto> GetMultiple(string query, bool includeInactive)
         {
             List<ProductDetailsDto> result = new List<ProductDetailsDto>();
 
-            var dbResult =  _lampDbService.GetMultipleAsync(query).Result;
+            var dbResult = _lampDbService.GetMultipleAsync(query).Result;
+
+            if (!includeInactive)
+            {
+                dbResult = dbResult.Where(x => !x.IsInactive);
+            }
 
             foreach (var lamp in dbResult)
             {
@@ -92,10 +97,10 @@ namespace Pipelights.Website.BusinessService
             return result;
         }
 
-        public IEnumerable<ProductDetailsDto> GetMultiple(int max = 1000)
+        public IEnumerable<ProductDetailsDto> GetMultiple(bool includeInactive, int max = 1000)
         {
 
-            var dbResult = GetMultiple("SELECT * FROM c order by c._ts DESC");
+            var dbResult = GetMultiple("SELECT * FROM c order by c._ts DESC", includeInactive);
 
             var result = dbResult.Take(max);
 

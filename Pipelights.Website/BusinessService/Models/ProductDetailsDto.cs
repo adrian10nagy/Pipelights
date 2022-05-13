@@ -12,7 +12,7 @@ namespace Pipelights.Website.BusinessService.Models
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IBlobService _blobService;
-        
+
         public ProductDetailsDto()
         {
         }
@@ -26,10 +26,11 @@ namespace Pipelights.Website.BusinessService.Models
             Description = lamp.Description;
             Price = lamp.Price;
             PriceReduced = lamp.PriceReduced;
+            IsInactive = lamp.IsInactive;
             Resources = GetImagesFromRoot(lamp.id).OrderByDescending(x => x.Contains("1.")).ToList();
             if (!Resources.Any())
             {
-                Resources = new List<string> {"/lib/from-template/images/product-no-image.jpg"};
+                Resources = new List<string> { "/lib/from-template/images/product-no-image.jpg" };
             }
             else
             {
@@ -38,7 +39,7 @@ namespace Pipelights.Website.BusinessService.Models
 
             MainImage = Resources.FirstOrDefault(x => x.Contains("1.")) ?? Resources.FirstOrDefault();
 
-            
+
         }
 
         public List<string> Resources { get; set; }
@@ -49,7 +50,7 @@ namespace Pipelights.Website.BusinessService.Models
         public string Description { get; set; }
         public string Price { get; set; }
         public string PriceReduced { get; set; }
-        public string VideoUrl { get; set; }
+        public bool IsInactive { get; set; }
 
         public bool HasPricedReduced => string.IsNullOrEmpty(PriceReduced);
 

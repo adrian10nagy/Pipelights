@@ -22,7 +22,7 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Index()
         {
-            var latestProducts = _lampsService.GetMultiple(6).ToList();
+            var latestProducts = _lampsService.GetMultiple(false, 6).ToList();
 
             return View(latestProducts);
         }
