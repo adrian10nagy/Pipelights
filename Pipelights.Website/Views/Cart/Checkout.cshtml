@@ -85,7 +85,7 @@
 
                 <div class="form-group">
                     <label for="judete">Judet</label>
-                    <select class="formfocus form-control shadow-none" style="display:block;border:1px solid #d6d6d6; background-color:white" name="judete" id="judete">
+                    <select onchange="changeTransportPrice()" class="formfocus form-control shadow-none" style="display:block;border:1px solid #d6d6d6; background-color:white" name="judete" id="judete">
                         <option value="0">Alege Judet</option>
                         <option value="Alba">Alba</option>
                         <option value="Arad">Arad</option>
@@ -219,28 +219,20 @@
                 }
                 <br />
                 <div>
+                    <div style="display:none" id="subTotalPrice">@subtotal</div>
                     <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
                 </div>
                
                  <div>
-                    <p>Transport:  30 RON</p>
+                    <p>Transport:  <div id="transportPrice">0</div>RON</p>
                 </div>
-                @{
-                            var total = 0;
-                        }
-                @{
-                            var transport = 30;  /*--valoarea transportului--*/
-                        }
+              
                 
                         
                 <br />
 
-                @{
-
-                            total = subtotal + transport;
-                        }
                 <div>
-                    <h4 style="color:#212529">TOTAL: @total RON</h4>
+                    <h4 style="color:#212529">TOTAL: <div id="totalPrice">@subtotal</div> RON</h4>
                 </div>
 
             </div>
@@ -250,6 +242,17 @@
 
 
 <script>
+    function changeTransportPrice() {
+      var judetSelectat = document.getElementById("judete").value;
+      if(judetSelectat == "Cluj"){
+            document.getElementById("transportPrice").innerHTML = 0;
+                        document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML);
+      }else {
+            document.getElementById("transportPrice").innerHTML = 30;
+            document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML) +30;
+    }
+    }
+
     const navItemsCartK = document.getElementsByClassName('nav-item');
     const cartUnderlinedK = document.getElementById('cart');
 
