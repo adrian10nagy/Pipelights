@@ -1,11 +1,30 @@
-﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+﻿
+<head>
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+</head>
 
 <style>
     .veziproduse {
         color: #212529;
         font-size: .8rem;
         text-transform: uppercase;
-        padding: 4px 16px 4px 40px;
+        padding: 4px 16px 0px 40px;
         display: inline-block;
         -webkit-transition: .4s ease-in-out;
         transition: .4s ease-in-out;
@@ -32,39 +51,89 @@
 <br />
 
 
-<div class=" banner header-text">
-    <div id="owl-demo" class="owl-banner owl-carousel">
-        <div class="item banner-item-01 img-fluid">
-            <div class="text-content"> 
-                @*<h2>Noutati</h2>*@
-               @* <h2>Vezi noutatile</h2>*@
-            </div>
-        </div>
-        <div class="item banner-item-03">
-            <div class="text-content">
-                @*<h2>Creeaza propria lampa</h2>*@
-                @*<h2>Vino cu o idee si noi o punem in practica</h2>*@
-            </div>
-        </div>
-        <div class="item banner-item-02">
-            <div class="text-content">
-@*                <h2>Package Deals</h2>*@
-               @* <h2>Check out our special gift products</h2>*@
-            </div>
-        </div>
+<!-- Home Page Carrousel -->
+
+<div id="carouselExampleIndicators" class="carousel slide relative" data-bs-ride="carousel">
+  <div  class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    <button
+        style="background-color:#212529"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+    style="background-color:#212529"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+    style="background-color:#212529"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner relative w-full overflow-hidden" style="margin-top:100px">
+    <div class="carousel-item active float-left w-full">
+      <img
+        src="~/lib/images/all5.jpg"
+        class="block w-full"
+        alt="Wild Landscape"
+      />
     </div>
+    <div class="carousel-item float-left w-full">
+      <img
+        src="~/lib/images/all6.jpg"
+        class="block w-full"
+        alt="Camera"
+      />
+    </div>
+    <div class="carousel-item float-left w-full">
+      <img
+        src="~/lib/images/all7.jpg"
+        class="block w-full"
+        alt="Exotic Fruits"
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+  style="color:black"
+    class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span  class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span style="color:black" class="visually-hidden">Next</span>
+  </button>
 </div>
+
 
 <!-- Banner Ends Here -->
 
 <div class="latest-products">
     <div class="container">
-        <div class="row">
+        <div class="row ">
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2 style="color:#212529">Noutati</h2>
-                    <a style="color:#212529; font-weight: 350;" class="veziproduse" href="~/Products"> VEZI PRODUSELE  <svg style="transform: rotate(180deg); color: #212529"version="1.1" class="svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
-   </a>
+                    <a style="color:#212529; font-weight: 350;" class="veziproduse" href="~/Products"> VEZI PRODUSELE  @*<svg style="transform: rotate(180deg); color: #212529"version="1.1" class="svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
+  *@ </a>
                 </div>
             </div>
             @foreach (var item in Model)
@@ -75,7 +144,7 @@
                             <img src="@item.MainImage" alt="">
                             <div class="down-content">
                                 <h4 style="color:#212529">@item.Name</h4>
-                                 <p>@item.Description</p>
+                                 <p>@item.Price RON</p>
                                @* <ul class="stars">
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
@@ -169,7 +238,7 @@
         </div>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 <style>
 
 .product-item {
@@ -188,15 +257,10 @@
     border-color: #F0B250!important;
     color:#212529;
 }
+
 </style>
 
 <script>
-   $('.owl-carousel').owlCarousel({
-    margin:10,
-    loop:true,
-    autoWidth:true,
-    items:3
-})
-
+  
 
 </script>
