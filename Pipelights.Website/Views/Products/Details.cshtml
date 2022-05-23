@@ -38,7 +38,7 @@
 
     <div>
         @*images on the left*@
-        <div class="col-lg-6 col-md-12 col-sm-12 pdp pdp-left" >
+        <div style="z-index:9999" class="col-lg-6 col-md-12 col-sm-12 pdp pdp-left" >
             @* PDP slideshow - start *@
             @foreach (var image in Model.Resources)
             {
@@ -95,7 +95,7 @@
         @*descriptions on the right*@
 
         
-        <div style="height:600px!important" class="col-lg-5 col-md-12 col-sm-12 pdp pdp-right">
+        <div style="height:600px!important;z-index:9999" class="col-lg-5 col-md-12 col-sm-12 pdp pdp-right">
             <h2 style="margin-bottom: 10px">@Model.Name</h2>
             @if (Model.HasPricedReduced)
             {
@@ -109,26 +109,88 @@
 
             <form method="post" action="~/Cart/AddProduct">
 
-                <div style="margin-top: 10px">
+                <div style="margin-top: 10px;box-shadow: none!important">
                     <span> CANTITATE </span>
                     <span>
                         <input type="number" name="quantity" min="1" max="100" data-min="1" data-max="100" value="1"
                                style="max-width: 15%; margin-left: 10px"/>
                     </span>
+               
                 </div>
-                <div style="margin-top: 15px">
-                    <input type="hidden" name="id" value="@Model.Id" /> <br /><br />
+                    <div style="display:flex; justify-content:start;align-items:center;">
+                    <div>
+                        <select style="" class="form-select form-select-sm my-3 p-1 form-select-border-color:#F0B250" aria-label=".form-select-sm example">
+                          <option selected>Alege culoare</option>
+                          <option value="1">Athenian Black</option>
+                          <option value="2">Pure</option>
+                          <option value="3">Old White</option>
+                          <option value="4">Original</option>
+                          <option value="5">Chicago Grey</option>
+                          <option value="6">Paris Grey</option>
+                          <option value="7">Paloma</option>
+                          <option value="8">Country Grey</option>
+                          <option value="9">French Linen</option>
+                          <option value="10">Graphite</option>
+                          <option value="11">Honfleur</option>
+                          <option value="12">Coco</option>
+                          <option value="13">Primer Red</option>
+                          <option value="14">Emperor's Silk</option>
+                          <option value="15">Scandinavian Pink</option>
+                          <option value="16">Antoinette</option>
+                          <option value="17">Capri Pink</option>
+                          <option value="18">Emile</option>
+                          <option value="19">Rodmell</option>
+                          <option value="20">Old Violet</option>
+                          <option value="21">Louise Blue</option>
+                          <option value="22">Greek Blue</option>
+                          <option value="23">Napoleonic Blue</option>
+                          <option value="24">Oxford Navy</option>
+                          <option value="25">Aubusson Blue</option>
+                          <option value="26">Giverny</option>
+                          <option value="27">Provence</option>
+                          <option value="28">Svenska Blue</option>
+                          <option value="29">Duck Egg Blue</option>
+                          <option value="30">Florence</option>
+                          <option value="31">Amsterdam Green</option>
+                          <option value="32">Antibes Green</option>
+                          <option value="33">Firle</option>
+                          <option value="34">Olive</option>
+                          <option value="35">Chateau Grey</option>
+                          <option value="36">Versailles</option>
+                          <option value="37">English Yellow</option>
+                          <option value="38">Cream</option>
+                          <option value="39">Old Ochre</option>
+                          <option value="40">Tilton</option>
+                          <option value="41">Arles</option>
+                          <option value="42">Barcelona Orange</option>
+                          
+                  
+                         </select>
+                    </div>
+                        <div>
+                            <a href="https://www.anniesloan.com/products/chalk-paint/" target="_blank">
+                            <div class="mx-2" style="cursor:pointer; width:18px; height:18px; border-radius:50%; background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                                                                                                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                                                                                                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);">
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                <div>
+                    <input type="hidden" name="id" value="@Model.Id" /> <br />
                     <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
                 </div>
             </form> 
 
-            <div style="margin-top: 50px">
+            <div style="margin-top: 20px">
                 <div class="title-primary">DESCRIERE:</div>
                 <hr />
                 <span>@Model.Description</span>
                 <br />
+               
+                 
 
-                <div style="margin-top:15px" class="title-primary">la comanda: disponibil in 8-10 zile</div>
+                <div style="margin-top:8px" class="title-primary">la comanda: disponibil in 10-12 zile</div>
 
             </div>
         </div>
@@ -179,7 +241,7 @@
             }
         }
 
-        $('.inner-content').css('margin-top', '640px');
+        $('.inner-content').css('margin-top', '700px');
         
         
         </script>
