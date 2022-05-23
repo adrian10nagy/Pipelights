@@ -33,18 +33,20 @@
 
                             <form method="post" action="~/Cart/AddProduct">
                                 <div style="margin-top: 15px">
-                                     <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
+                                    <input type="hidden" name="id" value="@lampEntity.Id"/>
+                                    <input type="hidden" name="quantity" value="1"/>
+                                    <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
                                 </div>
-                            </form> 
+                            </form>
 
                             @*<p>@lampEntity.Description</p>*@
                             @*<ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>*@
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        </ul>*@
                             @*<span>Reviews (24)</span>*@
                         </div>
                     </a>
@@ -52,128 +54,40 @@
             </div>
         }
 
-        <!--<div class="col-md-4">
-            <div class="product-item">
-                <a href="#"><img src="~/lib/images/human1.jpg" alt=""></a>
-                <div class="down-content">
-                    <a href="#"><h4>The Human</h4></a>
-                    <h6>$30.25</h6>
-                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>-->
-                    @*<span>Reviews (21)</span>*@
-                <!--</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="product-item">
-                <a href="#"><img src="~/lib/images/floor1.jpg" alt=""></a>
-                <div class="down-content">
-                    <a href="#"><h4>2 Lights Floor Lamp</h4></a>
-                    <h6>$20.45</h6>
-                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>Reviews (2)</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="product-item">
-                <a href="#"><img src="~/lib/images/installer1.jpg" alt=""></a>
-                <div class="down-content">
-                    <a href="#"><h4>The installer</h4></a>
-                    <h6>$15.25</h6>
-                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>Reviews (48)</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="product-item">
-                <a href="#"><img src="~/lib/from-template/images/product_05.jpg" alt=""></a>
-                <div class="down-content">
-                    <a href="#"><h4>Tittle goes here</h4></a>
-                    <h6>$12.50</h6>
-                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>Reviews (16)</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="product-item">
-                <a href="#"><img src="/lib/from-template/images/product_06.jpg" alt=""></a>
-                <div class="down-content">
-                    <a href="#"><h4>Tittle goes here</h4></a>
-                    <h6>$22.50</h6>
-                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"><F/i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>Reviews (32)</span>
-                </div>
-            </div>
-        </div>-->
     </div>
 </div>
 
 @*style for button "adauga in cos"*@
 <style>
     .btn-cart-main {
-    background: #212529;
-    border-color: #212529;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1rem; 
-    height: 32px;
-    line-height: 32px;
-    padding: 0 24px;
-    border-radius: 7px !important;
-    transition: .4s ease-in-out;
-    letter-spacing: 2px;
-}
-.btn-cart-main:hover {
-    background: #F0B250;
-    border-color: #F0B250;
-}
-.btn-cart-main:focus {
-    outline:none;
-}
-.product-item {
+        background: #212529;
+        border-color: #212529;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 24px;
+        border-radius: 7px !important;
+        transition: .4s ease-in-out;
+        letter-spacing: 2px;
+    }
 
-}
+        .btn-cart-main:hover {
+            background: #F0B250;
+            border-color: #F0B250;
+        }
 
-.product-item:hover {
-    opacity:.8;
-}
+        .btn-cart-main:focus {
+            outline: none;
+        }
+
+    .product-item {
+    }
+
+        .product-item:hover {
+            opacity: .8;
+        }
 
 </style>
 
@@ -182,9 +96,9 @@
     //to do - move this code into master file
     const navItems = document.getElementsByClassName('nav-item');
 
-    for(var i=0; i<navItems.length;i++){
+    for (var i = 0; i < navItems.length; i++) {
         navItems[i].classList.remove('active');
-        if (navItems[i].innerText == 'Produse'){
+        if (navItems[i].innerText == 'Produse') {
             navItems[i].classList.add('active');
         }
     }
