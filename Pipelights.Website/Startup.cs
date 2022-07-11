@@ -1,19 +1,16 @@
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Azure.Storage.Blobs;
-using Microsoft.AspNetCore.Http;
 using Pipelights.Database.Services;
 using Pipelights.Website.BusinessService;
 using Pipelights.Website.Services;
 using Pipelights.Website.Services.Interfaces;
+using RazorHtmlEmails.RazorClassLib.Services;
+using System.Threading.Tasks;
 
 namespace Pipelights.Website
 {
@@ -48,6 +45,7 @@ namespace Pipelights.Website
 
             var serviceBusEndpoint = "DefaultEndpointsProtocol=https;AccountName=samasterpocpipe;AccountKey=R1E85Qr4D5KBWHt+iPC+IFgGumV3aT7J92T3mqE2ki1/vynN4PkNSuvp9XA9uk3FpnH/7tPYuDuzK0ONu8VypA==;EndpointSuffix=core.windows.net";
             services.AddSingleton(d => new BlobServiceClient(serviceBusEndpoint));
+            services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 
         }
 

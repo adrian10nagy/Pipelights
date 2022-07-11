@@ -99,12 +99,12 @@
             <h2 style="margin-bottom: 10px">@Model.Name</h2>
             @if (Model.HasPricedReduced)
             {
-                <span>@Model.Price RON</span>
+                <span style="text-decoration: line-through; color: #a0a1a3; margin-right: 15px">@Model.Price RON</span>
+                <span style="color: #d2835e;">@Model.PriceReduced RON</span>
             }
             else
             {
-                <span style="text-decoration: line-through; color: #a0a1a3; margin-right: 15px">@Model.Price RON</span>
-                <span style="color: #d2835e;">@Model.PriceReduced RON</span>
+                <span>@Model.Price RON</span>  
             }
 
             <form method="post" action="~/Cart/AddProduct">

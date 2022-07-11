@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using Pipelights.Website.BusinessService;
 using Pipelights.Website.BusinessService.Models;
 using Pipelights.Website.Models;
+using Pipelights.Website.Models.Emails;
+using RazorHtmlEmails.RazorClassLib.Services;
 using System.Collections.Generic;
 
 namespace Pipelights.Website.Controllers
@@ -14,13 +16,16 @@ namespace Pipelights.Website.Controllers
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
         private readonly IEmailService _emailService;
+        private readonly IRazorViewToStringRenderer _razorViewToStringRenderer;
 
-        public CartController(ILampService lampService, ICartService cartService, IOrderService orderService, IEmailService emailService)
+        public CartController(ILampService lampService, ICartService cartService, IOrderService orderService, 
+            IEmailService emailService, IRazorViewToStringRenderer razorViewToStringRenderer)
         {
             _lampService = lampService;
             _cartService = cartService;
             _orderService = orderService;
             _emailService = emailService;
+            _razorViewToStringRenderer = razorViewToStringRenderer;
         }
 
         [HttpPost]
@@ -171,9 +176,15 @@ namespace Pipelights.Website.Controllers
                 }
 
                 // send email
-                _emailService.SendEmail("serox.pipelights@gmail.com", $"A fost plasata o comanda! {orderNr}",
-                    $"Comandat cu numarul {orderNr} a fost plasata de catre {model.name} {model.surname}. <br><br>    Detalii: Nume: {model.name} {model.surname}, email {model.email}, telefon {model.telephone}." +
-                    $"Adresa, Judet: {model.judete}, Localitate {model.localitate}. Plata aleasa: {model.payment}");
+                string body = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmation.cshtml", 
+                    new OrderConfirmationEmailDto
+                    {
+                        Order = model,
+                        OrderNumber = orderNr,
+                        Cart = cart
+                    }).Result;
+
+                _emailService.SendEmail("serox.pipelights@gmail.com", $"A fost plasata o comanda! {orderNr}", body);
 
 
             }
