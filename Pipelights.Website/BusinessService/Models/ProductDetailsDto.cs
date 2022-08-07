@@ -52,7 +52,7 @@ namespace Pipelights.Website.BusinessService.Models
         public string PriceReduced { get; set; }
         public bool IsInactive { get; set; }
 
-        public bool HasPricedReduced => string.IsNullOrEmpty(PriceReduced);
+        public bool HasPricedReduced => !string.IsNullOrEmpty(PriceReduced);
 
         private List<string> GetImagesFromRoot(string lampEntityId)
         {
