@@ -186,6 +186,17 @@ namespace Pipelights.Website.Controllers
 
                 _emailService.SendEmail("serox.pipelights@gmail.com", $"A fost plasata o comanda! {orderNr}", body);
 
+                // send email to client 
+                string bodyForClient = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmationForClient.cshtml",
+                    new OrderConfirmationEmailDto
+                    {
+                        Order = model,
+                        OrderNumber = orderNr,
+                        Cart = cart
+                    }).Result;
+
+                _emailService.SendEmail($"{model.email}", $"A fost '' plasata o comanda! {orderNr}", bodyForClient);
+
 
             }
             else
