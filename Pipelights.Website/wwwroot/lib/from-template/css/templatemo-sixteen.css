@@ -1048,6 +1048,10 @@ footer .inner-content p a {
 		margin-top: 30px;
 		margin-left: 0px;
 	}
+
+	.inner-content {
+		margin-top:300px!important;
+	}
 }
 
 @media (max-width: 992px) {
@@ -1104,5 +1108,9 @@ footer .inner-content p a {
 		position: relative;
 		right: 0;
 		bottom: 0;
+	}
+
+	.inner-content {
+		margin-top:1000px!important;
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Pipelights.Database.Models
 {
@@ -12,6 +13,9 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
+        [JsonPropertyName("technicalData")]
+        public string TechnicalData { get; set; }
+
         [JsonPropertyName("price")]
         public string Price { get; set; }
 
@@ -20,5 +24,8 @@ namespace Pipelights.Database.Models
 
         [JsonPropertyName("isInactive")]
         public bool IsInactive { get; set; }
+
+        [JsonPropertyName("categories")]
+        public List<int> Categories { get; set; }
     }
 }

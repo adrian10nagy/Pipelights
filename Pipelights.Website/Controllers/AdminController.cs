@@ -71,14 +71,20 @@ namespace Pipelights.Website.Controllers
                 model.Id = model.Name.Replace(" ", string.Empty);
             }
 
+            List<int> ints = new List<int>();
+
+            model.Categories.Split(',').ToList().ForEach(x => ints.Add(int.Parse(x)));
+
             var dbModel = new LampEntity
             {
                 id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
+                TechnicalData = model.TechnicalData,
                 Price = model.Price,
                 PriceReduced = model.PriceReduced,
                 IsInactive = model.IsInactive,
+                Categories = ints,
             };
 
 

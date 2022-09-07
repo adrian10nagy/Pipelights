@@ -24,6 +24,7 @@ namespace Pipelights.Website.BusinessService.Models
             Id = lamp.id;
             Name = lamp.Name;
             Description = lamp.Description;
+            TechnicalData = lamp.TechnicalData;
             Price = lamp.Price;
             PriceReduced = lamp.PriceReduced;
             IsInactive = lamp.IsInactive;
@@ -48,9 +49,11 @@ namespace Pipelights.Website.BusinessService.Models
         public string MainImage { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string TechnicalData { get; set; }
         public string Price { get; set; }
         public string PriceReduced { get; set; }
         public bool IsInactive { get; set; }
+        public string Categories { get; set; }
 
         public bool HasPricedReduced => !string.IsNullOrEmpty(PriceReduced);
 

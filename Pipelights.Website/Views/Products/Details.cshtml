@@ -19,7 +19,7 @@
 
 <br />
 <br />
-
+<div style="display:flex; flex-direction:column">
 <div class="container">
     <br />
     <br />
@@ -117,7 +117,7 @@
                     </span>
                
                 </div>
-                    <div style="display:flex; justify-content:start;align-items:center;">
+                  @*  <div style="display:flex; justify-content:start;align-items:center;">
                     <div>
                         <select style="" class="form-select form-select-sm my-3 p-1 form-select-border-color:#F0B250" aria-label=".form-select-sm example">
                           <option selected>Alege culoare</option>
@@ -175,7 +175,7 @@
                             </div>
                             </a>
                         </div>
-                    </div>
+                    </div>*@
                 <div>
                     <input type="hidden" name="id" value="@Model.Id" /> <br />
                     <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
@@ -183,9 +183,9 @@
             </form> 
 
             <div style="margin-top: 20px">
-                <div class="title-primary">DESCRIERE:</div>
+                <div class="title-primary">DATE TEHNICE:</div>
                 <hr />
-                <span>@Model.Description</span>
+                <span>@Model.TechnicalData</span>
                 <br />
                
                  
@@ -197,6 +197,14 @@
     </div>
 </div>
 
+<div style="margin-top:60px" class="container">
+    <div style="font-size:16px" class="title-primary">DESCRIERE:</div>
+    <br />
+    <br />
+    
+    <div style="color:#212529">@Model.Description</div>
+</div>
+</div>
 
 @section Scripts
 {
@@ -241,8 +249,8 @@
             }
         }
 
-        $('.inner-content').css('margin-top', '700px');
+        $('.inner-content').css('margin-top', '300px');
         
-        
+      
         </script>
 }
