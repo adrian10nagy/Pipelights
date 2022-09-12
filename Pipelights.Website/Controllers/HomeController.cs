@@ -35,7 +35,7 @@ namespace Pipelights.Website.Controllers
         {
             if (!string.IsNullOrWhiteSpace(HttpContext.Session.GetString("emailSended")))
             {
-                ViewBag.emailSended = HttpContext.Session.GetString("emailSended");
+                TempData["value"] = "OK";
                 HttpContext.Session.Remove("emailSended");
             }
             return View();
