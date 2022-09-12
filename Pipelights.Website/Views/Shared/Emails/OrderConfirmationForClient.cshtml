@@ -1,0 +1,98 @@
+﻿@model Pipelights.Website.Models.Emails.OrderConfirmationEmailDto
+
+@{
+    Layout = null;
+    var productsPrice = 0;
+    var costLivrare = Model.Order.judete.Equals("Cluj") ? 0 : 30;
+}
+
+<h2>Ai plasat comanda cu numarul: @Model.OrderNumber</h2>
+<br>
+<h4>Detalii comanda:</h4>
+<table style="width: 400px">
+    <tr>
+        <td style="border: 1px solid grey; background-color:#92EFE4">Nume</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.surname</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Prenume</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.name</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Email</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.email</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Telefon</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.telephone</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Judet</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.judete</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Localitate</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.localitate</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#92EFE4">Adresa</td>
+        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.address</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid grey; background-color:#EFA892">
+            <b>Modalitate plata</b>
+        </td>
+        <td style="border:1px solid grey;background-color:#EFA892">@Model.Order.payment</td>
+    </tr>
+</table>
+<br>
+<table style="width: 400px ">
+    <tr>
+        <td style="border: 1px solid grey; background-color:#DECA26">Lampa</td>
+        <td style="border:1px solid grey;background-color:#DECA26">Pret</td>
+        <td style="border:1px solid grey;background-color:#DECA26">Cantitate</td>
+    </tr>
+    @if (Model.Cart.ProductsForCart != null)
+        foreach (var item in Model.Cart.ProductsForCart)
+        {
+            var price = 0;
+            if (item.ProductDetails.HasPricedReduced)
+            {
+                int.TryParse(item.ProductDetails.PriceReduced, out price);
+            }
+            else
+            {
+                int.TryParse(item.ProductDetails.Price, out price);
+            }
+
+            productsPrice = productsPrice + (item.Quantity * price);
+
+            <tr>
+                <td style="border:1px solid grey;">@item.ProductDetails.Name</td>
+                <td style="border:1px solid grey;">@price</td>
+                <td style="border:1px solid grey;">@item.Quantity</td>
+            </tr>
+        }
+</table>
+<BR>
+<table style="width:400px">
+    <tr>
+        <td>Total produse:</td>
+        <td>@productsPrice</td>
+    </tr>
+    <tr>
+        <td>Cost livrare:</td>
+        <td>@costLivrare</td>
+    </tr>
+    <tr>
+        <td>Total de plata:</td>
+        @{
+            var totalPrice = productsPrice + costLivrare;
+        }
+        <td>@totalPrice</td>
+    </tr>
+</table>
+
+<br />
+<h4>Ne-am apucat deja de treaba si incercam sa realizam lampa ta in cel mai scurt timp.</h4>
+<h4>Daca vrei sa afli in ce stadiu este comanda ta, nu ezita sa ne contactezi la numarul de telefon: 0746272923 sau prin email: serox.pipelights@gmail.com</h4>
