@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pipelights.Website.BusinessService;
 using Pipelights.Website.Models;
@@ -32,6 +33,11 @@ namespace Pipelights.Website.Controllers
         }
         public IActionResult Contact()
         {
+            if (!string.IsNullOrWhiteSpace(HttpContext.Session.GetString("emailSended")))
+            {
+                ViewBag.emailSended = HttpContext.Session.GetString("emailSended");
+                HttpContext.Session.Remove("emailSended");
+            }
             return View();
         }
 
@@ -43,8 +49,23 @@ namespace Pipelights.Website.Controllers
         [HttpPost]
         public IActionResult SendMessage(EmailDto model)
         {
-            _emailService.SendEmail("serox.pipelights@gmail.com",
-                model.subject + "Primit de la [" + model.name + "], email: " + model.email, model.message);
+            var emailSent = false;
+
+            if (!emailSent)
+            {
+                _emailService.SendEmail("serox.pipelights@gmail.com",
+                    model.subject + "Primit de la [" + model.name + "], email: " + model.email, model.message);
+                emailSent = true;
+            }
+            else
+            {
+                emailSent = false;
+            }
+
+            if (emailSent)
+            {
+                HttpContext.Session.SetString("emailSended", "Emailul a fost trimis cu succes! Iti vom raspunde in cel mai scurt timp.");
+            }
 
             return RedirectToAction("Contact", "Home");
         }
