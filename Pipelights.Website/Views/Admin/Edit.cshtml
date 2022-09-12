@@ -37,7 +37,9 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Description" class="control-label">Descriere</label>
-                    <input asp-for="Description" class="form-control" />
+                    <textarea name="Description" id="Description" class="form-control" >
+                        @Model?.Description
+                    </textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                  <div class="form-group">
@@ -108,3 +110,17 @@
 </div>
 
 
+                
+@section Scripts {
+    @{
+         <script src="https://cdn.tiny.cloud/1/xkg74bvbq9qybzl44aedwh27mnwildpssfuyxpr61xg1kxli/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    
+           <script>
+            tinymce.init({
+              selector: 'textarea#Description',
+              plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+              toolbar_mode: 'floating',
+            });
+  </script>
+}
+}
