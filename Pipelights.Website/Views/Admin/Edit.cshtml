@@ -44,7 +44,9 @@
                 </div>
                  <div class="form-group">
                     <label asp-for="TechnicalData" class="control-label">Date Tehnice</label>
-                    <input name="TechnicalData" class="form-control" />
+                    <textarea name="TechnicalData" id="TechnicalData" class="form-control" >
+                         @Model?.TechnicalData
+                    </textarea>
                     <span asp-validation-for="TechnicalData" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -115,12 +117,20 @@
     @{
          <script src="https://cdn.tiny.cloud/1/xkg74bvbq9qybzl44aedwh27mnwildpssfuyxpr61xg1kxli/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     
-           <script>
+    <script>
             tinymce.init({
               selector: 'textarea#Description',
               plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
               toolbar_mode: 'floating',
             });
+
+            tinymce.init({
+              selector: 'textarea#TechnicalData',
+              plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+              toolbar_mode: 'floating',
+            });
+
+
   </script>
 }
 }

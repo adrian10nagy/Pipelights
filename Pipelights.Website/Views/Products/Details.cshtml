@@ -185,10 +185,10 @@
             <div style="margin-top: 20px">
                 <div class="title-primary">DATE TEHNICE:</div>
                 <hr />
-                <span>@Model.TechnicalData</span>
+                <span>@Html.Raw(Model.TechnicalData)</span>
                 <br />
                
-                 
+                
 
                 <div style="margin-top:8px" class="title-primary">la comanda: disponibil in 10-12 zile</div>
 
@@ -202,7 +202,7 @@
     <br />
     <br />
     
-    <div style="color:#212529">@Model.Description</div>
+    <div style="color:#212529">@Html.Raw(Model.Description)</div>
 </div>
 </div>
 
@@ -249,8 +249,19 @@
             }
         }
 
-        $('.inner-content').css('margin-top', '300px');
         
+        
+        $(document).ready(function() {
+            // This will fire when document is ready:
+            $(window).resize(function() {
+                // This will fire each time the window is resized:
+                if($(window).width() <= 990) {
+                    $('.inner-content').css('margin-top', '1000px');
+                } else {
+                    $('.inner-content').css('margin-top', '400px');
+                }
+            }).resize(); // This will simulate a resize to trigger the initial run.
+        });
       
         </script>
 }
