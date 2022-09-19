@@ -36,7 +36,9 @@ namespace Pipelights.Website
 
             services.AddSingleton<IOrderDbService>(InitializeCosmosClientInstanceAsyncOrder(Configuration.GetSection("OrderDb")).GetAwaiter().GetResult());
             services.AddSingleton<ILampDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("LampDb")).GetAwaiter().GetResult());
+            services.AddSingleton<ICategoryDbService>(InitializeCosmosClientInstanceAsyncCategory(Configuration.GetSection("CategoryDb")).GetAwaiter().GetResult());
             services.AddTransient<ILampService, LampService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<ICartService, CartService>();
             services.AddTransient<IBlobService, BlobService>();
@@ -89,6 +91,20 @@ namespace Pipelights.Website
             var database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
             await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
             var cosmosDbService = new LampDbService(client, databaseName, containerName);
+
+            return cosmosDbService;
+        }
+
+        private static async Task<CategoryDbService> InitializeCosmosClientInstanceAsyncCategory(IConfigurationSection configurationSection)
+        {
+            var databaseName = configurationSection["DatabaseName"];
+            var containerName = configurationSection["ContainerName"];
+            var account = configurationSection["Account"];
+            var key = configurationSection["Key"];
+            var client = new Microsoft.Azure.Cosmos.CosmosClient(account, key);
+            var database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
+            var cosmosDbService = new CategoryDbService(client, databaseName, containerName);
 
             return cosmosDbService;
         }

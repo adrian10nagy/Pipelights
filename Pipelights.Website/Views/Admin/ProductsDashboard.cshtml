@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+<style>
+    footer {
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <h2>Bine ai venit! Aici poti modifica produsele!</h2>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="product-item">
+                <div class="down-content">
+                    <a href="~/Admin/Edit">
+                        <h4 style="
+                                      background-color: blue;
+                                      color: white;
+                                      padding: 6px;
+                                      border-radius: 7px;">
+                            Adauga produs!
+                        </h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="product-item">
+
+                    <img src="@item.MainImage">
+                    <div class="down-content">
+                        <a href="#"><h4>@item.Name</h4></a>
+                        <p>Descriere: @item.Description</p>
+                        <p> Pret: @item.Price</p>
+                        <p>Pret redus: @item.PriceReduced</p>
+                        @if (item.IsInactive)
+                        {
+                            <p style="background-color: bisque;padding: 5px;border-radius: 3px;"><b>Lampa Inactiva</b></p>
+                        }
+                    </div>
+                    <div class="down-content">
+                        <a href="~/Admin/Edit?id=@item.Id">
+                            <h4 style="
+                                      background-color: blue;
+                                      color: white;
+                                      padding: 6px;
+                                      border-radius: 7px;">
+                                Modifica-ma! 
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
