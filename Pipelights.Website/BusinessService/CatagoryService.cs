@@ -13,9 +13,9 @@ namespace Pipelights.Website.BusinessService
 {
     public interface ICategoryService
     {
-        ProductDetailsDto GetById(string id);
+        CategoryEntity GetById(string id);
         bool AddAsync(LampEntity item);
-        bool UpdateAsync(string id, LampEntity item);
+        bool UpdateAsync(string id, CategoryEntity item);
         bool DeleteAsync(string id);
         IEnumerable<CategoryEntity> GetMultiple(string query);
         IEnumerable<CategoryEntity> GetMultiple(int max = 1000);
@@ -23,20 +23,16 @@ namespace Pipelights.Website.BusinessService
 
     public class CategoryService : ICategoryService
     {
-        private readonly ICategoryDbService _lampDbService;
+        private readonly ICategoryDbService _categDbService;
 
         public CategoryService(ICategoryDbService categoryDbService)
         {
-            _lampDbService = categoryDbService;
+            _categDbService = categoryDbService;
         }
 
-        public ProductDetailsDto GetById(string id)
+        public CategoryEntity GetById(string id)
         {
-            throw new System.NotImplementedException();
-
-            //var lamp = _lampDbService.GetAsync(id).Result;
-
-            //return new ProductDetailsDto(lamp, _webHostEnvironment, _blobService);
+            return _categDbService.GetAsync(id).Result;
         }
 
         public bool AddAsync(LampEntity item)
@@ -57,7 +53,7 @@ namespace Pipelights.Website.BusinessService
 
         }
 
-        public bool UpdateAsync(string id, LampEntity item)
+        public bool UpdateAsync(string id, CategoryEntity item)
         {
             throw new System.NotImplementedException();
             //try
@@ -82,7 +78,7 @@ namespace Pipelights.Website.BusinessService
         public IEnumerable<CategoryEntity> GetMultiple(string query)
         {
 
-            var dbResult = _lampDbService.GetMultipleAsync(query).Result;
+            var dbResult = _categDbService.GetMultipleAsync(query).Result;
 
 
             return dbResult;
