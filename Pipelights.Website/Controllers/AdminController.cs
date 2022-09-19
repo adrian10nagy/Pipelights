@@ -14,14 +14,16 @@ namespace Pipelights.Website.Controllers
     public class AdminController : Controller
     {
         private readonly ILampService _lampService;
+        private readonly ICategoryService _categoryService;
         private readonly IBlobService _blobService;
         private readonly ILogger<AdminController> _logger;
 
-        public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService)
+        public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService, ICategoryService categoryService)
         {
             _lampService = lampService;
             _logger = logger;
             _blobService = blobService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -102,7 +104,19 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Dashboard()
         {
-            IEnumerable<ProductDetailsDto> productsDto = _lampService.GetMultiple("SELECT * FROM c", true).OrderBy(l=> l.IsInactive);
+            return View();
+        }
+
+        public IActionResult ProductsDashboard()
+        {
+            IEnumerable<ProductDetailsDto> productsDto = _lampService.GetMultiple("SELECT * FROM c", true).OrderBy(l => l.IsInactive);
+
+            return View(productsDto);
+        }
+
+        public IActionResult CategoriesDashboard()
+        {
+            IEnumerable<CategoryEntity> productsDto = _categoryService.GetMultiple("SELECT * FROM c");
 
             return View(productsDto);
         }
