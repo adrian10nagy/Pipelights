@@ -430,6 +430,11 @@ header .navbar {
 	margin-bottom: 30px;
 }
 
+.product-itemcategories {
+	border: 1px solid #eee;
+	margin-bottom: 30px;
+}
+
 .product-item:hover {
 	opacity:.8;
 }
