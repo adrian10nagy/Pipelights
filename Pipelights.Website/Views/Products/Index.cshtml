@@ -8,6 +8,7 @@
     ViewData["Title"] = "Corpuri de iluminat in stil industrial by SeRox";
 }
 
+
 <div class="container">
     <div>
         <div class="section-heading">
@@ -15,6 +16,12 @@
             <a href="~/Products/Index">view all products <i class="fa fa-angle-right"></i></a>
         </div>
     </div>
+
+    <br />
+    <h3>@ViewBag.Categories</h3>
+    <br />
+    <br />
+
     <div class="row">
         @foreach (var lampEntity in Model)
         {

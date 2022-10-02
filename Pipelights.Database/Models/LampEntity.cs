@@ -25,7 +25,7 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("isInactive")]
         public bool IsInactive { get; set; }
 
-        [JsonPropertyName("categories")]
-        public List<int> Categories { get; set; }
+        [JsonPropertyName("category")]
+        public string Category { get; set; }
     }
 }

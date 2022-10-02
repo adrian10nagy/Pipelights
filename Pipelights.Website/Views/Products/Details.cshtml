@@ -95,7 +95,7 @@
         @*descriptions on the right*@
 
         
-        <div style="height:600px!important;z-index:9999" class="col-lg-5 col-md-12 col-sm-12 pdp pdp-right">
+        <div style="height:600px!important;z-index:99" class="col-lg-5 col-md-12 col-sm-12 pdp pdp-right">
             <h2 style="margin-bottom: 10px">@Model.Name</h2>
             @if (Model.HasPricedReduced)
             {
@@ -253,15 +253,15 @@
         
         $(document).ready(function() {
             // This will fire when document is ready:
-            $(window).resize(function() {
-                // This will fire each time the window is resized:
+            
                 if($(window).width() <= 990) {
-                    $('.inner-content').css('margin-top', '1000px');
+                    
+                    $('.inner-content').css('margin-top', '1300px');
                 } else {
+                     
                     $('.inner-content').css('margin-top', '400px');
                 }
-            }).resize(); // This will simulate a resize to trigger the initial run.
         });
-      
+         
         </script>
 }

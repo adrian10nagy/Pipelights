@@ -14,7 +14,7 @@ namespace Pipelights.Website.BusinessService
     public interface ICategoryService
     {
         CategoryEntity GetById(string id);
-        bool AddAsync(LampEntity item);
+        bool AddAsync(CategoryEntity item);
         bool UpdateAsync(string id, CategoryEntity item);
         bool DeleteAsync(string id);
         IEnumerable<CategoryEntity> GetMultiple(string query);
@@ -35,39 +35,39 @@ namespace Pipelights.Website.BusinessService
             return _categDbService.GetAsync(id).Result;
         }
 
-        public bool AddAsync(LampEntity item)
+        public bool AddAsync(CategoryEntity item)
         {
-            throw new System.NotImplementedException();
-            //try
-            //{
-            //    var task = Task.Run(async () => await _lampDbService.AddAsync(item));
-            //    task.GetAwaiter().GetResult();
-            //    return true;
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //    return false;
-            //}
+
+            try
+            {
+                var task = Task.Run(async () => await _categDbService.AddAsync(item));
+                task.GetAwaiter().GetResult();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
 
 
         }
 
         public bool UpdateAsync(string id, CategoryEntity item)
         {
-            throw new System.NotImplementedException();
-            //try
-            //{
-            //    var task = Task.Run(async () => await _lampDbService.UpdateAsync(item));
-            //    task.GetAwaiter().GetResult();
 
-            //    return true;
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //    return false;
-            //}
+            try
+            {
+                var task = Task.Run(async () => await _categDbService.UpdateAsync(item));
+                task.GetAwaiter().GetResult();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
         }
 
         public bool DeleteAsync(string id)

@@ -5,6 +5,61 @@ TemplateMo 546 Sixteen Clothing
 https://templatemo.com/tm-546-sixteen-clothing
 
 */
+
+.categoriesdiv {
+	border: 1px solid #eee;
+	width: 200px;
+	background: #ffffff;
+	-webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	-webkit-transition: all ease 0.35s;
+	-moz-transition: all ease 0.35s;
+	transition: all ease 0.35s;
+	position: absolute;
+	top: 60px;
+	left: -60px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.onhover {
+}
+
+	.onhover:hover {
+		color: #F0B250;
+		opacity: .9;
+	}
+
+	.onhover:active {
+		color: #F0B250;
+		opacity: .9;
+	}
+
+.categoriesdivsmallscreen {
+	border: 1px solid #eee;
+	width: 100%;
+	background: #ffffff;
+	-webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	-webkit-transition: all ease 0.35s;
+	-moz-transition: all ease 0.35s;
+	cursor: pointer;
+	transition: all ease 0.35s;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.categories {
+	opacity: 0;
+	display: none;
+}
+
+.categoriesshow {
+	opacity: 1;
+	display: block;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
@@ -279,7 +334,7 @@ header .navbar {
 	font-weight: 500;
 	letter-spacing: 0.5px;
 	color: #121212;
-	transition: all 0.5s;
+	/*transition: all 0.5s;*/
 	margin-top: 5px;
 }
 .navbar .navbar-nav .nav-link:hover,
@@ -958,27 +1013,31 @@ footer .inner-content p a {
 	opacity: 100;
 	font-size: 11px;
 }
-@media (max-width: 1024px) {
-	.cartgoldencircle {
-		position: absolute;
-		color: white;
-		background-color: #f0b250 !important;
-		width: 18px;
-		height: 18px;
-		border-radius: 50%;
-		padding: 1px;
-		margin-top: -39px;
-		margin-left: 50%;
-		opacity: 100;
-		font-size: 11px;
+
+
+
+	@media (max-width: 1024px) {
+		.cartgoldencircle {
+			position: absolute;
+			color: white;
+			background-color: #f0b250 !important;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			padding: 1px;
+			margin-top: -39px;
+			margin-left: 50%;
+			opacity: 100;
+			font-size: 11px;
+		}
 	}
-}
-       
-
-/* Responsive Style */
-
+	/* Responsive Style */
 }
 @media (max-width: 768px) {
+
+
+	
+	
 	
 
 	.banner .text-content {

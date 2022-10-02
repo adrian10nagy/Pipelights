@@ -28,6 +28,7 @@ namespace Pipelights.Website.BusinessService.Models
             Price = lamp.Price;
             PriceReduced = lamp.PriceReduced;
             IsInactive = lamp.IsInactive;
+            Categories = lamp.Category;
             Resources = GetImagesFromRoot(lamp.id).OrderByDescending(x => x.Contains("1.")).ToList();
             if (!Resources.Any())
             {

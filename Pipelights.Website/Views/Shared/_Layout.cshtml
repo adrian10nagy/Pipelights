@@ -53,9 +53,64 @@
             color:#F0B250;
         }
        
-		
-	
+		.categoriesdiv {
+	        border: 1px solid #eee;
+	        width: 200px;
+	        background: #ffffff;
+	        -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	        box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+	        -webkit-transition: all ease 0.35s;
+	        -moz-transition: all ease 0.35s;
+	        transition: all ease 0.35s;
+	        position: absolute;
+	        top: 60px;
+            left: -60px;
+            cursor:pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color:black;
+        }
 
+        .onhover{
+
+        }
+
+        .onhover:hover {
+            color:#F0B250;
+            opacity:.9;
+        }
+
+        .onhover:active {
+            color:#F0B250;
+            opacity:.9;
+        }        
+        .categoriesdivsmallscreen {
+		    border: 1px solid #eee;
+		    width: 100%;
+		    background: #ffffff;
+		    -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+		    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+		    -webkit-transition: all ease 0.35s;
+		    -moz-transition: all ease 0.35s;
+            cursor:pointer;
+		    transition: all ease 0.35s;
+            font-size: 14px;
+             font-weight: 500;
+             color:black;
+             
+	    }
+
+        .categories {
+            opacity:0;
+            display:none;
+        }
+
+        .categoriesshow {
+            opacity:1;
+            display:block;
+        }
+	
+       
     </style>
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -168,8 +223,22 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Products">Produse</a>
+                        <li class="nav-item" style="position:relative">
+                            <a style="cursor:pointer" class="nav-link productsclick">Produse</a>
+                            <div class="categoriesdiv categories">
+                                <ul>
+                                    <a style="text-decoration:none" href="~/Products/Index"><li class="my-1 p-2 onhover">Toate Produsele</li></a>
+                                    <Hr />
+                                    <a style="text-decoration:none" href="~/Products/Index?Id=lampi"><li class="my-1 p-2 onhover">Lampi</li></a>
+                                    <Hr />
+                                    <a style="text-decoration:none" href="~/Products/Index?Id=oameni"><li class="my-1 p-2 onhover">Oameni</li></a>
+                                    <hr />
+                                    <a style="text-decoration:none" href="~/Products/Index?Id=cupru"><li class="my-1 p-2 onhover">Cupru</li></a>
+                                    <hr />
+                                    @*<a style="text-decoration:none" href="~/Products/Index?Id=lampadare"><li class="my-1 p-2 onhover">Lampadare</li></a>
+                                    <hr />*@
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="~/Home/About">Portofoliu</a>
@@ -281,7 +350,7 @@
                         </div>
                             <br />
                             <br />
-
+                              
                             <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:center;" >
                 
                 
@@ -323,8 +392,36 @@
     <script src="~/lib/from-template/js/slick.js"></script>
     <script src="~/lib/from-template/js/isotope.js"></script>
     <script src="~/lib/from-template/js/accordions.js"></script>
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+     <script>
+          $(document).ready(function() {
+            // This will fire when document is ready:
+            
+                if($(window).width() <= 990) {
+                    
+                    $('.categories').addClass('categoriesdivsmallscreen');
+                    $('.categories').removeClass('categoriesdiv');
 
 
+                } else {
+                    
+                    $('.categories').removeClass('categoriesdivsmallscreen');
+                    $('.categories').addClass('categoriesdiv');
+                }
+        });
+
+        //show categories when click on products
+        $(".productsclick").click(function(){
+          $(".categories").toggleClass("categoriesshow");
+        });
+
+        //hide categories menu when click outside of categoriesDiv
+
+
+
+       
+    </script>
     <script language="text/Javascript">
             cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
             function clearField(t) {                   //declaring the array outside of the
@@ -336,7 +433,7 @@
             }
 
     
-    
+       
    
     
             

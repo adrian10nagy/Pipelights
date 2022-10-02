@@ -50,6 +50,8 @@ namespace Pipelights.Website.Controllers
                 return View(null);
             }
             var productDetailsDto = _lampService.GetById(id);
+            IEnumerable<CategoryEntity> categoriesDto = _categoryService.GetMultiple("SELECT * FROM c");
+            ViewBag.Categories = categoriesDto;
 
             return View(productDetailsDto);
         }
@@ -73,9 +75,6 @@ namespace Pipelights.Website.Controllers
                 model.Id = model.Name.Replace(" ", string.Empty);
             }
 
-            List<int> ints = new List<int>();
-
-            model.Categories.Split(',').ToList().ForEach(x => ints.Add(int.Parse(x)));
 
             var dbModel = new LampEntity
             {
@@ -86,7 +85,7 @@ namespace Pipelights.Website.Controllers
                 Price = model.Price,
                 PriceReduced = model.PriceReduced,
                 IsInactive = model.IsInactive,
-                Categories = ints,
+                Category = model.Categories,
             };
 
 
@@ -102,6 +101,43 @@ namespace Pipelights.Website.Controllers
             return RedirectToAction("Edit", "Admin", new { id = model.Id });
         }
 
+        
+        public IActionResult EditCategory(string id)
+        {
+            if (id == null)
+            {
+                return View(null);
+            }
+            var categoryDetailsDto = _categoryService.GetById(id);
+
+            return View(categoryDetailsDto);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult EditCategory(CategoryDetailsDto model)
+        {
+            var categoryEntity = new CategoryEntity
+            {
+                id = model.id,
+                Name = model.Name,
+            };
+            _categoryService.UpdateAsync(model.id, categoryEntity);
+            return RedirectToAction("CategoriesDashboard", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult AddCategory(CategoryDetailsDto model)
+        {
+            var categoryEntity = new CategoryEntity
+            {
+                id = model.id,
+                Name = model.Name,
+            };
+            _categoryService.AddAsync(categoryEntity);
+            return RedirectToAction("CategoriesDashboard", "Admin");
+        }
         public IActionResult Dashboard()
         {
             return View();

@@ -1,4 +1,5 @@
-﻿@model Pipelights.Website.BusinessService.Models.ProductDetailsDto
+﻿@using Pipelights.Database.Models
+@model Pipelights.Website.BusinessService.Models.ProductDetailsDto
 
 @{
     if (Model == null)
@@ -9,6 +10,9 @@
     {
         ViewData["Title"] = "Edit";
     }
+
+    var categories = (List<CategoryEntity>)ViewBag.Categories;
+
 }
 
 <style>
@@ -17,7 +21,7 @@
     }
 </style>
 <h1>Edit</h1>
-
+@categories.Count
 <h4>ProductDetailsDto</h4>
 <hr />
 <div class="container">
@@ -66,7 +70,25 @@
                 </div>
                   <div class="form-group">
                     <label asp-for="Categories" class="control-label">Categorii</label>
-                    <input name="Categories" value="1,2" class="form-control" />
+                    
+                <label for="pet-select">Choose a pet:</label>
+
+                <select name="Categories" >
+    
+    
+                    @foreach(var category in categories)
+                    {
+                            if(Model.Categories == category.id)
+                            {
+                                <option value="@category.id" selected>@category.Name</option>
+                            }else 
+                            {
+                            <option value="@category.id">@category.Name</option>
+                            }
+                    }
+
+                </select>
+
                </div>
                 <div>
                     <h2>Imagini</h2>

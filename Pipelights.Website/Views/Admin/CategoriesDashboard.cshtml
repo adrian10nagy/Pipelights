@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Pipelights.Database.Models.CategoryEntity>
 
+   
+
 <style>
     footer {
         display: none;
@@ -14,8 +16,38 @@
     <br />
     <br />
     <div class="row">
-        <h2>Bine ai venit!</h2>
+        <h2>Salut! Editeaza categoriile...daca vrei, fireste...</h2>
     </div>
+     <br />
+     <br /><br />
+
+    @foreach(var item in Model)
+    {
+        <h4>ID categorie:  <b style="color:#F0B250">@item.id</b></h4>
+        <h4>Nume categorie:  <b style="color:#F0B250">@item.Name</b></h4>
+        
+         <a style="font-size:20px" href="~/Admin/EditCategory?id=@item.id">Editeaza categorie</a>
+         <br />  <br />  <br />
+    }
+</div>
+
+<br />
+<form asp-action="AddCategory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="id" class="control-label"></label>
+                <input name="id" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-label"></label>
+                <input name="Name" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
 
     
-</div>
