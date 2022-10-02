@@ -14,16 +14,19 @@ namespace Pipelights.Website.Controllers
     public class AdminController : Controller
     {
         private readonly ILampService _lampService;
+        private readonly IOrderService _orderService;
         private readonly ICategoryService _categoryService;
         private readonly IBlobService _blobService;
         private readonly ILogger<AdminController> _logger;
 
-        public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService, ICategoryService categoryService)
+        public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService,
+            ICategoryService categoryService, IOrderService orderService)
         {
             _lampService = lampService;
             _logger = logger;
             _blobService = blobService;
             _categoryService = categoryService;
+            _orderService = orderService;
         }
 
         public IActionResult Index()
@@ -155,6 +158,20 @@ namespace Pipelights.Website.Controllers
             IEnumerable<CategoryEntity> productsDto = _categoryService.GetMultiple("SELECT * FROM c");
 
             return View(productsDto);
+        }
+
+        public IActionResult OrdersDashboard()
+        {
+            IEnumerable<OrderEntity> ordersDto = _orderService.GetMultiple("SELECT * FROM c order by c._ts desc");
+
+            return View(ordersDto);
+        }
+
+        public IActionResult OrdersDashboardDetails(string id)
+        {
+            OrderEntity orderDto = _orderService.GetById(id);
+
+            return View("OrdersDashboardDetails", orderDto);
         }
 
         [HttpPost]

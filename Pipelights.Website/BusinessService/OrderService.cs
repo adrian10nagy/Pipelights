@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Pipelights.Database.Models;
 using Pipelights.Database.Services;
@@ -11,6 +12,9 @@ namespace Pipelights.Website.BusinessService
     public interface IOrderService
     {
         string SaveOrder(Order order, Cart cart);
+        IEnumerable<OrderEntity> GetMultiple(string query);
+        IEnumerable<OrderEntity> GetMultiple(int max = 1000);
+        OrderEntity GetById(string id);
     }
 
     public class OrderService : IOrderService
@@ -20,6 +24,11 @@ namespace Pipelights.Website.BusinessService
         public OrderService(IOrderDbService orderDbService)
         {
             _orderDbService = orderDbService;
+        }
+
+        public OrderEntity GetById(string id)
+        {
+            return _orderDbService.GetAsync(id).Result;
         }
 
         public string SaveOrder(Order order, Cart cart)
@@ -75,6 +84,24 @@ namespace Pipelights.Website.BusinessService
                     LampId = product.ProductDetails.Id
                 });
             }
+
+            return result;
+        }
+
+        public IEnumerable<OrderEntity> GetMultiple(string query)
+        {
+
+            var dbResult = _orderDbService.GetMultipleAsync(query).Result;
+
+
+            return dbResult;
+        }
+
+        public IEnumerable<OrderEntity> GetMultiple(int max = 1000)
+        {
+            var dbResult = GetMultiple("SELECT * FROM c order by c._ts DESC");
+
+            var result = dbResult.Take(max);
 
             return result;
         }
