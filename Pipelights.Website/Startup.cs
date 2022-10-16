@@ -45,7 +45,7 @@ namespace Pipelights.Website
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IOrderService, OrderService>();
 
-            var serviceBusEndpoint = "DefaultEndpointsProtocol=https;AccountName=samasterpocpipe;AccountKey=R1E85Qr4D5KBWHt+iPC+IFgGumV3aT7J92T3mqE2ki1/vynN4PkNSuvp9XA9uk3FpnH/7tPYuDuzK0ONu8VypA==;EndpointSuffix=core.windows.net";
+            var serviceBusEndpoint = "DefaultEndpointsProtocol=https;AccountName=samasterpocpipe2;AccountKey=yuvUONwWzMN5YeCDGqWOFiCRdRKwOPmQyfCO7H9zKNZnIGBQJXvp8zh3TWwRSbG42tEsT6cjD82n+ASt9+7Zgw==;EndpointSuffix=core.windows.net";
             services.AddSingleton(d => new BlobServiceClient(serviceBusEndpoint));
             services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 

@@ -130,6 +130,11 @@ namespace Pipelights.Website.Services
             // List all blobs in the container
             foreach (var blobItem in containerClient.GetBlobs(BlobTraits.All, BlobStates.None, folder))
             {
+                if (blobItem == null || !blobItem.Name.StartsWith(folder + "/"))
+                {
+                    continue;
+                }
+
                 result.Add($"{containerClient.Uri.AbsoluteUri}/{blobItem.Name}");
             }
 
