@@ -71,19 +71,7 @@
             color:black;
         }
 
-        .onhover{
-
-        }
-
-        .onhover:hover {
-            color:#F0B250;
-            opacity:.9;
-        }
-
-        .onhover:active {
-            color:#F0B250;
-            opacity:.9;
-        }        
+        
         .categoriesdivsmallscreen {
 		    border: 1px solid #eee;
 		    width: 100%;
@@ -109,7 +97,24 @@
             opacity:1;
             display:block;
         }
-	
+
+        .forLink {
+            text-decoration:none!important;
+            color:#212529!important;
+            margin-top: 1rem!important;
+            margin-bottom: 1rem!important; 
+            padding:0!important;
+        }
+
+        .forLink:hover{
+            color:#F0B250!important;
+            opacity:.9;
+        }	
+
+        .forLink:active{
+            color:#F0B250!important;
+            opacity:.9;
+        }	
        
     </style>
 </head>
@@ -227,15 +232,15 @@
                             <a style="cursor:pointer" class="nav-link productsclick">Produse</a>
                             <div class="categoriesdiv categories">
                                 <ul>
-                                    <a style="text-decoration:none" href="~/Products/Index"><li class="my-1 p-2 onhover">Toate Produsele</li></a>
+                                    <a  href="~/Products/Index"><li class="forLink my-1 p-2 onhover">Toate Produsele</li></a>
                                     <Hr />
-                                    <a style="text-decoration:none" href="~/Products/Index?Id=lampi"><li class="my-1 p-2 onhover">Lampi</li></a>
+                                    <a  href="~/Products/Index?Id=lampi"><li class="forLink my-1 p-2 onhover">Lampi</li></a>
                                     <Hr />
-                                    <a style="text-decoration:none" href="~/Products/Index?Id=oameni"><li class="my-1 p-2 onhover">Oameni</li></a>
+                                    <a  href="~/Products/Index?Id=oameni"><li class="forLink my-1 p-2 onhover">Oameni</li></a>
                                     <hr />
-                                    <a style="text-decoration:none" href="~/Products/Index?Id=cupru"><li class="my-1 p-2 onhover">Cupru</li></a>
-                                    <hr />
-                                    @*<a style="text-decoration:none" href="~/Products/Index?Id=lampadare"><li class="my-1 p-2 onhover">Lampadare</li></a>
+                                    <a  href="~/Products/Index?Id=cupru"><li class="forLink my-1 p-2 onhover">Cupru</li></a>
+                                   @* <hr />
+                                    <a style="text-decoration:none" href="~/Products/Index?Id=lampadare"><li class="my-1 p-2 onhover">Lampadare</li></a>
                                     <hr />*@
                                 </ul>
                             </div>

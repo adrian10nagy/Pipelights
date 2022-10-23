@@ -48,13 +48,14 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Edit(string id)
         {
-            if (id == null)
-            {
-                return View(null);
-            }
-            var productDetailsDto = _lampService.GetById(id);
             IEnumerable<CategoryEntity> categoriesDto = _categoryService.GetMultiple("SELECT * FROM c");
             ViewBag.Categories = categoriesDto;
+            if (id == null)
+            {
+                return View();
+            }
+            var productDetailsDto = _lampService.GetById(id);
+            
 
             return View(productDetailsDto);
         }

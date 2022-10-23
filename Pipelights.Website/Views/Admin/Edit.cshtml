@@ -78,7 +78,7 @@
     
                     @foreach(var category in categories)
                     {
-                            if(Model.Categories == category.id)
+                            if(Model != null && Model.Categories == category.id)
                             {
                                 <option value="@category.id" selected>@category.Name</option>
                             }else 
