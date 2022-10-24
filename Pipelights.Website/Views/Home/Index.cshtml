@@ -143,12 +143,14 @@
 </div>
 
 
+
+
 <!-- Banner Ends Here -->
 
 <div class="latest-products">
     <div class="container">
         <div class="row ">
-            <div class="col-md-12">
+            <div class="col-md-10 col-lg-10">
                 <div class="section-heading">
                     <h2 style="color:#212529">Noutati</h2>
                     <a style="color:#212529; font-weight: 350;" class="veziproduse" href="~/Products"> VEZI PRODUSELE  @*<svg style="transform: rotate(180deg); color: #212529"version="1.1" class="svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
@@ -157,7 +159,7 @@
             </div>
             @foreach (var item in Model)
             {
-                <div class="col-md-4">
+                <div class="col-md-4 col-lg-4">
                     <div class="product-item">
                         <a href="~/Products/Details?Id=@item.Id">
                             <img src="@item.MainImage" alt="">

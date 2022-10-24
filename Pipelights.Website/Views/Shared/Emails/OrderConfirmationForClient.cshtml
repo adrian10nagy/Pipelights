@@ -6,37 +6,39 @@
     var costLivrare = Model.Order.judete.Equals("Cluj") ? 0 : 30;
 }
 
+<h2>Buna @Model.Order.surname,</h2>
+<br />
 <h2>Ai plasat comanda cu numarul: @Model.OrderNumber</h2>
 <br>
 <h4>Detalii comanda:</h4>
 <table style="width: 400px">
     <tr>
-        <td style="border: 1px solid grey; background-color:#92EFE4">Nume</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.surname</td>
+        <td style="border: 1px solid grey; background-color:#d5f4e6">Nume</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.surname</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Prenume</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.name</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Prenume</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.name</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Email</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.email</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Email</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.email</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Telefon</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.telephone</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Telefon</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.telephone</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Judet</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.judete</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Judet</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.judete</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Localitate</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.localitate</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Localitate</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.localitate</td>
     </tr>
     <tr>
-        <td style="border:1px solid grey; background-color:#92EFE4">Adresa</td>
-        <td style="border:1px solid grey;background-color:#92EFE4">@Model.Order.address</td>
+        <td style="border:1px solid grey; background-color:#d5f4e6">Adresa</td>
+        <td style="border:1px solid grey;background-color:#d5f4e6">@Model.Order.address</td>
     </tr>
     <tr>
         <td style="border:1px solid grey; background-color:#EFA892">
@@ -48,9 +50,9 @@
 <br>
 <table style="width: 400px ">
     <tr>
-        <td style="border: 1px solid grey; background-color:#DECA26">Lampa</td>
-        <td style="border:1px solid grey;background-color:#DECA26">Pret</td>
-        <td style="border:1px solid grey;background-color:#DECA26">Cantitate</td>
+        <td style="border: 1px solid grey; background-color:#80ced6">Lampa</td>
+        <td style="border:1px solid grey;background-color:#80ced6">Pret</td>
+        <td style="border:1px solid grey;background-color:#80ced6">Cantitate</td>
     </tr>
     @if (Model.Cart.ProductsForCart != null)
         foreach (var item in Model.Cart.ProductsForCart)
@@ -77,7 +79,7 @@
 <BR>
 <table style="width:400px">
     <tr>
-        <td>Total produse:</td>
+        <td>Cost produse:</td>
         <td>@productsPrice</td>
     </tr>
     <tr>
@@ -94,5 +96,5 @@
 </table>
 
 <br />
-<h4>Ne-am apucat deja de treaba si incercam sa realizam lampa ta in cel mai scurt timp.</h4>
-<h4>Daca vrei sa afli in ce stadiu este comanda ta, nu ezita sa ne contactezi la numarul de telefon: 0746272923 sau prin email: serox.pipelights@gmail.com</h4>
+<h4>Multumim pentru comanda!</h4>
+<h4>Daca vrei sa afli in ce stadiu este comanda ta, nu ezita sa ne contactezi la numarul 0746272923 sau prin email: serox.pipelights@gmail.com</h4>
