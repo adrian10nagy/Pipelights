@@ -64,6 +64,20 @@ namespace Pipelights.Website.Controllers
 
                 return View(productsDtoCupru);
             }
+            else if (id == "becuri")
+            {
+                var category = new CategoryEntity();
+                var productsDtoCupru = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri'", false);
+
+                if (productsDtoCupru == null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Categories = "Becuri";
+
+                return View(productsDtoCupru);
+            }
             else
             {
                 var productsDto = _lampService.GetMultiple("SELECT * FROM c", false);
