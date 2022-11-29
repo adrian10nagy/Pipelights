@@ -67,16 +67,16 @@ namespace Pipelights.Website.Controllers
             else if (id == "becuri")
             {
                 var category = new CategoryEntity();
-                var productsDtoCupru = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri'", false);
+                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri'", false);
 
-                if (productsDtoCupru == null)
+                if (productsDtoBecuri == null)
                 {
                     return RedirectToAction("Index", "Home");
                 }
 
                 ViewBag.Categories = "Becuri";
 
-                return View(productsDtoCupru);
+                return View(productsDtoBecuri);
             }
             else
             {
@@ -99,6 +99,12 @@ namespace Pipelights.Website.Controllers
             }
 
             var lamp = _lampService.GetById(id);
+            var cat = lamp.Categories;
+
+            if(cat == "becuri")
+            {
+                ViewBag.Becuri = "becuri";
+            }
 
             if (lamp == null)
             {

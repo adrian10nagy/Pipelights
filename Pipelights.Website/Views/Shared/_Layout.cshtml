@@ -401,22 +401,22 @@
      <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
      <script>
-          $(document).ready(function() {
-            // This will fire when document is ready:
+
+         
+        $(window).on('resize', function(){
+            var win = $(this); //this = window
             
-                if($(window).width() <= 990) {
-                    
-                    $('.categories').addClass('categoriesdivsmallscreen');
-                    $('.categories').removeClass('categoriesdiv');
-
-
-                } else {
-                    
-                    $('.categories').removeClass('categoriesdivsmallscreen');
-                    $('.categories').addClass('categoriesdiv');
-                }
+            if (win.width() <= 1000) { 
+                $('.categories').addClass('categoriesdivsmallscreen');
+                $('.categories').removeClass('categoriesdiv');
+            }
+            else{
+                $('.categories').removeClass('categoriesdivsmallscreen');
+                $('.categories').addClass('categoriesdiv');
+            }
         });
 
+    
         //show categories when click on products
         $(".productsclick").click(function(){
           $(".categories").toggleClass("categoriesshow");

@@ -15,6 +15,7 @@
 
 @{
     ViewData["Title"] = @Model.Name + " - Corpuri de iluminat in stil industrial by Serox";
+    
 }
 
 <br />
@@ -189,8 +190,15 @@
                 <br />
                
                 
-
-                <div style="margin-top:8px" class="title-primary">la comanda: disponibil in 10-12 zile</div>
+                    @if (ViewBag.Becuri == "becuri")
+                    {
+                         <div style="margin-top:8px" class="title-primary">livrare in 2-3 zile</div>
+                    }
+                    else
+                    {
+                        <div style="margin-top:8px" class="title-primary">la comanda: livrare in 10-12 zile</div>
+                    }
+                   
 
             </div>
         </div>
