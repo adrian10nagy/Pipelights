@@ -46,7 +46,7 @@ namespace Pipelights.Website.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                ViewBag.Categories = "Oameni";
+                ViewBag.Categories = "Omuleti";
 
                 return View(productsDtoOameni);
             }
