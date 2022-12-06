@@ -401,7 +401,16 @@
      <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
      <script>
-
+         if ($(window).width() < 700) 
+           {
+               $('.categories').addClass('categoriesdivsmallscreen');
+               $('.categories').removeClass('categoriesdiv');
+           }
+           else
+           {
+               $('.categories').removeClass('categoriesdivsmallscreen');
+               $('.categories').addClass('categoriesdiv');
+           }
          
         $(window).on('resize', function(){
             var win = $(this); //this = window
