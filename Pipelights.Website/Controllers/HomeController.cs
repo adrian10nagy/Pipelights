@@ -23,7 +23,7 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Index()
         {
-            var latestProducts = _lampsService.GetMultiple(false, 6).ToList();
+            var latestProducts = _lampsService.GetMultiple(false, 4).ToList();
 
             return View(latestProducts);
         }
@@ -35,7 +35,7 @@ namespace Pipelights.Website.Controllers
         {
             if (!string.IsNullOrWhiteSpace(HttpContext.Session.GetString("emailSended")))
             {
-                TempData["value"] = "OK";
+                ViewBag.ShowModalScript = "showModal();";
                 HttpContext.Session.Remove("emailSended");
             }
             return View();
