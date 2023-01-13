@@ -195,7 +195,7 @@ namespace Pipelights.Website.Controllers
                         Cart = cart
                     }).Result;
 
-                _emailService.SendEmail($"{model.email}", $"A fost '' plasata o comanda! {orderNr}", bodyForClient);
+                _emailService.SendEmail($"{model.email}", $"Salut. Ai plasat comanda {orderNr}", bodyForClient);
 
 
             }

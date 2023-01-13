@@ -89,6 +89,7 @@ namespace Pipelights.Website.Controllers
                 Price = model.Price,
                 PriceReduced = model.PriceReduced,
                 IsInactive = model.IsInactive,
+                IsOnStock = model.IsOnStock,
                 Category = model.Categories,
             };
 

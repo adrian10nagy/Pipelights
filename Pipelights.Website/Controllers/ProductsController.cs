@@ -99,11 +99,18 @@ namespace Pipelights.Website.Controllers
             }
 
             var lamp = _lampService.GetById(id);
+
             var cat = lamp.Categories;
+            var isOnStock = lamp.IsOnStock;
 
             if(cat == "becuri")
             {
                 ViewBag.Becuri = "becuri";
+            }
+
+            if (isOnStock)
+            {
+                ViewBag.IsOnStock = "true";
             }
 
             if (lamp == null)
