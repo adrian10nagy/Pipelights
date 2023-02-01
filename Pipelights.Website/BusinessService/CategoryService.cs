@@ -23,16 +23,16 @@ namespace Pipelights.Website.BusinessService
 
     public class CategoryService : ICategoryService
     {
-        private readonly ICategoryDbService _categDbService;
+        private readonly ICategoryDbService _voucherDbService;
 
         public CategoryService(ICategoryDbService categoryDbService)
         {
-            _categDbService = categoryDbService;
+            _voucherDbService = categoryDbService;
         }
 
         public CategoryEntity GetById(string id)
         {
-            return _categDbService.GetAsync(id).Result;
+            return _voucherDbService.GetAsync(id).Result;
         }
 
         public bool AddAsync(CategoryEntity item)
@@ -40,7 +40,7 @@ namespace Pipelights.Website.BusinessService
 
             try
             {
-                var task = Task.Run(async () => await _categDbService.AddAsync(item));
+                var task = Task.Run(async () => await _voucherDbService.AddAsync(item));
                 task.GetAwaiter().GetResult();
                 return true;
             }
@@ -58,7 +58,7 @@ namespace Pipelights.Website.BusinessService
 
             try
             {
-                var task = Task.Run(async () => await _categDbService.UpdateAsync(item));
+                var task = Task.Run(async () => await _voucherDbService.UpdateAsync(item));
                 task.GetAwaiter().GetResult();
 
                 return true;
@@ -78,7 +78,7 @@ namespace Pipelights.Website.BusinessService
         public IEnumerable<CategoryEntity> GetMultiple(string query)
         {
 
-            var dbResult = _categDbService.GetMultipleAsync(query).Result;
+            var dbResult = _voucherDbService.GetMultipleAsync(query).Result;
 
 
             return dbResult;

@@ -55,7 +55,73 @@
 <br />
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
+           
+                <h4 style="color:#212529">Sumar comanda</h4>
+                <br />
+                <div>
+                    @{
+                        var subtotal = 0;
+                    }
+                    @foreach (var product in Model.ProductsForCart)
+                    {
+                        <div>
+                            <img style="height: 140px" src="@product.ProductDetails.MainImage" />
+                        </div>
+
+                        <div>
+                            <p style="color:#212529">Lampa @product.ProductDetails.Name</p>
+                            <p style="color:#212529">@product.Quantity BUC</p>
+                            @{
+                                var price = 0;
+                            }
+
+                            @if (!string.IsNullOrEmpty(product.ProductDetails.PriceReduced))
+                            {
+                                <p>@product.ProductDetails.PriceReduced</p>
+                                int.TryParse(product.ProductDetails.PriceReduced, out price);
+                            }
+                            else
+                            {
+                                <p>@product.ProductDetails.Price RON BUC</p>
+                                int.TryParse(product.ProductDetails.Price, out price);
+                            }
+
+                            @{
+
+                                subtotal = subtotal + product.Quantity * price;
+                            }
+
+
+                        </div>
+                    }
+                    <br />
+                    <div>
+                        <div style="display:none" id="subTotalPrice">@subtotal</div>
+                        <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
+                    </div>
+
+                    <div>
+                    <h6 style="color:#a0a1a3">Transport:  <span id="transportPrice">0</span> RON</h6>
+                    </div>
+
+
+                    <br />
+
+                    <div class="form-group " style="font-size:14px;width:200px; display:flex; justify-content:center; align-items:center; ">
+                        <label style="font-size:16px" for="address">Voucher</label>
+                        <input type="text" style="margin-left:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="">
+                    </div>
+
+
+                    <br />
+
+                    <div style="font-size:20px; font-weight: bold;color:#212529">
+                        <span>TOTAL: </span><span id="totalPrice"> @subtotal </span><span> RON</span>
+                    </div>
+                </div>
+                <br />
+        
             <form method="post" action="~/Cart/PlaceOrder" id="form">
                 <div class="form-group">
                     <label for="name">Nume</label>
@@ -178,73 +244,7 @@
             </form>
             <br />
         </div>
-        <div class="col-md-4">
-            <h4 style="color:#212529">Sumar comanda</h4>
-              <br />
-            <div>
-                @{
-                    var subtotal = 0;
-                }
-                @foreach (var product in Model.ProductsForCart)
-                {
-                    <div>
-                        <img style="height: 100px" src="@product.ProductDetails.MainImage" />
-                    </div>
-                  
-                    <div>
-                        <p style="color:#212529">Lampa @product.ProductDetails.Name</p>
-                        <p style="color:#212529">@product.Quantity BUC</p>
-                        @{
-                            var price = 0;
-                        }
-
-                        @if (!string.IsNullOrEmpty(product.ProductDetails.PriceReduced))
-                        {
-                            <p>@product.ProductDetails.PriceReduced</p>
-                            int.TryParse(product.ProductDetails.PriceReduced, out price);
-                        }
-                        else
-                        {
-                            <p>@product.ProductDetails.Price RON BUC</p>
-                            int.TryParse(product.ProductDetails.Price, out price);
-                        }
-
-                        @{
-
-                            subtotal = subtotal + product.Quantity * price;
-                        }
-
-
-                    </div>
-                }
-                <br />
-                <div>
-                    <div style="display:none" id="subTotalPrice">@subtotal</div>
-                    <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
-                </div>
-               
-                 <div>
-                    <p>Transport:  <span id="transportPrice">0</span> RON</p>
-                </div>
-              
-                
-                <br />
-
-                 <div class="form-group " style="font-size:14px;width:200px; display:flex; justify-content:center; align-items:center; ">
-                    <label style="font-size:16px" for="address">Voucher</label>
-                    <input type="text" style="margin-left:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="">
-                 </div>
-
-                        
-                <br />
-
-                <div style="font-size:20px; font-weight: bold;color:#212529">
-                    <div >TOTAL: <div id="totalPrice">@subtotal</div> RON</div>
-                </div>
-
-
-            </div>
-        </div>
+       
     </div>
 </div>
 

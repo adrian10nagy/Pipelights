@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Pipelights.Database.Models;
 using Pipelights.Website.BusinessService;
 using Pipelights.Website.BusinessService.Models;
+using System.Linq;
 
 namespace Pipelights.Website.Controllers
 {
@@ -100,6 +101,8 @@ namespace Pipelights.Website.Controllers
 
             var lamp = _lampService.GetById(id);
 
+            TempData["Id"] = lamp.Id;
+
             var cat = lamp.Categories;
             var isOnStock = lamp.IsOnStock;
 
@@ -121,5 +124,7 @@ namespace Pipelights.Website.Controllers
 
             return View(lamp);
         }
+
+       
     }
 }

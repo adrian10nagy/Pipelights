@@ -18,6 +18,7 @@ namespace Pipelights.Website.BusinessService
         bool DeleteAsync(string id);
         IEnumerable<ProductDetailsDto> GetMultiple(string query, bool includeInactive);
         IEnumerable<ProductDetailsDto> GetMultiple(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetSuggestions(bool includeInactive, int max = 1000);
     }
 
     public class LampService : ILampService
@@ -106,5 +107,16 @@ namespace Pipelights.Website.BusinessService
 
             return result;
         }
+
+        public IEnumerable<ProductDetailsDto> GetSuggestions(bool includeInactive, int max = 1000)
+        {
+
+            var dbResult = GetMultiple("SELECT TOP 20 * FROM c order by c._ts DESC", includeInactive);
+
+            var result = dbResult.Where(x => x.Categories == "oameni" || x.Categories == "lampi").Take(max);
+            
+            return result;
+        }
+
     }
 }

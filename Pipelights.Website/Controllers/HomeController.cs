@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pipelights.Website.BusinessService;
+using Pipelights.Website.BusinessService.Models;
 using Pipelights.Website.Models;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -27,6 +30,8 @@ namespace Pipelights.Website.Controllers
 
             return View(latestProducts);
         }
+
+  
         public IActionResult About()
         {
             return View();
@@ -68,6 +73,26 @@ namespace Pipelights.Website.Controllers
             }
 
             return RedirectToAction("Contact", "Home");
+        }
+
+        public IActionResult Suggestions()
+        {
+            string myId = TempData["Id"].ToString();
+            List<ProductDetailsDto> list = new List<ProductDetailsDto>();
+
+            var latestProducts = _lampsService.GetSuggestions(false, 100);
+
+            foreach(var product in latestProducts)
+            {
+                string p = product.Id.ToString();
+                if (myId != p)
+                {
+                    list.Add(product);
+                }
+            }
+            var displayedProducts = list.OrderBy(x => Guid.NewGuid()).Take(4).ToList();
+
+            return PartialView("_SuggestionsPartial", displayedProducts);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

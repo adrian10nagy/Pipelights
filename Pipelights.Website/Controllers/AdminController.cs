@@ -18,6 +18,7 @@ namespace Pipelights.Website.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IBlobService _blobService;
         private readonly ILogger<AdminController> _logger;
+        
 
         public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService,
             ICategoryService categoryService, IOrderService orderService)
@@ -27,6 +28,7 @@ namespace Pipelights.Website.Controllers
             _blobService = blobService;
             _categoryService = categoryService;
             _orderService = orderService;
+           
         }
 
         public IActionResult Index()
@@ -157,10 +159,11 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult CategoriesDashboard()
         {
-            IEnumerable<CategoryEntity> productsDto = _categoryService.GetMultiple("SELECT * FROM c");
+            IEnumerable<CategoryEntity> categoryDto = _categoryService.GetMultiple("SELECT * FROM c");
 
-            return View(productsDto);
+            return View(categoryDto);
         }
+
 
         public IActionResult OrdersDashboard()
         {
