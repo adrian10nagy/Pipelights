@@ -12,6 +12,9 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        [JsonPropertyName("percentage")]
+        public string Percentage { get; set; }
+
         [JsonPropertyName("discount")]
         public decimal Discount { get; set; }
 

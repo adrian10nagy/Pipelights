@@ -24,13 +24,11 @@ namespace Pipelights.Website.BusinessService
     public class LampService : ILampService
     {
         private readonly ILampDbService _lampDbService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IBlobService _blobService;
 
-        public LampService(ILampDbService lampDbService, IWebHostEnvironment webHostEnvironment, IBlobService blobService)
+        public LampService(ILampDbService lampDbService, IBlobService blobService)
         {
             _lampDbService = lampDbService;
-            _webHostEnvironment = webHostEnvironment;
             _blobService = blobService;
         }
 
@@ -38,7 +36,7 @@ namespace Pipelights.Website.BusinessService
         {
             var lamp = _lampDbService.GetAsync(id).Result;
 
-            return new ProductDetailsDto(lamp, _webHostEnvironment, _blobService);
+            return new ProductDetailsDto(lamp, _blobService);
         }
 
         public bool AddAsync(LampEntity item)
@@ -92,7 +90,7 @@ namespace Pipelights.Website.BusinessService
 
             foreach (var lamp in dbResult)
             {
-                result.Add(new ProductDetailsDto(lamp, _webHostEnvironment, _blobService));
+                result.Add(new ProductDetailsDto(lamp, _blobService));
             }
 
             return result;

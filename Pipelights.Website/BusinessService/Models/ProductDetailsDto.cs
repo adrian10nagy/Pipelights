@@ -10,16 +10,14 @@ namespace Pipelights.Website.BusinessService.Models
 {
     public class ProductDetailsDto
     {
-        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IBlobService _blobService;
 
         public ProductDetailsDto()
         {
         }
 
-        public ProductDetailsDto(LampEntity lamp, IWebHostEnvironment webHostEnvironment, IBlobService blobService)
+        public ProductDetailsDto(LampEntity lamp,  IBlobService blobService)
         {
-            _webHostEnvironment = webHostEnvironment;
             _blobService = blobService;
             Id = lamp.id;
             Name = lamp.Name;

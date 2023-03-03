@@ -18,6 +18,7 @@ namespace Pipelights.Database.Services
     public class VoucherDbService : IVoucherDbService
     {
         private Container _container;
+
         public VoucherDbService(
             CosmosClient cosmosDbClient,
             string databaseName,

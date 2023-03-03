@@ -104,20 +104,30 @@
                     <div>
                     <h6 style="color:#a0a1a3">Transport:  <span id="transportPrice">0</span> RON</h6>
                     </div>
-
+                
 
                     <br />
 
-                    <div class="form-group " style="font-size:14px;width:200px; display:flex; justify-content:center; align-items:center; ">
-                        <label style="font-size:16px" for="address">Voucher</label>
-                        <input type="text" style="margin-left:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="">
-                    </div>
+                <form >
+                         <div class="form-group " style="font-size: 14px;
+                                                        width: 100%;
+                                                        display: flex;
+                                                        justify-content: flex-start;
+                                                        align-items: center;
+                                                    ">
+                            <input id="vouckerInput" type="text" name="VoucherString" style="width:35%; margin-right:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="Voucher">
+                            <button id="button" type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
+                                Aplica
+                            </button>
+                        </div>
+                    </form>
+                   
 
 
                     <br />
 
                     <div style="font-size:20px; font-weight: bold;color:#212529">
-                        <span>TOTAL: </span><span id="totalPrice"> @subtotal </span><span> RON</span>
+                    <span>TOTAL: </span><span id="totalPrice"> @subtotal </span><span> RON</span>
                     </div>
                 </div>
                 <br />
@@ -248,8 +258,35 @@
     </div>
 </div>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
+    $("#button").click(function (event) {
+        event.preventDefault();
+        var model = {
+            VoucherString: $("#vouckerInput").val(),
+            Price: parseFloat($("#totalPrice").html())
+        };
+
+        $.ajax({
+            url: '@Url.Action("PriceWithDiscount", "Cart")',
+            type: "POST",
+            data: JSON.stringify(model),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                $("#totalPrice").html(data);
+               
+            }
+                
+        });
+        
+    });
+
+
+
     function changeTransportPrice() {
       var judetSelectat = document.getElementById("judete").value;
       if(judetSelectat == "Cluj" || judetSelectat == "Salaj" ){

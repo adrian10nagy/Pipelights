@@ -6,7 +6,9 @@ using Pipelights.Website.BusinessService.Models;
 using Pipelights.Website.Models;
 using Pipelights.Website.Models.Emails;
 using RazorHtmlEmails.RazorClassLib.Services;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pipelights.Website.Controllers
 {
@@ -17,15 +19,17 @@ namespace Pipelights.Website.Controllers
         private readonly IOrderService _orderService;
         private readonly IEmailService _emailService;
         private readonly IRazorViewToStringRenderer _razorViewToStringRenderer;
+        private readonly IVoucherService _voucherService;
 
         public CartController(ILampService lampService, ICartService cartService, IOrderService orderService, 
-            IEmailService emailService, IRazorViewToStringRenderer razorViewToStringRenderer)
+            IEmailService emailService, IRazorViewToStringRenderer razorViewToStringRenderer, IVoucherService voucherService)
         {
             _lampService = lampService;
             _cartService = cartService;
             _orderService = orderService;
             _emailService = emailService;
             _razorViewToStringRenderer = razorViewToStringRenderer;
+            _voucherService = voucherService;
         }
 
         [HttpPost]
@@ -165,7 +169,6 @@ namespace Pipelights.Website.Controllers
             
             var cart = _cartService.GetCartForSessionUser(cartString);
 
-
             var orderNr = _orderService.SaveOrder(model, cart);
             if (!string.IsNullOrWhiteSpace(orderNr))
             {
@@ -208,6 +211,29 @@ namespace Pipelights.Website.Controllers
 
             // redirect to TY page
             return RedirectToAction("Confirmation", "Order", new { orderNr = orderNr });
+        }
+
+
+        [HttpPost]
+        public IActionResult PriceWithDiscount([FromBody] VoucherDto model)
+        {
+            var price = model.Price;
+
+            if(model.VoucherString!= string.Empty)
+            {
+                var discount = _voucherService.VouckerCheck(model.VoucherString);
+
+                var discountedPrice = price * discount;
+
+                price = discountedPrice;
+                
+            }
+
+            var p = price.ToString();
+            HttpContext.Session.SetString("price", p);
+
+            return Json(price);
+            
         }
     }
 }

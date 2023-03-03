@@ -37,6 +37,7 @@ namespace Pipelights.Website
             services.AddSingleton<IOrderDbService>(InitializeCosmosClientInstanceAsyncOrder(Configuration.GetSection("OrderDb")).GetAwaiter().GetResult());
             services.AddSingleton<ILampDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("LampDb")).GetAwaiter().GetResult());
             services.AddSingleton<ICategoryDbService>(InitializeCosmosClientInstanceAsyncCategory(Configuration.GetSection("CategoryDb")).GetAwaiter().GetResult());
+            services.AddSingleton<IVoucherDbService>(InitializeCosmosClientInstanceAsyncVoucher(Configuration.GetSection("VoucherDb")).GetAwaiter().GetResult());
             services.AddTransient<ILampService, LampService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -44,6 +45,7 @@ namespace Pipelights.Website
             services.AddTransient<IBlobService, BlobService>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IVoucherService, VoucherService>();
 
             var serviceBusEndpoint = "DefaultEndpointsProtocol=https;AccountName=samasterpocpipe2;AccountKey=yuvUONwWzMN5YeCDGqWOFiCRdRKwOPmQyfCO7H9zKNZnIGBQJXvp8zh3TWwRSbG42tEsT6cjD82n+ASt9+7Zgw==;EndpointSuffix=core.windows.net";
             services.AddSingleton(d => new BlobServiceClient(serviceBusEndpoint));
@@ -122,5 +124,21 @@ namespace Pipelights.Website
 
             return cosmosDbService;
         }
+
+        private static async Task<VoucherDbService> InitializeCosmosClientInstanceAsyncVoucher(IConfigurationSection configurationSection)
+        {
+            var databaseName = configurationSection["DatabaseName"];
+            var containerName = configurationSection["ContainerName"];
+            var account = configurationSection["Account"];
+            var key = configurationSection["Key"];
+            var client = new Microsoft.Azure.Cosmos.CosmosClient(account, key);
+            var database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
+            var cosmosDbService = new VoucherDbService(client, databaseName, containerName);
+
+            return cosmosDbService;
+        }
+
+
     }
 }

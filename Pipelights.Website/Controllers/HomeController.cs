@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 
 namespace Pipelights.Website.Controllers
 {
@@ -31,7 +32,7 @@ namespace Pipelights.Website.Controllers
             return View(latestProducts);
         }
 
-  
+
         public IActionResult About()
         {
             return View();
@@ -51,21 +52,23 @@ namespace Pipelights.Website.Controllers
             return View();
         }
 
+        public bool sendTheMessage(EmailDto model)
+        {
+            var emailSent = false;
+            if (model != null && model.email != null && model.subject != null && model.message != null)
+            {
+              emailSent = _emailService.SendEmail("serox.pipelights@gmail.com",
+                  model.subject + "Primit de la [" + model.name + "], email: " + model.email, model.message);
+
+            }
+
+            return emailSent;
+        }
+
         [HttpPost]
         public IActionResult SendMessage(EmailDto model)
         {
-            var emailSent = false;
-
-            if (!emailSent)
-            {
-                _emailService.SendEmail("serox.pipelights@gmail.com",
-                    model.subject + "Primit de la [" + model.name + "], email: " + model.email, model.message);
-                emailSent = true;
-            }
-            else
-            {
-                emailSent = false;
-            }
+            var emailSent = sendTheMessage(model);
 
             if (emailSent)
             {
@@ -82,7 +85,7 @@ namespace Pipelights.Website.Controllers
 
             var latestProducts = _lampsService.GetSuggestions(false, 100);
 
-            foreach(var product in latestProducts)
+            foreach (var product in latestProducts)
             {
                 string p = product.Id.ToString();
                 if (myId != p)

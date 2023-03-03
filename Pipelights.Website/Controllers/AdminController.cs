@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using Pipelights.Database.Services;
 
 namespace Pipelights.Website.Controllers
 {
@@ -18,16 +19,18 @@ namespace Pipelights.Website.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IBlobService _blobService;
         private readonly ILogger<AdminController> _logger;
+        private readonly IVoucherService _voucherService;
         
 
         public AdminController(ILampService lampService, ILogger<AdminController> logger, IBlobService blobService,
-            ICategoryService categoryService, IOrderService orderService)
+            ICategoryService categoryService, IOrderService orderService, IVoucherService voucherService)
         {
             _lampService = lampService;
             _logger = logger;
             _blobService = blobService;
             _categoryService = categoryService;
             _orderService = orderService;
+            _voucherService = voucherService;
            
         }
 
@@ -145,6 +148,59 @@ namespace Pipelights.Website.Controllers
             _categoryService.AddAsync(categoryEntity);
             return RedirectToAction("CategoriesDashboard", "Admin");
         }
+
+        public IActionResult InsertVoucher()
+        {
+            return View();
+        }
+
+        public IActionResult EditViewForVoucher(string id)
+        {
+            if (id == null)
+            {
+                return View(null);
+            }
+            var voucherDetailsDto = _voucherService.GetById(id);
+
+            return View(voucherDetailsDto);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult EditVoucher(VoucherDetailsDto model)
+        {
+            var voucherEntity = new VoucherEntity
+            {
+                id = model.id,
+                Name = model.Name,
+                Discount = model.Discount,
+                Percentage= model.Percentage,
+                CreationDate = model.CreationDate,
+                ExpiringDate = model.ExpiringDate,
+                isActive = model.isActive
+            };
+            _voucherService.UpdateAsync(model.id, voucherEntity);
+            return RedirectToAction("VouchersDashboard", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult AddVoucher(VoucherDetailsDto model)
+        {
+            var voucherEntity = new VoucherEntity
+            {
+                id = model.id,
+                Name = model.Name,
+                Discount= model.Discount,
+                Percentage= model.Percentage,
+                CreationDate= model.CreationDate,
+                ExpiringDate= model.ExpiringDate,
+                isActive=model.isActive
+            };
+            _voucherService.AddAsync(voucherEntity);
+            return RedirectToAction("VouchersDashboard", "Admin");
+        }
+
         public IActionResult Dashboard()
         {
             return View();
@@ -164,6 +220,12 @@ namespace Pipelights.Website.Controllers
             return View(categoryDto);
         }
 
+        public IActionResult VouchersDashboard()
+        {
+            IEnumerable<VoucherEntity> voucherDto = _voucherService.GetMultiple("SELECT * FROM c");
+
+            return View(voucherDto);
+        }
 
         public IActionResult OrdersDashboard()
         {

@@ -1,9 +1,11 @@
-﻿@model Pipelights.Website.Models.Emails.OrderConfirmationEmailDto
+﻿
+@model Pipelights.Website.Models.Emails.OrderConfirmationEmailDto
 
 @{
     Layout = null;
     var productsPrice = 0;
     var costLivrare = Model.Order.judete.Equals("Cluj") ? 0 : 30;
+    //var discountedPrice = Context.Session.GetString("price"); 
 }
 
 <h2>A fost plasata comanda cu numarul: @Model.OrderNumber</h2>
@@ -90,5 +92,6 @@
             var totalPrice = productsPrice + costLivrare;
         }
         <td>@totalPrice</td>
+        
     </tr>
 </table>
