@@ -30,5 +30,8 @@ namespace Pipelights.Database.Models
 
         [JsonPropertyName("category")]
         public string Category { get; set; }
+        [JsonPropertyName("categories")]
+        public List<string> Categories { get; set; }
+
     }
 }

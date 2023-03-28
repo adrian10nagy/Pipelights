@@ -28,6 +28,7 @@ namespace Pipelights.Website.BusinessService.Models
             IsInactive = lamp.IsInactive;
             IsOnStock = lamp.IsOnStock;
             Categories = lamp.Category;
+            CategoriesNew = lamp.Categories;
             Resources = GetImagesFromRoot(lamp.id).OrderByDescending(x => x.Contains("1.")).ToList();
             if (!Resources.Any())
             {
@@ -55,6 +56,7 @@ namespace Pipelights.Website.BusinessService.Models
         public bool IsInactive { get; set; }
         public bool IsOnStock { get; set; }
         public string Categories { get; set; }
+        public List<string> CategoriesNew { get; set; }
 
         public bool HasPricedReduced => !string.IsNullOrEmpty(PriceReduced);
 

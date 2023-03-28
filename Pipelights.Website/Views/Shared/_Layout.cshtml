@@ -115,8 +115,47 @@
         .forLink:active{
             color:#F0B250!important;
             opacity:.9;
-        }	
-       
+        }
+
+        .searchDiv {
+           position:fixed;
+           top:0;
+           bottom:0;
+           left:0;
+           right:0;
+           justify-content:center;
+           align-items:center;
+            background-color: #212529;
+            opacity:.96;
+            z-index:999999;
+            display:none;
+       }
+
+       .searchInput {
+            color: white;
+            background-color: transparent;
+            font-size: 18px;
+            outline: 0;
+            box-shadow: none;
+            border-bottom: 1px solid #fff;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            width: 40%;
+            padding:10px 2px 10px 2px;
+       }
+
+       .closeButton {
+           color:#a0a1a3!important;
+       }
+
+        .closeButton:hover{
+            opacity:.7!important;
+        }
+
+        .labelShow{
+            visibility:visible!important;
+        }
     </style>
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -188,7 +227,10 @@
              <div class="col"></div>
 
              <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:end;" >
-                
+                <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+
                  <a class="iconlink mx-2" style="text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center" href="tel:0746272923"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                       <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                  </svg> <small>0746272923</small></a>
@@ -383,6 +425,26 @@
         </div>
     </footer>
 
+   @* search div*@
+
+   <div class="searchDiv" id="searchDiv">
+        <div class="closeButton" id="closeSearchDiv" style="width:10%; position:absolute; bottom:260px; display:flex; justify-content:center; cursor:pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:#fff" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+        </div>
+        <form id="searchForm" action="~/Products/Search" method="post" style="width:100%; justify-content: center;" class="input-group">
+                <input id="inputSearch" class="searchInput" name="searchValue" type="search" class="form-control rounded" placeholder="Cauta" aria-label="Search" aria-describedby="search-addon" />
+                <span style="background-color:transparent" class="input-group-text border-0" id="search-addon">
+                   <button type="submit">
+                        <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important;" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                   </button>
+                </span>
+                <Label id="searchLabel" style="color:#fff; width:100%;text-align:center; font-size:14px; visibility:hidden; margin-top:10px">Introdu cel putin 3 caractere</Label>
+        </form>
+   </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -431,9 +493,43 @@
           $(".categories").toggleClass("categoriesshow");
         });
 
-        //hide categories menu when click outside of categoriesDiv
+        //show search div when search icon is clicked
 
+        $("#search").click(function () {
+            $(".searchDiv").css("display", "flex");
+        });
 
+        //close button on search 
+
+        $("#closeSearchDiv").click(function(){
+            $(".searchDiv").css("display", "none");
+        });
+
+        //search form validation
+        const searchForm = document.getElementById('searchForm');
+
+        const inputSearch = document.getElementById('inputSearch');
+        const searchLabel = document.getElementById('searchLabel');
+
+        searchForm.addEventListener('submit', (e) => {
+
+            if (!checkInputs()) {
+                e.preventDefault();
+            } else {
+
+            }
+        });
+
+        function checkInputs() {
+
+            if (inputSearch.value === '' || inputSearch.value.length <= 2) {
+                searchLabel.classList.add('labelShow');
+                return false;
+            } else {
+                searchLabel.classList.remove('labelShow');
+                return true;
+            }
+        }
 
        
     </script>

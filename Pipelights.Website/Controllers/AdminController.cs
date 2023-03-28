@@ -96,6 +96,7 @@ namespace Pipelights.Website.Controllers
                 IsInactive = model.IsInactive,
                 IsOnStock = model.IsOnStock,
                 Category = model.Categories,
+                Categories = model.CategoriesNew
             };
 
 

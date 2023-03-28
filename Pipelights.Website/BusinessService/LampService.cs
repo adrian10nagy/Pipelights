@@ -111,7 +111,8 @@ namespace Pipelights.Website.BusinessService
 
             var dbResult = GetMultiple("SELECT TOP 20 * FROM c order by c._ts DESC", includeInactive);
 
-            var result = dbResult.Where(x => x.Categories == "oameni" || x.Categories == "lampi").Take(max);
+            var result = dbResult.Where(x => x.CategoriesNew !=null 
+            && (x.CategoriesNew.Contains("oameni") || x.Categories.Contains("lampi"))).Take(max);
             
             return result;
         }

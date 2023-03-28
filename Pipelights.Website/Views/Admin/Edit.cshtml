@@ -94,6 +94,22 @@
 
                 </select>
 
+                    <select name="CategoriesNew" multiple>
+
+
+                        @foreach (var category in categories)
+                        {
+                            if (Model != null && Model.CategoriesNew !=null && Model.CategoriesNew.Contains(category.id))
+                            {
+                                <option value="@category.id" selected>@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.id">@category.Name</option>
+                            }
+                        }
+
+                    </select>
                </div>
                 <div>
                     <h2>Imagini</h2>
