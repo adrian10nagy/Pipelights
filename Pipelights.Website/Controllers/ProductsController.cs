@@ -41,7 +41,7 @@ namespace Pipelights.Website.Controllers
             else if(id == "oameni")
             {
                
-                var productsDtoOameni = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'oameni'", false);
+                var productsDtoOameni = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni')", false);
 
                 if (productsDtoOameni == null)
                 {
@@ -52,24 +52,24 @@ namespace Pipelights.Website.Controllers
 
                 return View(productsDtoOameni);
             }
-            else if (id == "cupru")
+            else if (id == "leather")
             {
                
-                var productsDtoCupru = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'cupru'", false);
+                var productsDtoCupru = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather')", false);
 
                 if (productsDtoCupru == null)
                 {
                     return RedirectToAction("Index", "Home");
                 }
 
-                ViewBag.Categories = "Cupru";
+                ViewBag.Categories = "Pipe % Leather";
 
                 return View(productsDtoCupru);
             }
             else if (id == "becuri")
             {
                 var category = new CategoryEntity();
-                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri'", false);
+                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri')", false);
 
                 if (productsDtoBecuri == null)
                 {
@@ -89,17 +89,19 @@ namespace Pipelights.Website.Controllers
                 return View(productsDto);
             }
         }
+
         [HttpPost]
         public IActionResult Search(SearchDto model)
         {
             var searchString = model.searchValue;
 
-            if (searchString == null || searchString.Length <= 3)
+            if (searchString == null || searchString.Length <= 2)
             {
                 return RedirectToAction("Index", "Products");
             }
 
-            var query = "SELECT * FROM c WHERE c.Name LIKE '%" + searchString + "%'";
+            var query = "SELECT * FROM c WHERE LOWER(c.Name) LIKE '%" + searchString.ToLower() + "%'";
+
             var productsDtoSearched = _lampService.GetMultiple(query, false);
 
             if (productsDtoSearched == null || productsDtoSearched.Count() == 0)
