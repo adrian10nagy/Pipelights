@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pipelights.Database.Models;
 using Pipelights.Website.BusinessService;
@@ -21,7 +22,7 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult Index(string id)
         {
-            
+            HttpContext.Session.SetString("sortId", id);
 
             if (id == "lampi")
             {
@@ -62,14 +63,14 @@ namespace Pipelights.Website.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                ViewBag.Categories = "Pipe % Leather";
+                ViewBag.Categories = "Pipe & Leather";
 
                 return View(productsDtoCupru);
             }
             else if (id == "becuri")
             {
                 var category = new CategoryEntity();
-                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where c.Category = 'becuri')", false);
+                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'becuri')", false);
 
                 if (productsDtoBecuri == null)
                 {
@@ -145,11 +146,108 @@ namespace Pipelights.Website.Controllers
             {
                 return RedirectToAction("Index", "Products");
             }
-
-
             return View(lamp);
         }
 
+        public IActionResult Sort(string id)
+        {
+            var value = HttpContext.Session.GetString("sortId");
+
+            if (value == "oameni")
+            {
+                if (id == "price")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni') ORDER BY c.Price ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "priceDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni') ORDER BY c.Price DESC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "name")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni') ORDER BY c.Name ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "nameDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni') ORDER BY c.Name Desc", false);
+                    return View(orderedBy);
+                }
+            }
+            else if (value == "leather")
+            {
+                if (id == "price")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather') ORDER BY c.Price ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "priceDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather') ORDER BY c.Price DESC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "name")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather') ORDER BY c.Name ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "nameDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather') ORDER BY c.Name Desc", false);
+                    return View(orderedBy);
+                }
+            }
+            else if (value == "lampi")
+            {
+                if (id == "price")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'lampi') ORDER BY c.Price ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "priceDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'lampi') ORDER BY c.Price DESC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "name")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'lampi') ORDER BY c.Name ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "nameDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'lampi') ORDER BY c.Name Desc", false);
+                    return View(orderedBy);
+                }
+            }
+            else if (value == "toateprodusele")
+            {
+                if (id == "price")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Price ASC", false); 
+                    return View(orderedBy);
+                }
+                else if (id == "priceDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Price DESC", false); ;
+                    return View(orderedBy);
+                }
+                else if (id == "name")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Name ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "nameDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Name DESC", false);
+                    return View(orderedBy);
+                }
+            }
+
+            return RedirectToAction("Index", "Products");
+        }
        
     }
 }
