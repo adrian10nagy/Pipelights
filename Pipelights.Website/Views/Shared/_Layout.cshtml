@@ -512,14 +512,14 @@
 
         searchForm.addEventListener('submit', (e) => {
 
-            if (!checkInputs()) {
+            if (!checkInputsShared()) {
                 e.preventDefault();
             } else {
 
             }
         });
 
-        function checkInputs() {
+        function checkInputsShared() {
 
             if (inputSearch.value === '' || inputSearch.value.length <= 2) {
                 searchLabel.classList.add('labelShow');

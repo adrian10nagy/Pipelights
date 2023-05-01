@@ -365,7 +365,7 @@
 
        form.addEventListener('submit', (e) => {
 
-           if(!checkInputs()){
+           if(!checkInputsContact()){
                e.preventDefault();
            }else {
 
@@ -376,7 +376,7 @@
 
        });
 
-       function checkInputs(){
+    function checkInputsContact() {
 
            if(nume.value === ''){
                labelname.classList.add('redlabelshow');

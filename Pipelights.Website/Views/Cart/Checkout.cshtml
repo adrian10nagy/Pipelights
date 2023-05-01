@@ -336,18 +336,15 @@
 
    form.addEventListener('submit', (e) => {
 	   
-       if(!checkInputs()){
+       if(!checkInputsCheckout()){
            e.preventDefault();
        }else {
            
        }
 	
-
-       
-	
    });
 
-   function checkInputs(){
+    function checkInputsCheckout() {
 
        if(nume.value === ''){
            labelnume.classList.add('redlabelshow');
