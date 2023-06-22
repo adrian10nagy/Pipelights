@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-item {
+        box-sizing: border-box;
+    }
+
+    .product-item img {
+        width: 100%;
+    }
+
+    .product-item h4,
+    .product-item p {
+        margin: 0;
+        font-size: 12px;
+    }
+
+    @@media (max-width: 767px) {
+        /* Small screens */
+        .product-item h4 {
+            font-size: 8px;
+        }
+    }
+
+    @@media (min-width: 768px) {
+        /* Medium and large screens */
+        .product-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    }
+</style>
+
+<br />
+
+<div class="product-grid">
+    @foreach (var lampEntity in Model)
+    {
+        <div class="product-item">
+            <a href="~/Products/Details?Id=@lampEntity.Id">
+                <img src="@lampEntity.MainImage" alt="">
+                <div class="down-content">
+                    <h4 style="color:#212529;">@lampEntity.Name</h4>
+                    <p>@lampEntity.Price RON</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>

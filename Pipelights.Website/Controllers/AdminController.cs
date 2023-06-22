@@ -221,6 +221,7 @@ namespace Pipelights.Website.Controllers
             return View(categoryDto);
         }
 
+       
         public IActionResult VouchersDashboard()
         {
             IEnumerable<VoucherEntity> voucherDto = _voucherService.GetMultiple("SELECT * FROM c");

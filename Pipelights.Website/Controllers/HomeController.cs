@@ -97,6 +97,35 @@ namespace Pipelights.Website.Controllers
 
             return PartialView("_SuggestionsPartial", displayedProducts);
         }
+        public IActionResult RobotsCategoryProducts()
+        {
+            List<ProductDetailsDto> list = new List<ProductDetailsDto>();
+
+            var latestRobots = _lampsService.GetRobots(false, 100);
+
+            foreach(var robot in latestRobots)
+            {
+                list.Add(robot);
+            }
+
+            var displayedRobots = list.OrderBy(x => Guid.NewGuid()).Take(4).ToList();
+            return PartialView("_RobotsCategoryProductsPartial", displayedRobots);
+        }
+
+        public IActionResult PipeLeatherCategoryProducts()
+        {
+            List<ProductDetailsDto> list = new List<ProductDetailsDto>();
+
+            var latestRobots = _lampsService.GetPipeLeather(false, 100);
+
+            foreach (var leather in latestRobots)
+            {
+                list.Add(leather);
+            }
+
+            var displayedRobots = list.OrderBy(x => Guid.NewGuid()).Take(4).ToList();
+            return PartialView("_LeatherCategoryProductsPartial", displayedRobots);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

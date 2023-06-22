@@ -21,24 +21,6 @@
     <h3>@ViewBag.Categories</h3>
     <br />
     
-@*
-    <div class="container">
-        <div class="row">
-            <div class="range col-2">
-                <div class="range-slider">
-                    <span class="range-selected"></span>
-                </div>
-                <div class="range-input">
-                    <input type="range" class="min" min="0" max="1000" value="0" step="1">
-                    <input type="range" class="max" min="0" max="1000" value="1000" step="1">
-                </div>
-                <div class="range-price">
-                    <input type="text" name="min" value="0">
-                    <input style="text-align:end" type="text" name="max" value="1000">
-                </div>
-            </div>
-        </div>
-    </div>*@
     <div style="width:100%; display:flex;justify-content:end; align-items:end">
         <div class="btn-group dropleft">
             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,15 +63,6 @@
                                 </div>
                             </form>
 
-                            @*<p>@lampEntity.Description</p>*@
-                            @*<ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        </ul>*@
-                            @*<span>Reviews (24)</span>*@
                         </div>
                     </a>
                 </div>
@@ -118,6 +91,7 @@
         .btn-cart-main:hover {
             background: #F0B250;
             border-color: #F0B250;
+            opacity:initial;
         }
 
         .btn-cart-main:focus {
@@ -131,105 +105,11 @@
             opacity: .8;
         }
 
-    /*.range-slider {
-        height: 5px;
-        position: relative;
-        background-color: #e1e9f6;
-        border-radius: 2px;
-    }
 
-    .range-selected {
-        height: 100%;
-        left: 30%;
-        right: 30%;
-        position: absolute;
-        border-radius: 5px;
-        background-color: #212529#212529;
-    }
-
-    .range-input {
-        position: relative;
-    }
-
-        .range-input input {
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            top: -7px;
-            background: none;
-            pointer-events: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-            .range-input input::-webkit-slider-thumb {
-                height: 20px;
-                width: 20px;
-                border-radius: 50%;
-                border: 3px solid #212529;
-                background-color: #fff;
-                pointer-events: auto;
-                -webkit-appearance: none;
-            }
-
-            .range-input input::-moz-range-thumb {
-                height: 15px;
-                width: 15px;
-                border-radius: 50%;
-                border: 3px solid #212529;
-                background-color: #fff;
-                pointer-events: auto;
-                -moz-appearance: none;
-            }
-
-    .range-price {
-        margin: 10px 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-        .range-price label {
-            margin-right: 5px;
-        }
-
-        .range-price input {
-            width: 60px;
-            border:none;
-        }
-
-            .range-price input:first-of-type {
-                margin-right: 15px;
-            }*/
 </style>
 
 <script>
-    //price slider
-
-    //let rangeMin = 100;
-    //const range = document.querySelector(".range-selected");
-    //const rangeInput = document.querySelectorAll(".range-input input");
-    //const rangePrice = document.querySelectorAll(".range-price input");
-
-    //rangeInput.forEach((input) => {
-    //    input.addEventListener("input", (e) => {
-    //        let minRange = parseInt(rangeInput[0].value);
-    //        let maxRange = parseInt(rangeInput[1].value);
-    //        if (maxRange - minRange < rangeMin) {
-    //            if (e.target.className === "min") {
-    //                rangeInput[0].value = maxRange - rangeMin;
-    //            } else {
-    //                rangeInput[1].value = minRange + rangeMin;
-    //            }
-    //        } else {
-    //            rangePrice[0].value = minRange;
-    //            rangePrice[1].value = maxRange;
-    //            range.style.left = (minRange / rangeInput[0].max) * 100 + "%";
-    //            range.style.right = 100 - (maxRange / rangeInput[1].max) * 100 + "%";
-    //        }
-    //    });
-    //});
+    
 
     //to do - move this code into master file
     const navItems = document.getElementsByClassName('nav-item');

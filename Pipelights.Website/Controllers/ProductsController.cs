@@ -81,6 +81,20 @@ namespace Pipelights.Website.Controllers
 
                 return View(productsDtoBecuri);
             }
+            else if (id == "roboti")
+            {
+                var category = new CategoryEntity();
+                var productsDtoBecuri = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti')", false);
+
+                if (productsDtoBecuri == null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Categories = "Roboti";
+
+                return View(productsDtoBecuri);
+            }
             else
             {
                 var productsDto = _lampService.GetMultiple("SELECT * FROM c", false);
@@ -196,6 +210,29 @@ namespace Pipelights.Website.Controllers
                 else if (id == "nameDesc")
                 {
                     var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather') ORDER BY c.Name Desc", false);
+                    return View(orderedBy);
+                }
+            }
+            else if (value == "roboti")
+            {
+                if (id == "price")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti') ORDER BY c.Price ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "priceDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti') ORDER BY c.Price DESC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "name")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti') ORDER BY c.Name ASC", false);
+                    return View(orderedBy);
+                }
+                else if (id == "nameDesc")
+                {
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti') ORDER BY c.Name Desc", false);
                     return View(orderedBy);
                 }
             }

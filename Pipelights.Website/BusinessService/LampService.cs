@@ -19,6 +19,9 @@ namespace Pipelights.Website.BusinessService
         IEnumerable<ProductDetailsDto> GetMultiple(string query, bool includeInactive);
         IEnumerable<ProductDetailsDto> GetMultiple(bool includeInactive, int max = 1000);
         IEnumerable<ProductDetailsDto> GetSuggestions(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetRobots(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetPipeLeather(bool includeInactive, int max = 1000);
+
     }
 
     public class LampService : ILampService
@@ -117,5 +120,20 @@ namespace Pipelights.Website.BusinessService
             return result;
         }
 
+        public IEnumerable<ProductDetailsDto> GetRobots(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti')", includeInactive);
+           
+            return result;
+        }
+
+
+        public IEnumerable<ProductDetailsDto> GetPipeLeather(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather')", includeInactive);
+
+            return result;
+        }
+        
     }
 }

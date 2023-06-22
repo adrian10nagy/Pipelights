@@ -34,6 +34,42 @@
         background-image:url('../../wwwroot/lib/images/desk-lamp.png');
     }
 
+    .collectionsDiv1 {
+        border: 1px solid #f7f7f7;
+        
+    }
+
+    .hovered1 {
+        border: 1px solid #F0B250;
+        
+        box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+        -webkit-box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+        -moz-box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+    }
+
+    .collectionsDiv2 {
+        border: 1px solid #f7f7f7;
+        
+    }
+
+    .hovered2 {
+        border: 1px solid #F0B250;
+        
+        box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+        -webkit-box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+        -moz-box-shadow: -1px 0px 13px -2px rgba(240,178,80,0.75);
+    }
+
+    .padding {
+        padding:20px;
+    }
+
+    @@media (max-width: 767px) {
+        /* Small screens */
+        .padding {
+            padding: 10px;
+        }
+    }
 </style>
 @model IEnumerable<Pipelights.Website.BusinessService.Models.ProductDetailsDto>
 
@@ -98,14 +134,6 @@
                             <div class="down-content">
                                 <h4 style="color:#212529">@item.Name</h4>
                                  <p>@item.Price RON</p>
-                               @* <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>*@
-                                @*<span>Reviews (48)</span>*@
                             </div>
                         </a>
                     </div>
@@ -114,6 +142,63 @@
         </div>
     </div>
 </div>
+
+<div class="best-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Colectii</h2>
+                </div>
+                <div class="collections1 collectionsDiv1 padding">
+                    <div style="text-align:center">
+                        <h5>Roboti</h5>
+                        <br />
+                    </div>
+                    <div id="robotsPartial"></div>
+                    <div style="display:flex; justify-content:center; align-items:center;">
+                        <a id="buttonCollections1" href="~/Products/Index?Id=roboti" style="background: #212529;
+                                                            border-color: #212529;                                                          color: #fff;
+                                                            text-transform: uppercase;
+                                                            font-size: 1rem;
+                                                            height: 32px;
+                                                            line-height: 32px;
+                                                            
+                                                            border-radius: 7px !important;
+                                                            transition: .4s ease-in-out;
+                                                            letter-spacing: 2px"
+                           class="filled-button goldenhover">Vezi roboti</a>
+                    </div>
+                    <br>
+                </div>
+                <br />
+                <br />
+                <div class="collections2 collectionsDiv2 padding">
+                    <div style="text-align:center">
+                        <h5>Pipe & Leather</h5>
+                        <br />
+                    </div>
+                    <div id="leatherPartial"></div>
+                    <div style="display:flex; justify-content:center; align-items:center;">
+                        <a id="buttonCollections2" href="~/Products/Index?Id=roboti" style="background: #212529;
+                                                            border-color: #212529;                                                          color: #fff;
+                                                            text-transform: uppercase;
+                                                            font-size: 1rem;
+                                                            height: 32px;
+                                                            line-height: 32px;
+
+                                                            border-radius: 7px !important;
+                                                            transition: .4s ease-in-out;
+                                                            letter-spacing: 2px"
+                           class="filled-button goldenhover">Vezi Pipe & Leather</a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="best-features">
     <div class="container">
@@ -132,7 +217,7 @@
                     <br />
                     <br />
                     <br />
-                    <a href="~/Products" style="            background: #212529;
+                    <a href="~/Products/Index?Id=toateprodusele" style="            background: #212529;
                                                             border-color: #212529;
                                                             color: #fff;
                                                             text-transform: uppercase;
@@ -214,3 +299,61 @@
 
 </style>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<script src="jquery-3.6.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#buttonCollections1").mouseenter(function () {
+            $(".collections1").addClass("hovered1");
+            $(".collections1").removeClass("collectionsDiv1");
+        });
+
+        $("#buttonCollections1").mouseleave(function () {
+            $(".collections1").removeClass("hovered1");
+            $(".collections1").addClass("collectionsDiv1");
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#buttonCollections2").mouseenter(function () {
+            $(".collections2").addClass("hovered2");
+            $(".collections2").removeClass("collectionsDiv2");
+        });
+
+        $("#buttonCollections2").mouseleave(function () {
+            $(".collections2").removeClass("hovered2");
+            $(".collections2").addClass("collectionsDiv2");
+        });
+    });
+</script>
+
+<script>
+    $.ajax({
+        url: '/Home/RobotsCategoryProducts',
+        type: 'GET',
+        success: function (result) {
+            $("#robotsPartial").html(result);
+            console.log("Partial view loaded successfully!");
+        },
+        error: function (xhr, status, error) {
+            console.log("Error loading partial view:", error);
+        }
+    });
+</script>
+
+<script>
+    $.ajax({
+        url: '/Home/PipeLeatherCategoryProducts',
+        type: 'GET',
+        success: function (result) {
+            $("#leatherPartial").html(result);
+            console.log("Partial view loaded successfully!");
+        },
+        error: function (xhr, status, error) {
+            console.log("Error loading partial view:", error);
+        }
+    });
+</script>
