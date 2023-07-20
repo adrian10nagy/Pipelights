@@ -45,7 +45,7 @@
 
     #main {
         transition: margin-left .5s;
-        
+
     }
 
     @@media screen and (max-height: 450px) {
@@ -59,7 +59,7 @@
     }
 
     .hide {
-        display:none;
+        visibility:hidden;
     }
 </style>
 
@@ -72,31 +72,30 @@
     </div>
 
     <br />
-    <h3 id="category">@ViewBag.Categories</h3>
+    <h3>@ViewBag.FilterCategory</h3>
     <br />
     <br />
 
-    <div style="width:100%; display:flex;justify-content:space-between; align-items:center">
+    <div style="width:100%; display:flex;justify-content:space-between; ">
+        <div style="margin-bottom: 8px">
+            <a style="color:black!important" href="~/Products/?Id=omuleti" class="buy-return-link" onclick="window.history.go(-1);return false;">
+                <svg version="1.1" class="svg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15.862px" height="9.448px" viewBox="0 0 15.862 9.448" enable-background="new 0 0 15.862 9.448" xml:space="preserve"><path d="M15.865,4.782c0-0.234-0.19-0.423-0.423-0.423l-14.051,0l3.635-3.635C5.108,0.641,5.15,0.532,5.15,0.424S5.108,0.207,5.026,0.124c-0.165-0.165-0.433-0.165-0.599,0L0.126,4.425c-0.165,0.165-0.165,0.434,0,0.599l4.301,4.301c0.165,0.165,0.433,0.165,0.599,0c0.165-0.165,0.165-0.434,0-0.599L1.506,5.205l13.936,0C15.675,5.205,15.865,5.015,15.865,4.782z"></path></svg>
+                INAPOI LA OMULETI
+            </a>
+            @*<span style="margin-left: 10px"><i class="bi bi-telephone-fill"></i> 0349832</span>*@
+        </div>
 
         <div id="main">
-            <div id="filter" style="cursor:pointer; color:#F0B250" onclick="openNav()">Filtreaza</div>
+            <div id="filter" style="cursor:pointer; color:#F0B250" onclick="openNav()">Vezi alte categorii</div>
         </div>
 
-        <div class="btn-group dropleft">
-            <button id="sort" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sorteaza
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="~/Products/Sort?Id=price">Pret crescator</a>
-                <a class="dropdown-item" href="~/Products/Sort?Id=priceDesc">Pret descrescator</a>
-                <a class="dropdown-item" href="~/Products/Sort?Id=name">Nume crescator</a>
-                <a class="dropdown-item" href="~/Products/Sort?Id=nameDesc">Nume descrescator</a>
-            </div>
-        </div>
+        
     </div>
     <br />
+    <br />
 
-   @* filter menu*@
+
+    @* filter menu*@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -123,34 +122,34 @@
     <div class="row">
         @foreach (var lampEntity in Model)
         {
-            <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                <div class="product-item">
-                    <a href="~/Products/Details?Id=@lampEntity.Id">
-                        <img src="@lampEntity.MainImage" alt="">
-                        <div class="down-content">
-                            <h4 class="truncated-name" style="color:#212529">@lampEntity.Name</h4>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                    <div class="product-item">
+                        <a href="~/Products/Details?Id=@lampEntity.Id">
+                            <img src="@lampEntity.MainImage" alt="">
+                            <div class="down-content">
+                                <h4 class="truncated-name" style="color:#212529">@lampEntity.Name</h4>
                             @if (!string.IsNullOrWhiteSpace(lampEntity.PriceReduced))
                             {
-                                <div class="priceDiv" style="color:#212529"> <strike>Pret intreg: @lampEntity.Price RON </strike></div>
-                                <div class="priceDiv" style="color:#212529">Pret redus: @lampEntity.PriceReduced RON</div>
+                                        <div class="priceDiv" style="color:#212529"> <strike>Pret intreg: @lampEntity.Price RON </strike></div>
+                                        <div class="priceDiv" style="color:#212529">Pret redus: @lampEntity.PriceReduced RON</div>
                             }
                             else
                             {
-                                <div class="priceDiv" style="color:#212529">@lampEntity.Price RON</div>
+                                        <div class="priceDiv" style="color:#212529">@lampEntity.Price RON</div>
                             }
 
-                            <form method="post" action="~/Cart/AddProduct">
-                                <div style="margin-top: 15px">
-                                    <input type="hidden" name="id" value="@lampEntity.Id" />
-                                    <input type="hidden" name="quantity" value="1" />
-                                    <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
-                                </div>
-                            </form>
+                                <form method="post" action="~/Cart/AddProduct">
+                                    <div style="margin-top: 15px">
+                                        <input type="hidden" name="id" value="@lampEntity.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <input type="submit" class="btn shadow-none btn-cart-main submit" value="Adauga in cos" />
+                                    </div>
+                                </form>
 
-                        </div>
-                    </a>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
         }
 
     </div>
@@ -278,25 +277,4 @@
     // Call openNav() to initialize the functionality
     openNav();
 
-    
 </script>
-<script>
-    //logic for displaying filters only on "Omuleti" page
-    function hideMainIfNotOmuleti() {
-        var categoryText = document.getElementById("category").innerText.trim();
-
-        if (categoryText !== "Omuleti") {
-            
-            document.getElementById("main").style.visibility = "hidden";
-        }
-    }
-
-    hideMainIfNotOmuleti();
-
-</script>
-
-
-
-
-
-

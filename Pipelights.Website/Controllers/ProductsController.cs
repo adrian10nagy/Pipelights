@@ -26,7 +26,7 @@ namespace Pipelights.Website.Controllers
 
             if (id == "lampi")
             {
-               
+
                 var productsDtoLampi = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'lampi')", false);
 
                 if (productsDtoLampi == null)
@@ -39,9 +39,9 @@ namespace Pipelights.Website.Controllers
                 return View(productsDtoLampi);
 
             }
-            else if(id == "oameni")
+            else if (id == "oameni")
             {
-               
+
                 var productsDtoOameni = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni')", false);
 
                 if (productsDtoOameni == null)
@@ -55,7 +55,7 @@ namespace Pipelights.Website.Controllers
             }
             else if (id == "leather")
             {
-               
+
                 var productsDtoCupru = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'leather')", false);
 
                 if (productsDtoCupru == null)
@@ -146,7 +146,7 @@ namespace Pipelights.Website.Controllers
             var cat = lamp.CategoriesNew;
             var isOnStock = lamp.IsOnStock;
 
-            if(cat != null && cat.Contains ("becuri"))
+            if (cat != null && cat.Contains("becuri"))
             {
                 ViewBag.Becuri = "becuri";
             }
@@ -263,7 +263,7 @@ namespace Pipelights.Website.Controllers
             {
                 if (id == "price")
                 {
-                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Price ASC", false); 
+                    var orderedBy = _lampService.GetMultiple("SELECT * FROM c ORDER BY c.Price ASC", false);
                     return View(orderedBy);
                 }
                 else if (id == "priceDesc")
@@ -285,6 +285,99 @@ namespace Pipelights.Website.Controllers
 
             return RedirectToAction("Index", "Products");
         }
-       
+
+        public IActionResult FilterByCategory(string id)
+        {
+            if (id == "sport")
+            {
+                var result = _lampService.GetSports(false, 100);
+                ViewBag.FilterCategory = "Sportivi";
+
+                return View(result);
+            }
+            else if (id == "music")
+            {
+                var result = _lampService.GetMusic(false, 100);
+                ViewBag.FilterCategory = "Muzicieni";
+
+
+                return View(result);
+            }
+            else if (id == "food")
+            {
+                var result = _lampService.GetFood(false, 100);
+                ViewBag.FilterCategory = "Înfometaţi";
+
+
+                return View(result);
+            }
+            else if (id == "drink")
+            {
+                var result = _lampService.GetDrink(false, 100);
+                ViewBag.FilterCategory = "Îsetaţi";
+
+
+                return View(result);
+            }
+            else if (id == "travel")
+            {
+                var result = _lampService.GetTravel(false, 100);
+                ViewBag.FilterCategory = "Calatori";
+
+
+                return View(result);
+            }
+            else if (id == "hobby")
+            {
+                var result = _lampService.GetHobby(false, 100);
+                ViewBag.FilterCategory = "Hobby";
+
+
+                return View(result);
+            }
+            else if (id == "job")
+            {
+                var result = _lampService.GetJob(false, 100);
+                ViewBag.FilterCategory = "Meseriasi";
+
+
+                return View(result);
+            }
+            else if (id == "business")
+            {
+                var result = _lampService.GetBusiness(false, 100);
+                ViewBag.FilterCategory = "Business";
+
+
+                return View(result);
+            }
+            else if (id == "leather")
+            {
+                var result = _lampService.GetPipeLeather(false, 100);
+                ViewBag.FilterCategory = "Pipe & Leather";
+
+
+                return View(result);
+            }
+            else if (id == "twoBulbs")
+            {
+                var result = _lampService.GetTwoBulbs(false, 100);
+                ViewBag.FilterCategory = "Doua becuri";
+
+
+                return View(result);
+            }
+            else if (id == "other")
+            {
+                var result = _lampService.GetOther(false, 100);
+                ViewBag.FilterCategory = "Altele";
+
+
+                return View(result);
+            }
+
+            return RedirectToAction("Index?Id=oameni", "Products");
+        }
+
     }
 }

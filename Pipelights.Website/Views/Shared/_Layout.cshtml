@@ -23,115 +23,114 @@
 
     <style>
         .iconlink {
-            color:#a0a1a3
+            color: #a0a1a3
         }
 
-        .iconlink:hover {
-            color:#F0B250;
-        }
+            .iconlink:hover {
+                color: #F0B250;
+            }
 
         .cartgoldencircle {
-	        position: absolute;
-	        color: white;
-	        background-color: #f0b250 !important;
-	        width: 18px;
-	        height: 18px;
-	        border-radius: 50%;
-	        padding: 1px;
-	        margin-top: -39px;
-	        margin-left: 22px;
-	        opacity: 100;
-	        font-size: 11px;
+            position: absolute;
+            color: white;
+            background-color: #f0b250 !important;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            padding: 1px;
+            margin-top: -45px;
+            margin-left: 32px;
+            opacity: 100;
+            font-size: 11px;
         }
 
         .footerlink {
-            text-decoration:none;
-            color:#a0a1a3;
+            text-decoration: none;
+            color: #a0a1a3;
         }
-        
-        .footerlink:hover, .footerlink:active {
-            color:#F0B250;
-        }
-       
-		.categoriesdiv {
-	        border: 1px solid #eee;
-	        width: 200px;
-	        background: #ffffff;
-	        -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-	        box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-	        -webkit-transition: all ease 0.35s;
-	        -moz-transition: all ease 0.35s;
-	        transition: all ease 0.35s;
-	        position: absolute;
-	        top: 60px;
+
+            .footerlink:hover, .footerlink:active {
+                color: #F0B250;
+            }
+
+        .categoriesdiv {
+            border: 1px solid #eee;
+            width: 200px;
+            background: #ffffff;
+            -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+            box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+            -webkit-transition: all ease 0.35s;
+            -moz-transition: all ease 0.35s;
+            transition: all ease 0.35s;
+            position: absolute;
+            top: 60px;
             left: -60px;
-            cursor:pointer;
+            cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            color:black;
+            color: black;
         }
 
-        
+
         .categoriesdivsmallscreen {
-		    border: 1px solid #eee;
-		    width: 100%;
-		    background: #ffffff;
-		    -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-		    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-		    -webkit-transition: all ease 0.35s;
-		    -moz-transition: all ease 0.35s;
-            cursor:pointer;
-		    transition: all ease 0.35s;
+            border: 1px solid #eee;
+            width: 100%;
+            background: #ffffff;
+            -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+            box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+            -webkit-transition: all ease 0.35s;
+            -moz-transition: all ease 0.35s;
+            cursor: pointer;
+            transition: all ease 0.35s;
             font-size: 14px;
-             font-weight: 500;
-             color:black;
-             z-index: 99999!important;
-             
-	    }
+            font-weight: 500;
+            color: black;
+            z-index: 99999 !important;
+        }
 
         .categories {
-            opacity:0;
-            display:none;
+            opacity: 0;
+            display: none;
         }
 
         .categoriesshow {
-            opacity:1;
-            display:block;
+            opacity: 1;
+            display: block;
         }
 
         .forLink {
-            text-decoration:none!important;
-            color:#212529!important;
-            margin-top: 1rem!important;
-            margin-bottom: 1rem!important; 
-            padding:0!important;
+            text-decoration: none !important;
+            color: #212529 !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+            padding: 0 !important;
         }
 
-        .forLink:hover{
-            color:#F0B250!important;
-            opacity:.9;
-        }	
+            .forLink:hover {
+                color: #F0B250 !important;
+                opacity: .9;
+            }
 
-        .forLink:active{
-            color:#F0B250!important;
-            opacity:.9;
-        }
+            .forLink:active {
+                color: #F0B250 !important;
+                opacity: .9;
+            }
 
         .searchDiv {
-           position:fixed;
-           top:0;
-           bottom:0;
-           left:0;
-           right:0;
-           justify-content:center;
-           align-items:center;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            justify-content: center;
+            align-items: center;
             background-color: #212529;
-            opacity:.96;
-            z-index:999999;
-            display:none;
-       }
+            opacity: .96;
+            z-index: 999999;
+            display: none;
+        }
 
-       .searchInput {
+        .searchInput {
             color: white;
             background-color: transparent;
             font-size: 18px;
@@ -142,30 +141,56 @@
             border-left: none;
             border-right: none;
             width: 40%;
-            padding:10px 2px 10px 2px;
-       }
-
-       .closeButton {
-           color:#a0a1a3!important;
-       }
-
-        .closeButton:hover{
-            opacity:.7!important;
+            padding: 10px 2px 10px 2px;
         }
 
-        .labelShow{
-            visibility:visible!important;
+        .closeButton {
+            color: #a0a1a3 !important;
+        }
+
+            .closeButton:hover {
+                opacity: .7 !important;
+            }
+
+        .labelShow {
+            visibility: visible !important;
+        }
+
+        @@media screen and (max-width: 767px) {
+            /* Hide cartOnBigScreen on small screens, so it won't be displayed twice */
+            .cartOnBigScreen {
+                display: none;
+            }
+
+            .cartgoldencircle {
+                position: absolute;
+                color: white;
+                background-color: #f0b250 !important;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                padding: 1px;
+                margin-top: -45px;
+                margin-left: 32px;
+                opacity: 100;
+                font-size: 11px;
+            }
+
+            .divGoldenCircle{
+                margin-left: 6px;
+            }
+
         }
     </style>
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BFG4EPTELM"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-BFG4EPTELM');
+    gtag('config', 'G-BFG4EPTELM');
 </script>
 <body>
     <!-- Messenger Plugin pentru chat Code -->
@@ -176,27 +201,27 @@
     </div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "105088021726217");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "105088021726217");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v13.0'
-        });
-      };
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v13.0'
+            });
+        };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/ro_RO/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/ro_RO/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <!-- ***** Preloader Start ***** -->
@@ -208,11 +233,9 @@
         </div>
     </div>
     <!-- ***** Preloader End ***** -->
-    
-   
     <!-- ***** Black Header ***** -->
 
-    <div class="container-lg" style="background-color:#212529!important; 
+    <div class="container-lg" style="background-color:#212529!important;
                                      height:35px;
                                      display:flex;
                                      justify-content:center;
@@ -224,114 +247,135 @@
                                           justify-content:center;
                                           align-items:center;
                                           ">
-             <div class="col"></div>
+            <div class="col"></div>
 
-             <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:end;" >
-                <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:end;">
+                <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                 </svg>
 
-                 <a class="iconlink mx-2" style="text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center" href="tel:0746272923"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                 </svg> <small>0746272923</small></a>
+                <a class="iconlink mx-2" style="text-decoration:none!important; min-width:100px; display:flex; justify-content:center; align-items:center" href="tel:0746272923">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg> <small>0746272923</small>
+                </a>
 
-                 <a class="iconlink mx-1" style="text-decoration:none!important; " href="https://www.instagram.com/pipelights.byserox/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                 </svg></a>
+                <a class="iconlink mx-1" style="text-decoration:none!important; " href="https://www.instagram.com/pipelights.byserox/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                    </svg>
+                </a>
 
-                 <a class="iconlink mx-1 " style="text-decoration:none!important; " href="https://www.facebook.com/PipeLightsbySerox/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                 </svg></a>
+                <a class="iconlink mx-1 " style="text-decoration:none!important; " href="https://www.facebook.com/PipeLightsbySerox/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                    </svg>
+                </a>
 
-                 
 
-             </div>
+
+            </div>
 
         </div>
     </div>
     <br />
 
-    
+
     <header class="">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="~/Home">
-                    <img src="/lib/images/Content/sigla.png" alt="pipelights by serox" style="
+                <div>
+                    <a class="navbar-brand" href="~/Home">
+                        <img src="/lib/images/Content/sigla.png" alt="pipelights by serox" style="
                                       max-width: 120px;
                                       margin-top:-20px" />
-                </a>
-                <button class="navbar-toggler"   type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span style="color:#212529" class="navbar-toggler-icon"></span>
-                </button>
+                    </a>
+                </div>
+                <div style="width:200px; display:flex; justify-content:center; align-items:center">
+                    <div style="margin-right:25px;" class="cartOnSmallScreen"></div>
+                    <div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span style="color:#212529" class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                
+
                 <div class="collapse navbar-collapse" id="navbarResponsive" style="visibility:visible!important;margin-top: -53px; margin-right: -22px">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        <li style ="border:3px solid transparent;" class="nav-item active">
                             <a class="nav-link" href="~/Home">
                                 Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item" style="position:relative">
+                        <li class="nav-item" style="position:relative; border:3px solid transparent;">
                             <a style="cursor:pointer" class="nav-link productsclick">Produse</a>
                             <div class="categoriesdiv categories">
                                 <ul>
-                                    <a  href="~/Products/Index?Id=toateprodusele"><li class="forLink my-1 p-2 onhover">Toate Produsele</li></a>
+                                    <a href="~/Products/Index?Id=toateprodusele">
+                                    <li class="forLink my-1 p-2 onhover">Toate Produsele</li></a>
                                     <Hr />
-                                    <a  href="~/Products/Index?Id=oameni"><li class="forLink my-1 p-2 onhover">Omuleti</li></a>
+                                    <a href="~/Products/Index?Id=oameni">
+                                    <li class="forLink my-1 p-2 onhover">Omuleti</li></a>
                                     <hr />
-                                    <a  href="~/Products/Index?Id=roboti"><li class="forLink my-1 p-2 onhover">Roboti</li></a>
+                                    <a href="~/Products/Index?Id=roboti">
+                                    <li class="forLink my-1 p-2 onhover">Roboti</li></a>
                                     <hr />
-                                    <a href="~/Products/Index?Id=leather"><li class="forLink my-1 p-2 onhover">Pipe & Leather</li></a>
+                                    <a href="~/Products/Index?Id=leather">
+                                    <li class="forLink my-1 p-2 onhover">Pipe & Leather</li></a>
                                     <hr />
-                                    <a  href="~/Products/Index?Id=lampi"><li class="forLink my-1 p-2 onhover">Lampi</li></a>
+                                    <a href="~/Products/Index?Id=lampi">
+                                    <li class="forLink my-1 p-2 onhover">Lampi</li></a>
                                     <Hr />
-                                    <a  href="~/Products/Index?Id=becuri"><li class="forLink my-1 p-2 onhover">Becuri</li></a>
+                                    <a href="~/Products/Index?Id=becuri">
+                                    <li class="forLink my-1 p-2 onhover">Becuri</li></a>
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        <li style ="border:3px solid transparent;" class="nav-item">
                             <a class="nav-link" href="~/Home/Contact">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <li style ="border:3px solid transparent;" class="nav-item">
                             <a class="nav-link" href="~/Home/About">Portofoliu</a>
                         </li>
-                        <li class="nav-item">
-                            <span style="display:flex; justify-content:center">
-                                <a id="cart" class="nav-link cartactive" href="~/Cart">
-                                    <img style="
-                                      width: 20px;
-                                      height: 20px;
-                                  " src="~/lib/images/Content/cart.png" />
-                                </a>
-                            </span>
-                            @{
-                                var cartSession = @HttpContextAccessor.HttpContext.Session.GetString("cart");
 
-                                if (!string.IsNullOrWhiteSpace(cartSession))
+                    </ul>
+                    <div style ="border:3px solid transparent;" class="nav-item cartOnBigScreen">
+                        <span style="display:flex; justify-content:center; color:#212529!important">
+                            <a id="cart" style="color:#212529!important" class="nav-link cartactive" href="~/Cart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                </svg>
+                            </a>
+                        </span>
+                        @{
+                            var cartSession = @HttpContextAccessor.HttpContext.Session.GetString("cart");
+
+                            if (!string.IsNullOrWhiteSpace(cartSession))
+                            {
+
+                                var desCart = JsonConvert.DeserializeObject<Cart>(cartSession);
+                                if (desCart != null)
                                 {
-
-                                    var desCart = JsonConvert.DeserializeObject<Cart>(cartSession);
-                                    if (desCart != null)
+                                    var theCart = (Cart)desCart;
+                                    if (theCart != null)
                                     {
-                                        var theCart = (Cart)desCart;
-                                        if (theCart != null)
+
+                                        var cartItemNr = theCart.products?.Sum(x => x.Value);
+
+                                        if (cartItemNr != 0)
                                         {
 
-                                            var cartItemNr = theCart.products?.Sum(x => x.Value);
-
-                                            if (cartItemNr != 0)
-                                            {
-
-                                                <div id="cartgoldencircle" class="cartgoldencircle" style="">@cartItemNr</div>
-                                            }
+                                            <div id="cartgoldencircle" class="cartgoldencircle" style=""><div class="divGoldenCircle">@cartItemNr</div></div>
                                         }
                                     }
-
                                 }
-                            }
 
-                        </li>
-                    </ul>
+                            }
+                        }
+
+                    </div>
                 </div>
             </div>
         </nav>
@@ -358,22 +402,22 @@
                         <div class="row">
                             <div style="color:#a0a1a3; " class="col-md-6">
                                 <ul class="list-none mb-0">
-                                  <li>
-                                    <a href="~/Home/Contact" onclick="showterms" class="footerlink">Contact</a>
-                                  </li>
-                                  <li>
-                                    <a href="https://anpc.ro/" class="footerlink">ANPC</a>
-                                  </li>
-                                
-                                 <li>
-                                    <a  href="~/Home/Privacy" class="t footerlink">Termeni si conditii</a>
-                                  </li>
-                                  <li>
-                                    <a href="~/Home/Privacy" class="footerlink">Plata, livrare si retur</a>
-                                  </li>
+                                    <li>
+                                        <a href="~/Home/Contact" onclick="showterms" class="footerlink">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://anpc.ro/" class="footerlink">ANPC</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="~/Home/Privacy" class="t footerlink">Termeni si conditii</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Home/Privacy" class="footerlink">Plata, livrare si retur</a>
+                                    </li>
                                 </ul>
-                                  
-                                
+
+
                             </div>
 
                             <br />
@@ -387,72 +431,76 @@
                                     <li>
                                         J31/563/2021
                                     </li>
-                                     
+
                                     <li>
-                                       Iuliu Maniu nr: 134, sat Balan, judetul Salaj
+                                        Iuliu Maniu nr: 134, sat Balan, judetul Salaj
                                     </li>
                                 </ul>
-                                
+
                             </div>
 
-                           
+
                         </div>
-                            <br />
-                            <br />
-                              
-                            <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:center;" >
-                
-                
-                                 <a class="iconlink mx-3" style="text-decoration:none!important; " href="https://www.instagram.com/pipelights.byserox/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                                 </svg></a>
+                        <br />
+                        <br />
 
-                                 <a class="iconlink mx-3 " style="text-decoration:none!important; " href="https://www.facebook.com/PipeLightsbySerox/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                                 </svg></a>
+                        <div class="col col-sm-12 col-md-12 " style="display:flex;justify-content:center;">
 
-                 
 
-                             </div>
-                           
-                              <br />
-                               <br />
-                            <p style="color:white">
-                                Copyright &copy; @DateTime.Now.Year PipeLights
-                            </p>
+                            <a class="iconlink mx-3" style="text-decoration:none!important; " href="https://www.instagram.com/pipelights.byserox/" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                </svg>
+                            </a>
+
+                            <a class="iconlink mx-3 " style="text-decoration:none!important; " href="https://www.facebook.com/PipeLightsbySerox/" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                            </a>
+
+
+
+                        </div>
+
+                        <br />
+                        <br />
+                        <p style="color:white">
+                            Copyright &copy; @DateTime.Now.Year PipeLights
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-   @* search div*@
+    @* search div*@
 
-   <div class="searchDiv" id="searchDiv">
+    <div class="searchDiv" id="searchDiv">
         <div class="closeButton" id="closeSearchDiv" style="width:10%; position:absolute; bottom:260px; display:flex; justify-content:center; cursor:pointer">
             <svg xmlns="http://www.w3.org/2000/svg" style="color:#fff" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
             </svg>
         </div>
         <form id="searchForm" action="~/Products/Search" method="post" style="width:100%; justify-content: center;" class="input-group">
-                <input id="inputSearch" class="searchInput" name="searchValue" type="search" class="form-control rounded" placeholder="Cauta" aria-label="Search" aria-describedby="search-addon" />
-                <span style="background-color:transparent" class="input-group-text border-0" id="search-addon">
-                   <button style="background-color:transparent; border:none;" type="submit">
-                        <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important;" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                   </button>
-                </span>
-                <Label id="searchLabel" style="color:#fff; width:100%;text-align:center; font-size:14px; visibility:hidden; margin-top:10px">Introdu cel putin 3 caractere</Label>
+            <input id="inputSearch" class="searchInput" name="searchValue" type="search" class="form-control rounded" placeholder="Cauta" aria-label="Search" aria-describedby="search-addon" />
+            <span style="background-color:transparent" class="input-group-text border-0" id="search-addon">
+                <button style="background-color:transparent; border:none;" type="submit">
+                    <svg class="iconlink mx-2" id="search" style="cursor:pointer; text-decoration:none!important;" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </span>
+            <Label id="searchLabel" style="color:#fff; width:100%;text-align:center; font-size:14px; visibility:hidden; margin-top:10px">Introdu cel putin 3 caractere</Label>
         </form>
-   </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     @*<script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
 
 
     <!-- Additional Scripts -->
@@ -461,37 +509,35 @@
     <script src="~/lib/from-template/js/slick.js"></script>
     <script src="~/lib/from-template/js/isotope.js"></script>
     <script src="~/lib/from-template/js/accordions.js"></script>
-     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-     <script>
-         if ($(window).width() < 1000) 
-           {
-               $('.categories').addClass('categoriesdivsmallscreen');
-               $('.categories').removeClass('categoriesdiv');
-           }
-           else
-           {
-               $('.categories').removeClass('categoriesdivsmallscreen');
-               $('.categories').addClass('categoriesdiv');
-           }
-         
-        $(window).on('resize', function(){
+    <script>
+        if ($(window).width() < 1000) {
+            $('.categories').addClass('categoriesdivsmallscreen');
+            $('.categories').removeClass('categoriesdiv');
+        }
+        else {
+            $('.categories').removeClass('categoriesdivsmallscreen');
+            $('.categories').addClass('categoriesdiv');
+        }
+
+        $(window).on('resize', function () {
             var win = $(this); //this = window
-            
-            if (win.width() <= 1000) { 
+
+            if (win.width() <= 1000) {
                 $('.categories').addClass('categoriesdivsmallscreen');
                 $('.categories').removeClass('categoriesdiv');
             }
-            else{
+            else {
                 $('.categories').removeClass('categoriesdivsmallscreen');
                 $('.categories').addClass('categoriesdiv');
             }
         });
 
-    
+
         //show categories when click on products
-        $(".productsclick").click(function(){
-          $(".categories").toggleClass("categoriesshow");
+        $(".productsclick").click(function () {
+            $(".categories").toggleClass("categoriesshow");
         });
 
         //show search div when search icon is clicked
@@ -500,9 +546,9 @@
             $(".searchDiv").css("display", "flex");
         });
 
-        //close button on search 
+        //close button on search
 
-        $("#closeSearchDiv").click(function(){
+        $("#closeSearchDiv").click(function () {
             $(".searchDiv").css("display", "none");
         });
 
@@ -532,30 +578,54 @@
             }
         }
 
-       
+
     </script>
     <script language="text/Javascript">
-            cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-            function clearField(t) {                   //declaring the array outside of the
-                if (!cleared[t.id]) {                      // function makes it static and global
-                    cleared[t.id] = 1;  // you could use true and false, but that's more typing
-                    t.value = '';         // with more chance of typos
-                    t.style.color = '#fff';
-                }
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
             }
+        }
 
-    
-       
-   
-    
-            
+
+
+
+
+
     </script>
 
+    <script>
+        // Function to handle the resizing and moving of elements
+        function handleResize() {
+            const cartOnBigScreen = document.querySelector(".cartOnBigScreen");
+            const cartOnSmallScreen = document.querySelector(".cartOnSmallScreen");
+
+            // Get the window width
+            const windowWidth = window.innerWidth;
+
+            if (windowWidth <= 767) {
+                // Move cartOnBigScreen into cartOnSmallScreen on small screens
+                cartOnSmallScreen.innerHTML = cartOnBigScreen.innerHTML;
+            } else {
+                // Restore the original content on larger screens
+                cartOnSmallScreen.innerHTML = "";
+            }
+        }
+
+        // Initial call to the function
+        handleResize();
+
+        // Attach the function to the window resize event
+        window.addEventListener("resize", handleResize);
+    </script>
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-        &copy; 2021 - Pipelights.Website - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-        </footer>*@
+    <div class="container">
+    &copy; 2021 - Pipelights.Website - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>*@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)

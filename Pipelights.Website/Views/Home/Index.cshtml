@@ -93,7 +93,8 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/lib/images/all5.jpg" class="d-block w-100" alt="...">
+            @*<h2 style="position:absolute;top:40px;left:50px;color:#212529">Ofera cadoul perfect ţie sau cuiva drag</h2>
+     *@       <img src="~/lib/images/all5.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
             <img src="~/lib/images/all6.jpg" class="d-block w-100" alt="...">
@@ -127,7 +128,7 @@
             </div>
             @foreach (var item in Model)
             {
-                <div class="col-md-3 col-lg-3">
+                <div class="col-md-3 col-lg-3 col-sm-6 col-6">
                     <div class="product-item">
                         <a href="~/Products/Details?Id=@item.Id">
                             <img src="@item.MainImage" alt="">

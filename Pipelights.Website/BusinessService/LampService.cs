@@ -21,6 +21,18 @@ namespace Pipelights.Website.BusinessService
         IEnumerable<ProductDetailsDto> GetSuggestions(bool includeInactive, int max = 1000);
         IEnumerable<ProductDetailsDto> GetRobots(bool includeInactive, int max = 1000);
         IEnumerable<ProductDetailsDto> GetPipeLeather(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetSports(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetMusic(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetDrink(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetTravel(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetFood(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetHobby(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetJob(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetBusiness(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetOther(bool includeInactive, int max = 1000);
+        IEnumerable<ProductDetailsDto> GetTwoBulbs(bool includeInactive, int max = 1000);
+
+
 
     }
 
@@ -134,6 +146,74 @@ namespace Pipelights.Website.BusinessService
 
             return result;
         }
-        
+        public IEnumerable<ProductDetailsDto> GetTwoBulbs(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'twoBulbs')", includeInactive);
+
+            return result;
+        }
+
+
+        public IEnumerable<ProductDetailsDto> GetSports(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'sport')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetMusic(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'music')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetFood(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'food')", includeInactive);
+
+            return result;
+        }
+        public IEnumerable<ProductDetailsDto> GetDrink(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'drink')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetTravel(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'travel')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetHobby(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'hobby')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetJob(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'job')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetBusiness(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'business')", includeInactive);
+
+            return result;
+        }
+
+        public IEnumerable<ProductDetailsDto> GetOther(bool includeInactive, int max = 1000)
+        {
+            var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'other')", includeInactive);
+
+            return result;
+        }
     }
 }

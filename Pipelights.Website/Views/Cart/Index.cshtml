@@ -47,6 +47,8 @@
 
 
 </style>
+
+<br />
 <h1>Index</h1>
 
 <div>
@@ -61,7 +63,7 @@
                     <h4 style="color:#212529">Poti adauga produse prin apasarea butonului 'Adauga in cos' din dreptul fiecarui produs dorit.</h4>
 
                     <div style="display: flex;justify-content: center; margin-top:70px">
-                        <a href="~/Products">
+                        <a href="~/Products/Index?Id=toateprodusele">
                             <h4 class="butoninapoi" style="">
                                 Inapoi la Produse
                             </h4>
@@ -75,14 +77,15 @@
             @foreach (var product in Model.ProductsForCart)
             {
                 <div class="row" style="margin-top: 20px; display:flex; justify-content:center">
-                    <div class="col-md-6">
+                    <div style="display:flex; flex-direction:column; justify-content:space-between; align-items:center" class="col-lg-6 col-md-6 col-sm-10">
 
                         <img src="@product.ProductDetails.MainImage" style="width: 150px;" />
-                        <span style="margin-left:20px">Lampa @product.ProductDetails.Name</span>
+                        <span style="padding:10px 20px 10px 20px; text-align:center">@product.ProductDetails.Name</span>
+                        <span style="padding:10px 20px 10px 20px; text-align:center">@product.ProductDetails.Price RON</span>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-6" style="margin-top:32px">
+                            <div class="col-md-6" style="display:flex; flex-direction:column; justify-content:space-between; align-items:center">
 
                                 <form method="post" action="~/Cart/EditQuantity">
                                     <input type="hidden" name="id" value="@product.ProductDetails.Id" /> <br /><br />
@@ -90,7 +93,7 @@
                                     <input type="submit" class="btn butoninapoi shadow-none btn-cart-main" value="Actualizeaza" />
                                 </form>
                             </div>
-                            <div class="col-md-6" style="margin-top:32px">
+                            <div class="col-md-6" style="display:flex; flex-direction:column; justify-content:space-between; align-items:center">
                                 <form method="post" action="~/Cart/RemoveItem">
                                     <input type="hidden" name="id" value="@product.ProductDetails.Id" /><br /><br />
                                     <input type="submit" class="btn butoninapoi shadow-none btn-cart-main" value="Sterge din cos" />
@@ -104,7 +107,7 @@
             <br />
             <br />
             <form method="post" action="~/Cart/GoToCheckout">
-                <div style="display: flex;justify-content: center; margin-top:70px">
+                <div style="display: flex;justify-content: center;">
                     <input type="submit" class="btn butoninapoi1 shadow-none btn-cart-main" 
                            value="Finalizaeaza comanda" />
                 </div>

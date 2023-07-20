@@ -56,82 +56,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-           
-                <h4 style="color:#212529">Sumar comanda</h4>
-                <br />
-                <div>
-                    @{
-                        var subtotal = 0;
-                    }
-                    @foreach (var product in Model.ProductsForCart)
-                    {
-                        <div>
-                            <img style="height: 140px" src="@product.ProductDetails.MainImage" />
-                        </div>
-
-                        <div>
-                            <p style="color:#212529">Lampa @product.ProductDetails.Name</p>
-                            <p style="color:#212529">@product.Quantity BUC</p>
-                            @{
-                                var price = 0;
-                            }
-
-                            @if (!string.IsNullOrEmpty(product.ProductDetails.PriceReduced))
-                            {
-                                <p>@product.ProductDetails.PriceReduced</p>
-                                int.TryParse(product.ProductDetails.PriceReduced, out price);
-                            }
-                            else
-                            {
-                                <p>@product.ProductDetails.Price RON BUC</p>
-                                int.TryParse(product.ProductDetails.Price, out price);
-                            }
-
-                            @{
-
-                                subtotal = subtotal + product.Quantity * price;
-                            }
-
-
-                        </div>
-                    }
-                    <br />
-                    <div>
-                        <div style="display:none" id="subTotalPrice">@subtotal</div>
-                        <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
-                    </div>
-
-                    <div>
-                    <h6 style="color:#a0a1a3">Transport:  <span id="transportPrice">0</span> RON</h6>
-                    </div>
-                
-
-                    <br />
-
-                <form >
-                         <div class="form-group " style="font-size: 14px;
-                                                        width: 100%;
-                                                        display: flex;
-                                                        justify-content: flex-start;
-                                                        align-items: center;
-                                                    ">
-                            <input id="vouckerInput" type="text" name="VoucherString" style="width:35%; margin-right:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="Voucher">
-                            <button id="button" type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
-                                Aplica
-                            </button>
-                        </div>
-                    </form>
-                   
-
-
-                    <br />
-
-                    <div style="font-size:20px; font-weight: bold;color:#212529">
-                    <span>TOTAL: </span><span id="totalPrice"> @subtotal </span><span> RON</span>
-                    </div>
-                </div>
-                <br />
-        
+            <br />
+            <h4 style="color:#212529">Detalii facturare</h4>
+            <br />
             <form method="post" action="~/Cart/PlaceOrder" id="form">
                 <div class="form-group">
                     <label for="name">Nume</label>
@@ -220,6 +147,81 @@
                     <label for="address">Adresa</label>
                     <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="">
                     <label id="labeladresa" class="redlabel">Acest camp este obligatoriu</label>
+                </div>
+                <br />
+
+                <h4 style="color:#212529">Sumar comanda</h4>
+                <br />
+                <div>
+                    @{
+                        var subtotal = 0;
+                    }
+                    @foreach (var product in Model.ProductsForCart)
+                    {
+                        <div>
+                            <img style="height: 140px" src="@product.ProductDetails.MainImage" />
+                        </div>
+
+                        <div>
+                            <p style="color:#212529">Lampa @product.ProductDetails.Name</p>
+                            <p style="color:#212529">@product.Quantity BUC</p>
+                            @{
+                                var price = 0;
+                            }
+
+                            @if (!string.IsNullOrEmpty(product.ProductDetails.PriceReduced))
+                            {
+                                <p>@product.ProductDetails.PriceReduced</p>
+                                int.TryParse(product.ProductDetails.PriceReduced, out price);
+                            }
+                            else
+                            {
+                                <p>@product.ProductDetails.Price RON BUC</p>
+                                int.TryParse(product.ProductDetails.Price, out price);
+                            }
+
+                            @{
+
+                                subtotal = subtotal + product.Quantity * price;
+                            }
+
+
+                        </div>
+                    }
+                    <br />
+                    <div>
+                        <div style="display:none" id="subTotalPrice">@subtotal</div>
+                        <h5 style="color:#a0a1a3">Subtotal: @subtotal RON</h5>
+                    </div>
+
+                    <div>
+                        <h6 style="color:#a0a1a3">Transport:  <span id="transportPrice">0</span> RON</h6>
+                    </div>
+
+
+                    <br />
+
+                    <form>
+                        <div class="form-group " style="font-size: 14px;
+                                                        width: 100%;
+                                                        display: flex;
+                                                        justify-content: flex-start;
+                                                        align-items: center;
+                                                    ">
+                            <input id="vouckerInput" type="text" name="VoucherString" style="width:35%; margin-right:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="Voucher">
+                            <button id="button" type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
+                                Aplica
+                            </button>
+                        </div>
+                    </form>
+
+
+
+                    <br />
+
+                    <div style="font-size:20px; font-weight: bold;color:#212529">
+                        <span>TOTAL: </span><span id="totalPrice"> @subtotal </span><span> RON</span>
+                    </div>
                 </div>
                 <br />
 
