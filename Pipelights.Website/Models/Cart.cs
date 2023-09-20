@@ -1,4 +1,5 @@
-﻿using Pipelights.Website.BusinessService.Models;
+﻿using Pipelights.Database.Models;
+using Pipelights.Website.BusinessService.Models;
 using System.Collections.Generic;
 
 namespace Pipelights.Website.Models
@@ -10,5 +11,6 @@ namespace Pipelights.Website.Models
         public List<ProductDetailsForCart> ProductsForCart;
         public string address;
         public string telephone;
+        public VoucherEntity voucher;
     }
 }

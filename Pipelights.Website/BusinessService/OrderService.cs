@@ -51,8 +51,8 @@ namespace Pipelights.Website.BusinessService
                     PlacedDate = DateTime.Now,
                     Subtotal = 0,
                     CartProducts = GetCartProducts(cart),
-                    id = orderId
-
+                    id = orderId,
+                    Voucher = cart.voucher
                 });
                 var task = Task.Run(async () => await addOrderTask);
                 task.GetAwaiter().GetResult();

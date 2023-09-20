@@ -1,5 +1,5 @@
 ﻿<style>
-    
+
     .butoninapoi1 {
         background-color: #F0B250;
         border-color: #F0B250;
@@ -12,33 +12,30 @@
         border-radius: 7px !important;
         transition: .4s ease-in-out;
         letter-spacing: 2px;
-
     }
 
-    .butoninapoi1:hover {
-        background-color:#212529;
-        border-color: #212529;
-        color:white;
-    }
+        .butoninapoi1:hover {
+            background-color: #212529;
+            border-color: #212529;
+            color: white;
+        }
 
     .redlabel {
-        color:#e02b27; 
-        font-size: 12px;        
-        display:none;
+        color: #e02b27;
+        font-size: 12px;
+        display: none;
     }
 
     .redlabelshow {
-        display:block;
+        display: block;
     }
 
     .formfocus {
-
     }
 
-    .formfocus:focus {
-        border:1px solid #F0B250!important;
-        
-    }
+        .formfocus:focus {
+            border: 1px solid #F0B250 !important;
+        }
 
 </style>
 
@@ -83,7 +80,7 @@
                     <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="telephone" name="telephone" placeholder="">
                     <label id="labeltelefon" class="redlabel">Acest camp este obligatoriu</label>
                     <label id="labeltelefonvalid" class="redlabel">Introdu un numar de telefon valid</label>
-     
+
                 </div>
 
                 <div class="form-group">
@@ -134,13 +131,13 @@
                         <option value="Vrancea">Vrancea</option>
                     </select>
                     <label id="labeljudete" class="redlabel">Acest camp este obligatoriu</label>
-           
+
                 </div>
 
                 <div class="form-group">
                     <label for="localitate">Localitate</label>
                     <input type="text" style="border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none " id="localitate" name="localitate" placeholder="">
-                    <label id="labellocalitate"class="redlabel">Acest camp este obligatoriu</label>
+                    <label id="labellocalitate" class="redlabel">Acest camp este obligatoriu</label>
                 </div>
 
                 <div class="form-group">
@@ -198,24 +195,19 @@
                         <h6 style="color:#a0a1a3">Transport:  <span id="transportPrice">0</span> RON</h6>
                     </div>
 
-
                     <br />
 
-                    <form>
-                        <div class="form-group " style="font-size: 14px;
+                    <div class="form-group " style="font-size: 14px;
                                                         width: 100%;
                                                         display: flex;
                                                         justify-content: flex-start;
                                                         align-items: center;
                                                     ">
-                            <input id="vouckerInput" type="text" name="VoucherString" style="width:35%; margin-right:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="Voucher">
-                            <button id="button" type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
-                                Aplica
-                            </button>
-                        </div>
-                    </form>
-
-
+                        <input id="vouckerInput" type="text" name="VoucherString" style="width:35%; margin-right:10px;border:1px solid #d6d6d6; background-color:white" class="formfocus form-control shadow-none  " id="address" name="address" placeholder="Voucher">
+                        <button id="button" type="submit" class="btn butoninapoi1 shadow-none btn-cart-main">
+                            Aplica
+                        </button>
+                    </div>
 
                     <br />
 
@@ -256,7 +248,7 @@
             </form>
             <br />
         </div>
-       
+
     </div>
 </div>
 
@@ -279,141 +271,144 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
+                if (data != model.Price) {
+                    console.log("discount!");
+                }
                 $("#totalPrice").html(data);
-               
+
             }
-                
+
         });
-        
+
     });
 
 
 
     function changeTransportPrice() {
-      var judetSelectat = document.getElementById("judete").value;
-      if(judetSelectat == "Cluj" || judetSelectat == "Salaj" ){
+        var judetSelectat = document.getElementById("judete").value;
+        if (judetSelectat == "Cluj" || judetSelectat == "Salaj") {
             document.getElementById("transportPrice").innerHTML = 0;
-                        document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML);
-      }else {
+            document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML);
+        } else {
             document.getElementById("transportPrice").innerHTML = 30;
-            document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML) +30;
-    }
+            document.getElementById("totalPrice").innerHTML = parseInt(document.getElementById("subTotalPrice").innerHTML) + 30;
+        }
     }
 
     const navItemsCartK = document.getElementsByClassName('nav-item');
     const cartUnderlinedK = document.getElementById('cart');
 
-    for(var i=0; i<navItemsCartK.length;i++){
+    for (var i = 0; i < navItemsCartK.length; i++) {
         navItemsCartK[i].classList.remove('active');
         cartUnderlinedK.classList.add('active');
     }
-    
-   //form validation
 
-   const form = document.getElementById('form');
+    //form validation
 
-   const nume = document.getElementById('name');
-   const labelnume = document.getElementById('labelnume');
+    const form = document.getElementById('form');
 
-   const prenume = document.getElementById('surname');
-   const labelprenume = document.getElementById('labelprenume');
+    const nume = document.getElementById('name');
+    const labelnume = document.getElementById('labelnume');
 
-   const email = document.getElementById('email');
-   const labelemail = document.getElementById('labelemail');
+    const prenume = document.getElementById('surname');
+    const labelprenume = document.getElementById('labelprenume');
 
-   const telefon = document.getElementById('telephone');
-   const labeltelefon = document.getElementById('labeltelefon');
-   const labeltelefonvalid = document.getElementById('labeltelefonvalid');
+    const email = document.getElementById('email');
+    const labelemail = document.getElementById('labelemail');
+
+    const telefon = document.getElementById('telephone');
+    const labeltelefon = document.getElementById('labeltelefon');
+    const labeltelefonvalid = document.getElementById('labeltelefonvalid');
 
 
-   const localitate = document.getElementById('localitate');
-   const labellocalitate = document.getElementById('labellocalitate');
+    const localitate = document.getElementById('localitate');
+    const labellocalitate = document.getElementById('labellocalitate');
 
-   const adresa = document.getElementById('address');
-   const labeladresa = document.getElementById('labeladresa');
+    const adresa = document.getElementById('address');
+    const labeladresa = document.getElementById('labeladresa');
 
     const judete = document.getElementById('judete');
-   const labeljudete = document.getElementById('labeljudete');
+    const labeljudete = document.getElementById('labeljudete');
 
 
-   form.addEventListener('submit', (e) => {
-	   
-       if(!checkInputsCheckout()){
-           e.preventDefault();
-       }else {
-           
-       }
-	
-   });
+    form.addEventListener('submit', (e) => {
+
+        if (!checkInputsCheckout()) {
+            e.preventDefault();
+        } else {
+
+        }
+
+    });
 
     function checkInputsCheckout() {
 
-       if(nume.value === ''){
-           labelnume.classList.add('redlabelshow');
-           return(false);
-       }else {
-           labelnume.classList.remove('redlabelshow')
-           
-       }
+        if (nume.value === '') {
+            labelnume.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labelnume.classList.remove('redlabelshow')
 
-       if(prenume.value === ''){
-           labelprenume.classList.add('redlabelshow');
-           return(false);
-       }else {
-           labelprenume.classList.remove('redlabelshow');
-            
-       }
+        }
 
-       if(email.value === ''){
-           labelemail.classList.add('redlabelshow');
-           return(false);
-       }else {
-           labelemail.classList.remove('redlabelshow');
-           
-       }
+        if (prenume.value === '') {
+            labelprenume.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labelprenume.classList.remove('redlabelshow');
 
-       if(telefon.value === ''){
-           labeltelefon.classList.add('redlabelshow');
-           return(false);
-       }else if (telefon.value.length < 10){
-           labeltelefon.classList.remove('redlabelshow');
-           labeltelefonvalid.classList.add('redlabelshow');
-           return(false);
-       }else {
-           labeltelefon.classList.remove('redlabelshow');
-           labeltelefonvalid.classList.remove('redlabelshow');
-           
-       }
+        }
 
-       if(judete.value === '0'){
-           labeljudete.classList.add('redlabelshow');
-            return(false);
-       }else {
-           labeljudete.classList.remove('redlabelshow');
-           
-       }
+        if (email.value === '') {
+            labelemail.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labelemail.classList.remove('redlabelshow');
 
-       if(localitate.value === ''){
-           labellocalitate.classList.add('redlabelshow');
-          return(false);
-       }else {
-           labellocalitate.classList.remove('redlabelshow');
-           
-       }
+        }
 
-       if(adresa.value === ''){
-           labeladresa.classList.add('redlabelshow');
-            return(false);
-       }else {
-           labeladresa.classList.remove('redlabelshow');
-           
-       }
+        if (telefon.value === '') {
+            labeltelefon.classList.add('redlabelshow');
+            return (false);
+        } else if (telefon.value.length < 10) {
+            labeltelefon.classList.remove('redlabelshow');
+            labeltelefonvalid.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labeltelefon.classList.remove('redlabelshow');
+            labeltelefonvalid.classList.remove('redlabelshow');
 
-       
+        }
 
-          return(true);
-    
-   }
-    
+        if (judete.value === '0') {
+            labeljudete.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labeljudete.classList.remove('redlabelshow');
+
+        }
+
+        if (localitate.value === '') {
+            labellocalitate.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labellocalitate.classList.remove('redlabelshow');
+
+        }
+
+        if (adresa.value === '') {
+            labeladresa.classList.add('redlabelshow');
+            return (false);
+        } else {
+            labeladresa.classList.remove('redlabelshow');
+
+        }
+
+
+
+        return (true);
+
+    }
+
 
 </script>

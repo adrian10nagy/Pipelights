@@ -226,11 +226,18 @@ namespace Pipelights.Website.Controllers
                 var discountedPrice = price * discount;
 
                 price = discountedPrice;
-                
-            }
 
-            var p = price.ToString();
-            HttpContext.Session.SetString("price", p);
+                var cartString = HttpContext.Session.GetString("cart");
+                if (!string.IsNullOrEmpty(cartString))
+                {
+                    Cart cart = _cartService.GetCartForSessionUser(cartString);
+                    cart.voucher = _voucherService.GetById(model.VoucherString);
+
+                    var serializedCart = JsonConvert.SerializeObject(cart);
+                    HttpContext.Session.SetString("cart", serializedCart);
+
+                }
+            }
 
             return Json(price);
             

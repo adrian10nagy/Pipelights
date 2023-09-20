@@ -26,6 +26,11 @@ namespace Pipelights.Website.BusinessService
             if (!string.IsNullOrEmpty(existingCart))
             {
                 cart = JsonConvert.DeserializeObject<Cart>(existingCart);
+                if (cart != null)
+                {
+                    cart.ProductsForCart = new List<ProductDetailsForCart>();
+                }
+
                 if (cart?.products?.Any() != null)
                 {
                     foreach (var cartProduct in cart.products)
@@ -33,11 +38,6 @@ namespace Pipelights.Website.BusinessService
                         var lamp = _lampService.GetById(cartProduct.Key);
                         if (lamp != null)
                         {
-                            if (cart.ProductsForCart == null)
-                            {
-                                cart.ProductsForCart = new List<ProductDetailsForCart>();
-                            }
-
                             cart.ProductsForCart.Add(new ProductDetailsForCart(lamp, cartProduct.Value));
                         }
                     }

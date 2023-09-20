@@ -4,6 +4,7 @@
     Layout = null;
     var productsPrice = 0;
     var costLivrare = Model.Order.judete.Equals("Cluj") ? 0 : 30;
+    decimal voucherPrice = 0;
 }
 
 <h2>Buna @Model.Order.surname,</h2>
@@ -86,10 +87,18 @@
         <td>Cost livrare:</td>
         <td>@costLivrare</td>
     </tr>
+    @if (Model.Cart.voucher != null)
+    {
+        voucherPrice = (decimal)productsPrice - (Model.Cart.voucher.Discount * (decimal)productsPrice);
+        <tr>
+            <td>Voucher:</td>
+            <td>@voucherPrice</td>
+        </tr>
+    }
     <tr>
         <td>Total de plata:</td>
         @{
-            var totalPrice = productsPrice + costLivrare;
+            var totalPrice = productsPrice + costLivrare - voucherPrice;
         }
         <td>@totalPrice</td>
     </tr>

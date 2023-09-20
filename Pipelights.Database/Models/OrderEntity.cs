@@ -32,6 +32,9 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("address")]
         public string Address { get; set; }
 
+        [JsonPropertyName("voucher")]
+        public VoucherEntity Voucher { get; set; }
+
         [JsonPropertyName("subtotal")]
         public decimal Subtotal { get; set; }
 
