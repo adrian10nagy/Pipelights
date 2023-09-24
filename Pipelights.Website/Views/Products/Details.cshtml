@@ -3,11 +3,7 @@
 <link rel="stylesheet" href="~/css/productDetails.css">
 
 <style>
-    footer {
-        : absolute;
-       
-    }
-
+    
     .footermargin {
          margin-top:500px;
     }
@@ -313,7 +309,24 @@
         });
         
         $("#footer").css("display", "none");
-        
-         
+
+        //add margin to cart on small screen
+        $(document).ready(function () {
+            function updateMarginTop() {
+                if ($(window).width() <= 768) { // Adjust the width threshold as needed
+                    $("#cart").css("margin-top", "15px");
+                } else {
+                    $("#cart").css("margin-top", "0");
+                }
+            }
+
+            // Initial setup
+            updateMarginTop();
+
+            // Call the function on window resize
+            $(window).on("resize", function () {
+                updateMarginTop();
+            });
+        });
         </script>
 }

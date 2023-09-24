@@ -170,6 +170,7 @@ namespace Pipelights.Website.Controllers
             var cart = _cartService.GetCartForSessionUser(cartString);
 
             var orderNr = _orderService.SaveOrder(model, cart);
+
             if (!string.IsNullOrWhiteSpace(orderNr))
             {
                 // remove cart
@@ -178,13 +179,18 @@ namespace Pipelights.Website.Controllers
                     HttpContext.Session.Remove("cart");
                 }
 
+                var finalPrice = HttpContext.Session.GetString("finalPrice");
+                var usedVoucher = HttpContext.Session.GetString("voucher");
+
                 // send email
                 string body = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmation.cshtml", 
                     new OrderConfirmationEmailDto
                     {
                         Order = model,
                         OrderNumber = orderNr,
-                        Cart = cart
+                        Cart = cart,
+                        VoucherName = usedVoucher,
+
                     }).Result;
 
                 _emailService.SendEmail("serox.pipelights@gmail.com", $"A fost plasata o comanda! {orderNr}", body);
@@ -195,7 +201,8 @@ namespace Pipelights.Website.Controllers
                     {
                         Order = model,
                         OrderNumber = orderNr,
-                        Cart = cart
+                        Cart = cart,
+                        VoucherName = usedVoucher,
                     }).Result;
 
                 _emailService.SendEmail($"{model.email}", $"Salut. Ai plasat comanda {orderNr}", bodyForClient);
@@ -213,13 +220,12 @@ namespace Pipelights.Website.Controllers
             return RedirectToAction("Confirmation", "Order", new { orderNr = orderNr });
         }
 
-
         [HttpPost]
         public IActionResult PriceWithDiscount([FromBody] VoucherDto model)
         {
             var price = model.Price;
 
-            if(model.VoucherString!= string.Empty)
+            if (model.VoucherString != string.Empty)
             {
                 var discount = _voucherService.VouckerCheck(model.VoucherString);
 
@@ -240,7 +246,7 @@ namespace Pipelights.Website.Controllers
             }
 
             return Json(price);
-            
+
         }
     }
 }

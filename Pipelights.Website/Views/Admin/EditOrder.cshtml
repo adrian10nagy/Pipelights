@@ -1,0 +1,197 @@
+﻿@model Pipelights.Database.Models.OrderEntity
+
+@{
+    ViewData["Title"] = "EditOrder";
+}
+<div style="padding:30px">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>EditOrder</h1>
+    <br />
+    <br />
+    <br />
+   
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form action="EditOrder" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="id" class="control-label"></label>
+                    <input asp-for="id" class="form-control" readonly />
+                    <span asp-validation-for="id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telephone" class="control-label"></label>
+                    <input asp-for="Telephone" class="form-control" />
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Surname" class="control-label"></label>
+                    <input asp-for="Surname" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="judete">Judet</label>
+                    <select onchange="changeTransportPrice()" class="formfocus form-control shadow-none" style="display:block;border:1px solid #d6d6d6; background-color:white" name="judete" id="judete">
+                        <option value="0">Alege Judet</option>
+                        <option value="Alba">Alba</option>
+                        <option value="Arad">Arad</option>
+                        <option value="Arges">Arges</option>
+                        <option value="Bacau">Bacau</option>
+                        <option value="Bihor">Bihor</option>
+                        <option value="Bistrita Nasaud">Bistrita Nasaud</option>
+                        <option value="Botosani">Botosani</option>
+                        <option value="Brasov">Brasov</option>
+                        <option value="Braila">Braila</option>
+                        <option value="Bucuresti">Bucuresti</option>
+                        <option value="Buzau">Buzau</option>
+                        <option value="Caras Severin">Caras Severin</option>
+                        <option value="Calarasi">Calarasi</option>
+                        <option value="Cluj">Cluj</option>
+                        <option value="Constanta">Constanta</option>
+                        <option value="Covasna">Covasna</option>
+                        <option value="Dambovita">Dambovita</option>
+                        <option value="Dolj">Dolj</option>
+                        <option value="Galati">Galati</option>
+                        <option value="Giurgiu">Giurgiu</option>
+                        <option value="Gorj">Gorj</option>
+                        <option value="Harghita">Harghita</option>
+                        <option value="Hunedoara">Hunedoara</option>
+                        <option value="Ialomita">Ialomita</option>
+                        <option value="Iasi">Iasi</option>
+                        <option value="Ilfov">Ilfov</option>
+                        <option value="Maramures">Maramures</option>
+                        <option value="Mehedinti">Mehedinti</option>
+                        <option value="Mures">Mures</option>
+                        <option value="Neamt">Neamt</option>
+                        <option value="Olt">Olt</option>
+                        <option value="Prahova">Prahova</option>
+                        <option value="Satu Mare">Satu Mare</option>
+                        <option value="Salaj">Salaj</option>
+                        <option value="Sibiu">Sibiu</option>
+                        <option value="Suceava">Suceava</option>
+                        <option value="Teleorman">Teleorman</option>
+                        <option value="Timis">Timis</option>
+                        <option value="Tulcea">Tulcea</option>
+                        <option value="Vaslui">Vaslui</option>
+                        <option value="Valcea">Valcea</option>
+                        <option value="Vrancea">Vrancea</option>
+                    </select>
+                </div?
+                <div class="form-group">
+                    <label asp-for="Localitate" class="control-label"></label>
+                    <input asp-for="Localitate" class="form-control" />
+                    <span asp-validation-for="Localitate" class="text-danger"></span>
+                </div>
+                    @*#region Payment*@
+                    <div>
+                        <h3>Detalii Plata</h3>
+                        <div class="form-check">
+                            <input required class="form-check-input" type="radio" name="payment" id="ramburs" value="Plata prin Ramburs" checked>
+                            <label class="form-check-label" for="ramburs">
+                                Plata la livrare
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment" id="bankTransfer" value="Transfer Bancar">
+                            <label class="form-check-label" for="bankTransfer">
+                                Plata prin transfer Bancar
+                            </label>
+                        </div>
+
+                        <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="payment" id="onlineWithCard" value="Online cu Card Bancar" disabled>
+                            <label class="form-check-label" for="onlineWithCard">
+                                Online cu Card Bancar (indisponibil momentan)
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    @*endregion payment*@
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subtotal" class="control-label"></label>
+                    <input asp-for="Subtotal" class="form-control" />
+                    <span asp-validation-for="Subtotal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PlacedDate" class="control-label"></label>
+                    <input asp-for="PlacedDate" class="form-control" readonly/>
+                    <span asp-validation-for="PlacedDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sex" class="control-label"></label>
+                    <select asp-for="Sex" class="form-control">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                    <span asp-validation-for="Sex" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Channel" class="control-label"></label>
+                    <select asp-for="Channel" class="form-control">
+                        <option value="Pipelights">Pipelights</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Telefon">Telefon</option>
+                        <option value="Iarmaroc">Iarmaroc</option>
+                        <option value="Targ">Targ</option>
+                        <option value="Etsy">Etsy</option>
+                        <option value="Alta sursa">Alta sursa</option>
+                    </select>
+                    <span asp-validation-for="Channel" class="text-danger"></span>
+               </div>
+                <hr />
+
+                @for (int i = 0; i < Model.CartProducts.Count; i++)
+                {
+                    <h5>Cart Product @i</h5>
+                    <div class="form-group">
+                        <label asp-for="CartProducts[i].LampId" class="control-label"></label>
+                        <input asp-for="CartProducts[i].LampId" class="form-control" />
+                        <span asp-validation-for="CartProducts[i].LampId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CartProducts[i].Quantity" class="control-label"></label>
+                        <input asp-for="CartProducts[i].Quantity" class="form-control" />
+                        <span asp-validation-for="CartProducts[i].Quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CartProducts[i].Price" class="control-label"></label>
+                        <input asp-for="CartProducts[i].Price" class="form-control" />
+                        <span asp-validation-for="CartProducts[i].Price" class="text-danger"></span>
+                    </div>
+                }
+                <div class="form-group">
+                    <input type="submit" value="Salveaza" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+
+</div>
+
+<div>
+    <a href="@Url.Action("OrdersDashboard", "Admin")">Inapoi la comenzi</a>
+</div>

@@ -45,7 +45,6 @@
 
     #main {
         transition: margin-left .5s;
-        
     }
 
     @@media screen and (max-height: 450px) {
@@ -59,7 +58,7 @@
     }
 
     .hide {
-        display:none;
+        display: none;
     }
 </style>
 
@@ -96,7 +95,7 @@
     </div>
     <br />
 
-   @* filter menu*@
+    @* filter menu*@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -104,18 +103,18 @@
         <br />
         <br />
         <br />
-        <div >
-            <a href="~/Products/FilterByCategory?Id=sport">Sportivi</a>
-            <a href="~/Products/FilterByCategory?Id=music">Muzicieni</a>
-            <a href="~/Products/FilterByCategory?Id=food">Înfometaţi</a>
-            <a href="~/Products/FilterByCategory?Id=drink">Însetaţi</a>
-            <a href="~/Products/FilterByCategory?Id=travel">Călători</a>
-            <a href="~/Products/FilterByCategory?Id=hobby">Hobby</a>
-            <a href="~/Products/FilterByCategory?Id=job">Meseriași</a>
-            <a href="~/Products/FilterByCategory?Id=business">Business</a>
-            <a href="~/Products/FilterByCategory?Id=leather">Pipe & Leather</a>
-            <a href="~/Products/FilterByCategory?Id=twoBulbs">Două becuri</a>
-            <a href="~/Products/FilterByCategory?Id=other">Altele</a>
+        <div>
+            <span> <a href="~/Products/FilterByCategory?Id=sport">Sportivi (@ViewBag.countSport)</a></span>
+            <span> <a href="~/Products/FilterByCategory?Id=music">Muzicieni (@ViewBag.countMusic)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=food">Înfometaţi (@ViewBag.countFood)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=drink">Însetaţi (@ViewBag.countDrink)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=travel">Călători (@ViewBag.countTravel)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=hobby">Hobby (@ViewBag.countHobby)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=job">Meseriași (@ViewBag.countJob)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=business">Business (@ViewBag.countBusiness)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=leather">Pipe & Leather (@ViewBag.countLeather)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=twoBulbs">Două becuri (@ViewBag.countTwoBulbs)</a></span>
+            <span><a href="~/Products/FilterByCategory?Id=other">Altele (@ViewBag.countOther)</a></span>
         </div>
     </div>
 
@@ -278,7 +277,7 @@
     // Call openNav() to initialize the functionality
     openNav();
 
-    
+
 </script>
 <script>
     //logic for displaying filters only on "Omuleti" page
@@ -286,11 +285,10 @@
         var categoryText = document.getElementById("category").innerText.trim();
 
         if (categoryText !== "Omuleti") {
-            
+
             document.getElementById("main").style.visibility = "hidden";
         }
     }
-
     hideMainIfNotOmuleti();
 
 </script>

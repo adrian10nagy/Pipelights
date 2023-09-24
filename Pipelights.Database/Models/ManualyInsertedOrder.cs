@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Pipelights.Database.Models
 {
-    public class OrderEntity
+    public class ManualyInsertedOrder
     {
         public string id { get; set; }
-        
+
         [JsonPropertyName("telephone")]
         public string Telephone { get; set; }
 
@@ -32,9 +33,6 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("address")]
         public string Address { get; set; }
 
-        [JsonPropertyName("voucher")]
-        public VoucherEntity Voucher { get; set; }
-
         [JsonPropertyName("subtotal")]
         public decimal Subtotal { get; set; }
 
@@ -42,25 +40,18 @@ namespace Pipelights.Database.Models
         public DateTime PlacedDate { get; set; }
 
         [JsonPropertyName("sex")]
-        public string? Sex { get; set; }
+        public string Sex { get; set; }
 
         [JsonPropertyName("channel")]
-        public string? Channel { get; set; }
+        public string Channel { get; set; }
 
 
-        [JsonPropertyName("products")]
-        public List<CartProductsEntity> CartProducts { get; set; }
-
-    }
-
-    public class CartProductsEntity
-    {
         [JsonPropertyName("lampid")]
         public string LampId { get; set; }
 
         [JsonPropertyName("quantity")]
         public int Quantity { get; set; }
-        
+
         [JsonPropertyName("price")]
         public string Price { get; set; }
     }

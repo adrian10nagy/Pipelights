@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using Pipelights.Database.Services;
+using Newtonsoft.Json;
 
 namespace Pipelights.Website.Controllers
 {
@@ -243,6 +244,72 @@ namespace Pipelights.Website.Controllers
             return View("OrdersDashboardDetails", orderDto);
         }
 
+       
+        public IActionResult DeleteOrderManually(string id)
+        {
+            OrderEntity orderById = _orderService.GetById(id);
+            var orderId = orderById.id;
+
+            _orderService.DeleteOrder(id);
+
+            return RedirectToAction("OrdersDashboard", "Admin");
+        }
+
+
+        public IActionResult EditOrder(string id)
+        {
+            OrderEntity order = _orderService.GetById(id);
+
+            return View(order);
+        }
+
+        [HttpPost]
+        public IActionResult EditOrder(OrderEntity model)
+        {
+            _orderService.EditOrder(model);
+
+            return RedirectToAction("OrdersDashboard", "Admin");
+        }
+
+        public IActionResult Insert()
+        {
+           var allProducts  =  _lampService.GetMultiple("SELECT * FROM c", false);
+
+            List<string> idList = new List<string>();
+
+            foreach(var product in allProducts)
+            {
+                idList.Add(product.Id);
+            }
+            ViewBag.idList = idList;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Insert(OrderEntity model, string CartProductsJson)
+        {
+            // Deserialize the JSON string back into a list of CartProductsEntity
+            List<CartProductsEntity> cartProducts = JsonConvert.DeserializeObject<List<CartProductsEntity>>(CartProductsJson);
+
+            // Assign the cartProducts list to the model's CartProducts property
+            model.CartProducts = cartProducts;
+
+            var productsSum = 0;
+
+            foreach(var product in cartProducts)
+            {
+                int.TryParse(product.Price, out int intPrice);
+                productsSum += intPrice * product.Quantity;
+            }
+
+            model.Subtotal = productsSum;
+
+            _orderService.InsertOrder(model);
+
+            return RedirectToAction("OrdersDashboard", "Admin");
+        }
+
         [HttpPost]
         public IActionResult UploadImage(List<IFormFile> postedFiles, string id)
         {
@@ -257,6 +324,7 @@ namespace Pipelights.Website.Controllers
             return RedirectToAction("Edit", "Admin", new { id = id });
         }
 
+        
 
     }
 }

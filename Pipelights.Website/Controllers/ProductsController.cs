@@ -41,8 +41,8 @@ namespace Pipelights.Website.Controllers
             }
             else if (id == "oameni")
             {
-
                 var productsDtoOameni = _lampService.GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'oameni')", false);
+                CountFromCategories();
 
                 if (productsDtoOameni == null)
                 {
@@ -288,9 +288,13 @@ namespace Pipelights.Website.Controllers
 
         public IActionResult FilterByCategory(string id)
         {
+            CountFromCategories();
+
             if (id == "sport")
             {
                 var result = _lampService.GetSports(false, 100);
+                var count = result.Count();
+
                 ViewBag.FilterCategory = "Sportivi";
 
                 return View(result);
@@ -377,6 +381,42 @@ namespace Pipelights.Website.Controllers
             }
 
             return RedirectToAction("Index?Id=oameni", "Products");
+        }
+
+        public void CountFromCategories()
+        {
+            var countSport = _lampService.GetSports(false, 100).Count();
+            ViewBag.countSport = countSport;
+
+            var countMusic = _lampService.GetMusic(false, 100).Count();
+            ViewBag.countMusic = countMusic;
+
+            var countFood = _lampService.GetFood(false, 100).Count();
+            ViewBag.countFood = countFood;
+
+            var countDrink = _lampService.GetDrink(false, 100).Count();
+            ViewBag.countDrink = countDrink;
+
+            var countTravel = _lampService.GetTravel(false, 100).Count();
+            ViewBag.countTravel = countTravel;
+
+            var countHobby = _lampService.GetHobby(false, 100).Count();
+            ViewBag.countHobby = countHobby;
+
+            var countJob = _lampService.GetJob(false, 100).Count();
+            ViewBag.countJob = countJob;
+
+            var countBusiness = _lampService.GetBusiness(false, 100).Count();
+            ViewBag.countBusiness = countBusiness;
+
+            var countLeather = _lampService.GetPipeLeather(false, 100).Count();
+            ViewBag.countLeather = countLeather;
+
+            var countTwoBulbs = _lampService.GetTwoBulbs(false, 100).Count();
+            ViewBag.countTwoBulbs = countTwoBulbs;
+
+            var countOther = _lampService.GetOther(false, 100).Count();
+            ViewBag.countOther = countOther;
         }
 
     }

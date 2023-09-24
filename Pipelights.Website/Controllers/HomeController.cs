@@ -25,7 +25,7 @@ namespace Pipelights.Website.Controllers
             _emailService = emailService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index()  
         {
             var latestProducts = _lampsService.GetMultiple(false, 4).ToList();
 
@@ -58,8 +58,9 @@ namespace Pipelights.Website.Controllers
             if (model != null && model.email != null && model.subject != null && model.message != null)
             {
               emailSent = _emailService.SendEmail("serox.pipelights@gmail.com",
-                  model.subject + "Primit de la [" + model.name + "], email: " + model.email, model.message);
-
+                  model.subject  , $" Primit de la: {model.name}\n" +
+                                   $" Email: {model.email}\n" +
+                                   $" Mesaj: {model.message}");
             }
 
             return emailSent;

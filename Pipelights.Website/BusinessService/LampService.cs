@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Pipelights.Website.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace Pipelights.Website.BusinessService
 {
@@ -40,6 +41,8 @@ namespace Pipelights.Website.BusinessService
     {
         private readonly ILampDbService _lampDbService;
         private readonly IBlobService _blobService;
+
+        public object Viewbag { get; private set; }
 
         public LampService(ILampDbService lampDbService, IBlobService blobService)
         {
@@ -126,16 +129,16 @@ namespace Pipelights.Website.BusinessService
 
             var dbResult = GetMultiple("SELECT TOP 20 * FROM c order by c._ts DESC", includeInactive);
 
-            var result = dbResult.Where(x => x.CategoriesNew !=null 
+            var result = dbResult.Where(x => x.CategoriesNew != null
             && (x.CategoriesNew.Contains("oameni"))).Take(max);
-            
+
             return result;
         }
 
         public IEnumerable<ProductDetailsDto> GetRobots(bool includeInactive, int max = 1000)
         {
             var result = GetMultiple("SELECT * FROM c Where Array_Contains(c.Categories, 'roboti')", includeInactive);
-           
+
             return result;
         }
 
@@ -215,5 +218,7 @@ namespace Pipelights.Website.BusinessService
 
             return result;
         }
+
     }
 }
+

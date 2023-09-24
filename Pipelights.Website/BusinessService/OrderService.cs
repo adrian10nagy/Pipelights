@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace Pipelights.Website.BusinessService
         IEnumerable<OrderEntity> GetMultiple(string query);
         IEnumerable<OrderEntity> GetMultiple(int max = 1000);
         OrderEntity GetById(string id);
+       
+        void InsertOrder(OrderEntity model);
+        void EditOrder(OrderEntity model);
+        OrderEntity DeleteOrder(string id);
     }
 
     public class OrderService : IOrderService
@@ -105,5 +110,26 @@ namespace Pipelights.Website.BusinessService
 
             return result;
         }
+
+        public OrderEntity DeleteOrder(string id)
+        {
+            OrderEntity order = GetById(id);
+            var deletedOrder = _orderDbService.DeleteAsync(id);
+
+            return order;
+        }
+
+        public void EditOrder(OrderEntity model)
+        {
+            _orderDbService.UpdateAsync(model);
+        }
+
+        public void InsertOrder(OrderEntity model)
+        {
+            model.PlacedDate= DateTime.Now;
+            _orderDbService.AddAsync(model);
+        }
+
+        
     }
 }

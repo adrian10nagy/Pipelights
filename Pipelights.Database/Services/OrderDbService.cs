@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Azure.Cosmos;
@@ -58,7 +59,8 @@ namespace Pipelights.Database.Services
         }
         public async Task UpdateAsync(OrderEntity item)
         {
-            await _container.UpsertItemAsync(item);
+            var updatedOrder = await _container.UpsertItemAsync(item);
+
         }
     }
 }

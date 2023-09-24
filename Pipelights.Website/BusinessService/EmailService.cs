@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Html;
+using System;
 using System.Net;
 using System.Net.Mail;
 
@@ -7,6 +8,7 @@ namespace Pipelights.Website.BusinessService
     public interface IEmailService
     {
         bool SendEmail(string toEmail, string subject, string body);
+        
     }
     public class EmailService: IEmailService
     {

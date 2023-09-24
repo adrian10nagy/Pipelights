@@ -37,7 +37,7 @@ namespace Pipelights.Database.Services
             await _container.DeleteItemAsync<VoucherEntity>(id, new PartitionKey(id));
         }
 
-        public async Task<VoucherEntity> GetAsync(string id)
+        public async Task<VoucherEntity> GetAsync(string? id)
         {
             try
             {

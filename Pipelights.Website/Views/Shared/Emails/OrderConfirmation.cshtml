@@ -1,12 +1,10 @@
-﻿
-@model Pipelights.Website.Models.Emails.OrderConfirmationEmailDto
+﻿@model Pipelights.Website.Models.Emails.OrderConfirmationEmailDto
 
 @{
     Layout = null;
     var productsPrice = 0;
     decimal voucherPrice = 0;
     var costLivrare = Model.Order.judete.Equals("Cluj") ? 0 : 30;
-    //var discountedPrice = Context.Session.GetString("price"); 
 }
 
 <h2>A fost plasata comanda cu numarul: @Model.OrderNumber</h2>
@@ -79,6 +77,7 @@
 </table>
 <BR>
 <table style="width:400px">
+
     <tr>
         <td>Total produse:</td>
         <td>@productsPrice</td>
@@ -87,8 +86,13 @@
         <td>Cost livrare:</td>
         <td>@costLivrare</td>
     </tr>
+
     @if(Model.Cart.voucher != null)
     {
+        <tr>
+            <td>Voucher folosit:</td>
+            <td>@Model.Cart.voucher.Name</td>
+        </tr>
         voucherPrice = (decimal)productsPrice - (Model.Cart.voucher.Discount * (decimal)productsPrice);
         <tr>
             <td>Voucher:</td>
@@ -101,6 +105,6 @@
             var totalPrice = productsPrice + costLivrare-voucherPrice;
         }
         <td>@totalPrice</td>
-        
+
     </tr>
 </table>

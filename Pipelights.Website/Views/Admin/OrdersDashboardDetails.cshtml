@@ -4,80 +4,126 @@
     ViewData["Title"] = "OrdersDashboardDetails";
 }
 
-<h1>OrdersDashboardDetails</h1>
+<div style="padding:30px">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>Detalii comanda @Model.id </h4>
+    <br />
+    
 
-<div class="container">
-    <h4>OrderEntity</h4>
+<div>
+   
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Telephone)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Telephone)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Surname)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Surname)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Judete)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Judete)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Localitate)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Localitate)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Payment)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Payment)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Address)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subtotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subtotal)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PlacedDate)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PlacedDate)
         </dd>
-        @foreach (var item in Model.CartProducts)
-        {
-            <dt class="col-sm-2">
-                Informatii lampa:
-            </dt>
-            <dd class="col-sm-10">
-                Id: @item.LampId
-                Pret: @item.Price
-                Cantitate: @item.Quantity
-            </dd>
-        }
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Channel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Channel)
+        </dd>
     </dl>
+</div>
 
+<br />
+
+<div>
+        <h4>Produse</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Produs</th>
+                <th>Cantitate</th>
+                <th>Pret</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var product in Model.CartProducts)
+                {
+                    <tr>
+                        <td>@product.LampId</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.Price</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
 </div>
 <div>
-    <a asp-action="OrdersDashboard">Inapoi la Ordere</a>
+    <a href="@Url.Action("OrdersDashboard", "Admin")">Inapoi la comenzi</a>
+</div>
 </div>

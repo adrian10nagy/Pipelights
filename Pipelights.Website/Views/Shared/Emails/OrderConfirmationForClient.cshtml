@@ -89,6 +89,10 @@
     </tr>
     @if (Model.Cart.voucher != null)
     {
+        <tr>
+            <td>Voucher folosit:</td>
+            <td>@Model.Cart.voucher.Name</td>
+        </tr>
         voucherPrice = (decimal)productsPrice - (Model.Cart.voucher.Discount * (decimal)productsPrice);
         <tr>
             <td>Voucher:</td>

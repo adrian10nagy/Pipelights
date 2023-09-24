@@ -3,49 +3,54 @@
 @{
     ViewData["Title"] = "OrdersDashboard";
 }
+<br />
+<br />
+<br />
 
-<h1>OrdersDashboard</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-
-<div class="container">
+<div style="padding:20px">
     <br />
     <br />
     <br />
     <br />
-    @Model.Count() comenzi afisate
+    <div style="width:100%; text-align:center;">
+        <h1>Comenzi</h1>
+    </div>
+    <br />
+    <br />
+
+    <a href="@Url.Action("Insert") " class="btn btn-success">Adauga o comanda noua </a>
+    <br />
+    <br />
+    <h5>@Model.Count() comenzi </h5>
+    <br />
+    <br />
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Telephone)
+                    Numar
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Nume
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Surname)
+                    Prenume
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Judete)
+                    Judet
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Localitate)
+                    Localitate
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Payment)
+                    Plata
                 </th>
+
                 <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PlacedDate)
+                    Data plasarii
                 </th>
                 <th></th>
             </tr>
@@ -55,39 +60,99 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Telephone)
+                        @Html.DisplayFor(modelItem => item.id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Email)
+                        <div style="width: 25px; height: 25px; border-radius: 50%; background-color: @(GetChannelColor(item.Channel))"></div>
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Surname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Judete)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Localitate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Payment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PlacedDate)
-                    </td>
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-                        @Html.ActionLink("Detalii", "OrdersDashboardDetails", new {  id=item.id})
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
+                    @functions {
+                    string GetChannelColor(string channel)
+                    {
+                        switch (channel)
+                        {
+                            case "Pipelights":
+                                return "#212529";
+                            case "Facebook":
+                                return "#43609C";
+                            case "Instagram":
+                                return "#E1306C";
+                            case "Etsy":
+                                return "#D5641C";
+                            case "Iarmaroc":
+                                return "#f0aa00";
+                            case "WhatsApp":
+                                return "#25D366";
+                            case "Telefon":
+                                return "#f2f2f2";
+                            case "Targ":
+                                return "#36C5F0";
+                            default:
+                                return "white";
+                        }
+                    }
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Judete)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payment)
+                </td>
+
+                <td>
+                    @item.PlacedDate.ToString("dd/MM/yyyy")
+                </td>
+
+                <td>
+                    @Html.ActionLink("Detalii", "OrdersDashboardDetails", new {  id=item.id})
+                    @Html.ActionLink("Edit", "EditOrder", new {  id=item.id})
+                    <a href="@Url.Action("DeleteOrderManually", new { id = item.id })"
+                       style="color: red" class="delete-link btn-wa"
+                       data-order-id="@item.id">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                        </svg>
+                    </a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
 </div>
+
+
+@section scripts {
+    <script>
+        // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all elements with the delete-link class
+            var deleteLinks = document.querySelectorAll(".delete-link");
+
+            // Add click event listeners to each delete link
+            deleteLinks.forEach(function (link) {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    // Get the order ID from the data-order-id attribute
+                    var orderId = link.getAttribute("data-order-id");
+
+                    // Display a confirmation dialog
+                    var isConfirmed = confirm("Esti sigur ca vrei sa stergi aceasta comanda ?");
+
+                    if (isConfirmed) {
+                        // Redirect to the DeleteOrderManually action if the user confirmed
+                        window.location.href = link.href;
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -32,7 +32,7 @@ namespace Pipelights.Website.BusinessService
             _voucherDbService = voucherService;
         }
 
-        public VoucherEntity GetById(string id)
+        public VoucherEntity GetById(string? id)
         {
             return _voucherDbService.GetAsync(id).Result;
         }
