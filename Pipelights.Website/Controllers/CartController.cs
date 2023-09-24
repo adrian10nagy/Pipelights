@@ -179,8 +179,7 @@ namespace Pipelights.Website.Controllers
                     HttpContext.Session.Remove("cart");
                 }
 
-                var finalPrice = HttpContext.Session.GetString("finalPrice");
-                var usedVoucher = HttpContext.Session.GetString("voucher");
+                var usedVoucher = cart.voucher?.Name;
 
                 // send email
                 string body = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmation.cshtml", 
