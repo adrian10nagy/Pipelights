@@ -180,7 +180,9 @@ namespace Pipelights.Website.Controllers
                 Percentage= model.Percentage,
                 CreationDate = model.CreationDate,
                 ExpiringDate = model.ExpiringDate,
-                isActive = model.isActive
+                isActive = model.isActive,
+                isUsed = model.isUsed,
+                isSingleUse = model.isSingleUse
             };
             _voucherService.UpdateAsync(model.id, voucherEntity);
             return RedirectToAction("VouchersDashboard", "Admin");
@@ -197,7 +199,9 @@ namespace Pipelights.Website.Controllers
                 Percentage= model.Percentage,
                 CreationDate= model.CreationDate,
                 ExpiringDate= model.ExpiringDate,
-                isActive=model.isActive
+                isActive=model.isActive,
+                isUsed = model.isUsed,
+                isSingleUse = model.isSingleUse
             };
             _voucherService.AddAsync(voucherEntity);
             return RedirectToAction("VouchersDashboard", "Admin");

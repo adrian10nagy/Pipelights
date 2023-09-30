@@ -182,7 +182,7 @@ namespace Pipelights.Website.Controllers
                 var usedVoucher = cart.voucher?.Name;
 
                 // send email
-                string body = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmation.cshtml", 
+                string body = _razorViewToStringRenderer.RenderViewToStringAsync("/Views/Shared/Emails/OrderConfirmation.cshtml",
                     new OrderConfirmationEmailDto
                     {
                         Order = model,
@@ -206,7 +206,13 @@ namespace Pipelights.Website.Controllers
 
                 _emailService.SendEmail($"{model.email}", $"Salut. Ai plasat comanda {orderNr}", bodyForClient);
 
+                if (cart?.voucher?.id != null && cart.voucher.isSingleUse)
+                {
 
+                    var voucher = _voucherService.GetById(cart?.voucher?.id);
+                    voucher.isUsed = true;
+                    _voucherService.UpdateAsync(voucher.id, voucher);
+                }
             }
             else
             {

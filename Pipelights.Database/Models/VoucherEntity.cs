@@ -26,5 +26,11 @@ namespace Pipelights.Database.Models
 
         [JsonPropertyName("isActive")]
         public bool isActive { get; set; }
+
+        [JsonPropertyName("isUsed")]
+        public bool isUsed { get; set; }
+
+        [JsonPropertyName("isSingleUse")]
+        public bool isSingleUse { get; set; }
     }
 }

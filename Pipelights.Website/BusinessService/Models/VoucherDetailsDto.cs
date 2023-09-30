@@ -18,5 +18,8 @@ namespace Pipelights.Website.BusinessService.Models
         public DateTime ExpiringDate { get; set; }
 
         public bool isActive { get; set; }
+        public bool isSingleUse { get; set; }
+        public bool isUsed { get; set; }
+
     }
 }

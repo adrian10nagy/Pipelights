@@ -40,6 +40,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.isActive)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isUsed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isSingleUse)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -67,6 +73,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isUsed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isSingleUse)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "EditViewForVoucher", new { id=item.id }) |

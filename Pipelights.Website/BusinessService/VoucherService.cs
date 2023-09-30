@@ -107,7 +107,7 @@ namespace Pipelights.Website.BusinessService
 
             if (voucher != null)
             {
-                if (voucher.ExpiringDate < dateNow)
+                if (voucher.ExpiringDate < dateNow || voucher.isUsed)
                 {
                     voucher.isActive = false;
                 }
