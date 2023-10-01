@@ -24,6 +24,7 @@ namespace Pipelights.Database.Models
         [JsonPropertyName("expiringDate")]
         public DateTime ExpiringDate { get; set; }
 
+
         [JsonPropertyName("isActive")]
         public bool isActive { get; set; }
 
